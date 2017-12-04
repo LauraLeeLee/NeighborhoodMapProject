@@ -6,14 +6,17 @@
   <title>Neighborhood Map Project</title>
   <link rel = "stylesheet" href = "//fonts.googleapis.com/css?family=font1|font2|etc" type = "text/css">
   <link rel = "stylesheet" href = "stylesheet.css" type = "text/css">
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
  </head>
  <body>
+   <div class="container">
+     <div id="map"></div>
+   </div>
 
  <script src="js/lib/knockout-3.2.0.js"></script>
  <script asyc defer
   src = "https://maps.googleapis.com/maps/api/js?libraries=places,geometry,drawing&key=AIzaSyDRAVW_MKSUbo5TYT4oQCd12pOdFH5G8Og&v=3&callback=initMap"></script>
-  <script src = "//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type = "text/javascript"></script>
+ <script src = "//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type = "text/javascript"></script>
  </body>
 </html>
