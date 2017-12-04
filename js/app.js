@@ -84,3 +84,34 @@ map = new google.maps.Map(document.getElementById('map'), {
   styles: styles,
   mapTypeControl: false
 });
+
+//POI locations
+var locations = [
+  {title: 'Monte Cassino', location: {lat: 41.4903315,lng: 13.8133865}},
+  {title: 'Abbazia di Casamari', location: {lat: 41.6712011,lng: 13.4871188}},
+  {title: 'Grotte di Pastena', location: {lat: 41.4965448,lng: 13.490696}},
+  {title: 'Certosa di Trisulti', location: {lat: 41.77965289999999,lng: 13.3972988}},
+  {title: 'Santuario di Vallepietra', location: {lat: 41.9563957,lng: 13.2311503}},
+  {title: 'Monte Cacume', location: {lat: 41.5666667,lng: 13.2333333}},
+  {title: 'Grotte di Collepardo', location: {lat: 41.7583057,lng: 13.3647073}},
+  {title: 'Temple of Jupiter', location: {lat: 41.89239,lng: 12.4821978}},
+  {title: "Terracina", location: {lat: 41.2841265,lng: 13.2467785}},
+  {title: 'Capo Fiume', location: {lat: 41.781229,lng: 13.4105518}},
+  {title: 'Dal Patricano', location: {lat: 41.574439,lng: 13.269065}},
+  {title: 'Valle dei Lepini', location: {lat: 41.5929749,lng: 13.2830475}},
+  {title: 'La Torretta', location: {lat: 41.593569,lng: 13.251473}},
+  {title: 'Zambardino', location: {lat: 41.5741811,lng: 13.3233213}},
+  // {title: , location: {lat: ,lng:}},
+  // {title: , location: {lat: ,lng:}},
+  // {title: , location: {lat: ,lng:}},
+  // {title: , location: {lat: ,lng:}},
+  // {title: , location: {lat: ,lng:}},
+];
+
+var largeInfowindow = new google.maps.InfoWindow();
+
+//style the markers.
+var defaultIcon = makeMarkerIcon('#009933');
+
+//highlight marker when mouse over
+var highlightedIcon = makeMarkerIcon('#e60000');
