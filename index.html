@@ -6,20 +6,17 @@
   <title>Neighborhood Map Project</title>
   <!-- <link rel = "stylesheet" href = "//fonts.googleapis.com/css?family=font1|font2|etc" type = "text/css"> -->
   <link rel = "stylesheet" href = "css/stylesheet.css" type = "text/css">
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-  <script
-  src="https://code.jquery.com/jquery-2.2.4.js"
-  integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
-  crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
  </head>
  <body>
    <div class="container">
      <div id="map"></div>
    </div>
+ <script asyc defer
+    src = "https://maps.googleapis.com/maps/api/js?libraries=places,geometry,drawing&key=AIzaSyDRAVW_MKSUbo5TYT4oQCd12pOdFH5G8Og&v=3&callback=initMap"></script>
  <script src = "js/app.js"></script>
  <script src="js/lib/knockout-3.2.0.js"></script>
- <script asyc defer
-  src = "https://maps.googleapis.com/maps/api/js?libraries=places,geometry,drawing&key=AIzaSyDRAVW_MKSUbo5TYT4oQCd12pOdFH5G8Og&v=3&callback=initMap"></script>
  </body>
 </html>
