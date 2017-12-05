@@ -6,20 +6,24 @@ body {
   padding: 0;
 }
 
-.container {
-  height: 100%;
-  position: relative;
+.container-fluid {
+  /*height: 100%;
+  width: 100vw;*/
+  /*position: relative;*/
 }
 
 #map {
-  bottom:0px;
-  height: 100%;
-  left: 450px;
-  position: absolute;
-  right: 0px;
+  /*bottom:0px;*/
+  height: 95vh;
+  
+  /*position: absolute;*/
+  /*right: 0px;*/
   z-index: 0;
 }
 
 #places-list {
-  background-color: #000;
+  background-color: #999;
+  height: 95vh;
+
+  /*width: 16vw;*/
 }
