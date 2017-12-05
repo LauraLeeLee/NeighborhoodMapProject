@@ -80,7 +80,7 @@ function initMap() {
 //constructor creates new map
 map = new google.maps.Map(document.getElementById('map'), {
   center: {lat: 41.5916799,lng: 13.2427548},
-  zoom: 3,
+  zoom: 13,
   styles: styles,
   mapTypeControl: false
 });

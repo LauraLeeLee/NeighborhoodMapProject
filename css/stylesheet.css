@@ -1,0 +1,25 @@
+html,
+body {
+  font-family: Arial, sans-serif;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  height: 100%;
+  position: relative;
+}
+
+#map {
+  bottom:0px;
+  height: 100%;
+  left: 450px;
+  position: absolute;
+  right: 0px;
+  z-index: 0;
+}
+
+#places-list {
+  background-color: #000;
+}
