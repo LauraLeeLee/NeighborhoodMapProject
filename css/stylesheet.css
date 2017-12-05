@@ -6,16 +6,30 @@ body {
   padding: 0;
 }
 
-.container-fluid {
-  /*height: 100%;
-  width: 100vw;*/
+.row {
+  width: 100vw;
+}
+.container {
+  /*height: 100%;*/
+  /*width: 100vw;*/
   /*position: relative;*/
+}
+
+.row.no-gutter {
+  margin-right:0;
+  margin-left:0;
+}
+
+.row.no-gutter > [class*='col-'] {
+    padding-right:0;
+    padding-left:0;
+    margin-right:0;
+    margin-left:0;
 }
 
 #map {
   /*bottom:0px;*/
   height: 95vh;
-  
   /*position: absolute;*/
   /*right: 0px;*/
   z-index: 0;
@@ -24,6 +38,5 @@ body {
 #places-list {
   background-color: #999;
   height: 95vh;
-
-  /*width: 16vw;*/
+  width: 100%;
 }
