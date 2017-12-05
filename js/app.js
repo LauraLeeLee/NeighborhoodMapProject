@@ -10,7 +10,7 @@ var placeMarkers = [];
 //initial map
 function initMap() {
   //creeat a styles array to use with map
-  var styles = {
+  var styles = [
    {
       featureType: 'water',
       stylers: [
@@ -75,7 +75,7 @@ function initMap() {
         {lightness: -25}
       ]
     }
-};
+];
 
 //constructor creates new map
 map = new google.maps.Map(document.getElementById('map'), {
@@ -115,3 +115,17 @@ var defaultIcon = makeMarkerIcon('#009933');
 
 //highlight marker when mouse over
 var highlightedIcon = makeMarkerIcon('#e60000');
+
+}
+
+//create markers
+function makeMarkerIcon(markerColor) {
+  var markerImage = new google.maps.MarkerImage(
+    'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|'+ markerColor +
+    '|40|_|%E2%80%A2',
+    new google.maps.Size(20, 35),
+    new google.maps.Point(0, 0),
+    new google.maps.Point(10, 35),
+    new google.maps.Size(20,35));
+  return markerImage;
+}
