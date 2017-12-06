@@ -144,7 +144,7 @@ for (var i = 0; i < locations.length; i++) {
     this.setIcon(defaultIcon);
   });
  }
-  showPlaces();
+  showPlaces(markers);
 }
 
 // function to populate the infowindow when marker is clicked.
@@ -191,7 +191,7 @@ function populateInfoWindow(marker, infowindow) {
   }
 }
 //function to loop through the markers array and display all
-function showPlaces() {
+function showPlaces(markers) {
   var bounds = new google.maps.LatLngBounds();
   //extend the bounds of the map for each marker
   for (var i = 0; i < markers.length; i++) {
