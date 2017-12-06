@@ -144,7 +144,7 @@ for (var i = 0; i < locations.length; i++) {
     this.setIcon(defaultIcon);
   });
  }
-  showPlaces(markers);
+  showPlaces();
 }
 
 // function to populate the infowindow when marker is clicked.
@@ -190,8 +190,14 @@ function populateInfoWindow(marker, infowindow) {
       infowindow.open(map, marker);
   }
 }
+
+for (i = 0; i < locations.length; i++) {
+    marker = new google.maps.Marker({
+         position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+         map: map
+    });
 //function to loop through the markers array and display all
-function showPlaces(markers) {
+function showPlaces() {
   var bounds = new google.maps.LatLngBounds();
   //extend the bounds of the map for each marker
   for (var i = 0; i < markers.length; i++) {
@@ -211,4 +217,45 @@ function makeMarkerIcon(markerColor) {
     new google.maps.Point(10, 35),
     new google.maps.Size(20,35));
   return markerImage;
+}
+
+function createPlacesMarkers(places) {
+  var bounds = new google.maps.LatLngBounds();
+  for (var i = 0; i < places.length; i++) {
+    var place = places[i];
+    var icon = {
+      url: place.icon,
+      size: new google.maps.Size(35, 35),
+      origin: new google.maps.Point(0, 0),
+      anchor: new google.maps.Point(15, 34),
+      scaledSize: new google.maps.Size(25, 25)
+    };
+    //create a marker for each place
+    var marker = new google.maps.Marker({
+      map: map,
+      icon: icon,
+      title: place.name,
+      position: place.geometry.location,
+      id: place.place_id
+    });
+    //create a single infowindow to use with the place details info
+    //make so that only one is open at once
+    var placeInfoWindow = new google.maps.InfoWindow();
+    //if a marker is clicked, make a place details search
+    marker.addListener('click', function(){
+      if (placeInfoWindow.marker == this) {
+        console.log("This infowindow is already on this marker");
+      } else {
+        getPlacesDetails(this, placeInfoWindow);
+      }
+    });
+    placeMarkers.push(marker);
+    if (place.geometry.viewport) {
+      //geocodes only have viewport
+      bounds.union(place.geometry.viewport);
+    } else {
+      bounds.extend(place.geometry.location);
+    }
+  }
+  map.fitBounds(bounds);
 }
