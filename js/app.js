@@ -131,10 +131,12 @@ for (var i = 0; i < locations.length; i++) {
   });
   //push marker to array of markers
   markers.push(marker);
-  //create an onclick event to open the large InfoWindow
-  marker.addListener('click', function(){
-    populateInfoWindow(this, largeInfowindow);
-  });
+
+  // //create an onclick event to open the large InfoWindow
+  // marker.addListener('click', function(){
+  //   populateInfoWindow(this, largeInfowindow);
+  // });
+  
   //add two event listeners , one for mouseover and one
   // for mouseout to change the colors
   marker.addListener('mouseover', function(){
@@ -144,70 +146,10 @@ for (var i = 0; i < locations.length; i++) {
     this.setIcon(defaultIcon);
   });
  }
-  showPlaces();
+
 }
 
-// function to populate the infowindow when marker is clicked.
-function populateInfoWindow(marker, infowindow) {
-  //check to see if infowindow is already open
-  if(infowindow.marker !=marker) {
-    //clear the infowindow content allowing streetview to load
-    infowindow.setContent('');
-    infowindow.marker = marker;
-    //see if the marker property is cleared if infowindow is closed
-    infowindow.addListener('closeclick', function() {
-      infowindow.marker = null;
-    });
-    var streetViewService = new google.maps.StreetViewService();
-    var radius = 50;
-    // If status is OK, it means the pano was found, get the
-    // position of the streetview image, then calculate the heading, then get a
-    // panorama from that and set the options
-    function getStreetView(data, status) {
-      if(status == google.maps.StreetViewStatus.OK) {
-        var nearStreetViewLocation = data.location.latLng;
-        var heading = google.maps.geometry.spherical.computeHeading(
-          nearStreetViewLocation, marker.position);
-          infowindow.setContent('<div>' + marker.title + '</div><div id="pano"></div');
-          var panoramaOptions = {
-            position: nearStreetViewLocation,
-            pov: {
-              heading: heading,
-              pitch: 30
-            }
-          };
-        var panorama = new google.maps.StreetViewPanorama(
-          document.getElementById('pano'), panoramaOptions);
-        } else {
-          infowindow.setContent('<div>' + marker.title + '</div>' +
-            '<div>No Street View Found</div>');
-        }
-      }
-      // Use the streetview service to obtain closest image for streetview
-      //within 50 metres of the positioned markers
-      streetViewService.getPanoramaByLocation(marker.position, radius, getStreetView);
-      //Open the infowindow on the proper marker
-      infowindow.open(map, marker);
-  }
-}
-
-for (i = 0; i < locations.length; i++) {
-    marker = new google.maps.Marker({
-         position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-         map: map
-    });
-//function to loop through the markers array and display all
-function showPlaces() {
-  var bounds = new google.maps.LatLngBounds();
-  //extend the bounds of the map for each marker
-  for (var i = 0; i < markers.length; i++) {
-    markers[i].setMap(map);
-    bounds.extend(markers[i].position);
-  }
-  map.fitBounds(bounds);
-}
-
-//create markers
+// //create markers
 function makeMarkerIcon(markerColor) {
   var markerImage = new google.maps.MarkerImage(
     'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|'+ markerColor +
@@ -217,45 +159,4 @@ function makeMarkerIcon(markerColor) {
     new google.maps.Point(10, 35),
     new google.maps.Size(20,35));
   return markerImage;
-}
-
-function createPlacesMarkers(places) {
-  var bounds = new google.maps.LatLngBounds();
-  for (var i = 0; i < places.length; i++) {
-    var place = places[i];
-    var icon = {
-      url: place.icon,
-      size: new google.maps.Size(35, 35),
-      origin: new google.maps.Point(0, 0),
-      anchor: new google.maps.Point(15, 34),
-      scaledSize: new google.maps.Size(25, 25)
-    };
-    //create a marker for each place
-    var marker = new google.maps.Marker({
-      map: map,
-      icon: icon,
-      title: place.name,
-      position: place.geometry.location,
-      id: place.place_id
-    });
-    //create a single infowindow to use with the place details info
-    //make so that only one is open at once
-    var placeInfoWindow = new google.maps.InfoWindow();
-    //if a marker is clicked, make a place details search
-    marker.addListener('click', function(){
-      if (placeInfoWindow.marker == this) {
-        console.log("This infowindow is already on this marker");
-      } else {
-        getPlacesDetails(this, placeInfoWindow);
-      }
-    });
-    placeMarkers.push(marker);
-    if (place.geometry.viewport) {
-      //geocodes only have viewport
-      bounds.union(place.geometry.viewport);
-    } else {
-      bounds.extend(place.geometry.location);
-    }
-  }
-  map.fitBounds(bounds);
 }
