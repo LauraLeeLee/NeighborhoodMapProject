@@ -100,7 +100,7 @@ var locations = [
   {title: 'Dal Patricano', location: {lat: 41.574439,lng: 13.269065}},
   {title: 'Valle dei Lepini', location: {lat: 41.5929749,lng: 13.2830475}},
   {title: 'La Torretta', location: {lat: 41.593569,lng: 13.251473}},
-  {title: 'Zambardino', location: {lat: 41.5741811,lng: 13.3233213}},
+  {title: 'Creazioni Dolciarie Zambardino', location: {lat: 41.5741811,lng: 13.3233213}},
   {title: 'La Mola', location: {lat: 41.6405164,lng: 13.2077839}},
   {title: 'La Scifa', location: {lat: 41.6459897,lng: 13.3519947}},
   {title: 'La Cometa', location: {lat: 41.647915,lng: 13.3367828}},
@@ -159,10 +159,10 @@ for (var i = 0; i < locations.length; i++) {
 // // function to populate the infowindow when marker is clicked.
 function populateInfoWindow(marker, infowindow) {
   //check to see if infowindow is already open
-  if(infowindow.marker !=marker) {
+  if(infowindow.marker != marker) {
     //clear the infowindow content allowing streetview to load
-    infowindow.marker = marker;
     infowindow.setContent('');
+    infowindow.marker = marker;
     //see if the marker property is cleared if infowindow is closed
     infowindow.addListener('closeclick', function() {
       infowindow.marker = null;
@@ -201,7 +201,9 @@ function populateInfoWindow(marker, infowindow) {
   }
 }
 
-// //create markers
+// //create markers and color to use in loop to create
+//marker array for each location, using defaultIcon, highlightedIcon
+//for mouseover
 function makeMarkerIcon(markerColor) {
   var markerImage = new google.maps.MarkerImage(
     'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|'+ markerColor +

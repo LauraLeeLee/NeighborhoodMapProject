@@ -12,8 +12,9 @@ TODO: any graphic icons, where came from
 
 ## Installation
 
-1. Download the repo.
-2. Open the index.html file in browser.
+1. Download the repo
+2. Open the index.html file in browser
+   -right click on file, choose browser to open it in.
 3. Open any files in preferred code editor
 
 ## Resources
@@ -22,6 +23,7 @@ TODO: any graphic icons, where came from
 
 * [jQuery](http://jquery.com)
 * [Knockout.js](http://knockoutjs.com/)
+
 TODO add other libraries, fonts,
 
 
@@ -31,4 +33,5 @@ TODO add other libraries, fonts,
 TODO add APIs
 
 ### References used in Project
+
 TODO links to references used in project
