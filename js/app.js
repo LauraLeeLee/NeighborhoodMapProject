@@ -109,13 +109,13 @@ var locations = [
 ];
 
 var largeInfowindow = new google.maps.InfoWindow();
+//new latlng bounds instance capturing SW and NE corners of viewport
 var bounds = new google.maps.LatLngBounds();
 
 //style the markers.
-//var defaultIcon = makeMarkerIcon('#009933');
-
+var defaultIcon = makeMarkerIcon('009933');
 //highlight marker when mouse over
-//var highlightedIcon = makeMarkerIcon('#e60000');
+var highlightedIcon = makeMarkerIcon('e60000');
 
 //uses location array to create an array of markers on Initialize
 for (var i = 0; i < locations.length; i++) {
@@ -128,28 +128,28 @@ for (var i = 0; i < locations.length; i++) {
     position: position,
     title: title,
     animation: google.maps.Animation.DROP,
-    // icon: defaultIcon,
+    icon: defaultIcon,
     id: i
   });
   //push marker to array of markers
   markers.push(marker);
-
   // //create an onclick event to open the large InfoWindow
   marker.addListener('click', function(){
     populateInfoWindow(this, largeInfowindow);
   });
+  //extend bounds for every maker we make
   bounds.extend(markers[i].position);
 
   //add two event listeners , one for mouseover and one
   // for mouseout to change the colors
-  // marker.addListener('mouseover', function(){
-  //   this.setIcon(highlightedIcon);
-  // });
-  // marker.addListener('mouseout', function(){
-  //   this.setIcon(defaultIcon);
-  // });
+  marker.addListener('mouseover', function(){
+    this.setIcon(highlightedIcon);
+  });
+  marker.addListener('mouseout', function(){
+    this.setIcon(defaultIcon);
+  });
  }
- //extend boundary of map for each marker
+ //tell map to fit itself to those bounds
  map.fitBounds(bounds);
 }
 
@@ -158,8 +158,9 @@ function populateInfoWindow(marker, infowindow) {
   //check to see if infowindow is already open
   if(infowindow.marker !=marker) {
     //clear the infowindow content allowing streetview to load
-    infowindow.setContent('');
     infowindow.marker = marker;
+    infowindow.setContent('<div>' + marker.title + '</div>');
+    infowindow.open(map, marker);
     //see if the marker property is cleared if infowindow is closed
     infowindow.addListener('closeclick', function() {
       infowindow.marker = null;
@@ -168,13 +169,13 @@ function populateInfoWindow(marker, infowindow) {
 }
 
 // //create markers
-// function makeMarkerIcon(markerColor) {
-//   var markerImage = new google.maps.MarkerImage(
-//     'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|'+ markerColor +
-//     '|40|_|%E2%80%A2',
-//     new google.maps.Size(20, 35),
-//     new google.maps.Point(0, 0),
-//     new google.maps.Point(10, 35),
-//     new google.maps.Size(20,35));
-//   return markerImage;
-// }
+function makeMarkerIcon(markerColor) {
+  var markerImage = new google.maps.MarkerImage(
+    'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|'+ markerColor +
+    '|40|_|%E2%80%A2',
+    new google.maps.Size(20, 35),
+    new google.maps.Point(0, 0),
+    new google.maps.Point(10, 35),
+    new google.maps.Size(20,35));
+  return markerImage;
+}
