@@ -109,6 +109,7 @@ var locations = [
 ];
 
 var largeInfowindow = new google.maps.InfoWindow();
+var bounds = new google.maps.LatLngBounds();
 
 //style the markers.
 var defaultIcon = makeMarkerIcon('#009933');
@@ -123,6 +124,7 @@ for (var i = 0; i < locations.length; i++) {
   var title = locations[i].title;
   //create a marker for location
   var marker = new google.maps.Marker({
+    map: map,
     position: position,
     title: title,
     animation: google.maps.Animation.DROP,
@@ -133,10 +135,11 @@ for (var i = 0; i < locations.length; i++) {
   markers.push(marker);
 
   // //create an onclick event to open the large InfoWindow
-  // marker.addListener('click', function(){
-  //   populateInfoWindow(this, largeInfowindow);
-  // });
-  
+  marker.addListener('click', function(){
+    populateInfoWindow(this, largeInfowindow);
+  });
+  bounds.extend(markers[i].position);
+
   //add two event listeners , one for mouseover and one
   // for mouseout to change the colors
   marker.addListener('mouseover', function(){
@@ -146,8 +149,24 @@ for (var i = 0; i < locations.length; i++) {
     this.setIcon(defaultIcon);
   });
  }
-
+ //extend boundary of map for each marker
+ map.fitBounds(bounds);
 }
+
+// // function to populate the infowindow when marker is clicked.
+function populateInfoWindow(marker, infowindow) {
+  //check to see if infowindow is already open
+  if(infowindow.marker !=marker) {
+    //clear the infowindow content allowing streetview to load
+    infowindow.setContent('');
+    infowindow.marker = marker;
+    //see if the marker property is cleared if infowindow is closed
+    infowindow.addListener('closeclick', function() {
+      infowindow.marker = null;
+    });
+  }
+}    
+
 
 // //create markers
 function makeMarkerIcon(markerColor) {
