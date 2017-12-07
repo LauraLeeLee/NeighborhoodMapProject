@@ -94,18 +94,21 @@ var locations = [
   {title: 'Santuario di Vallepietra', location: {lat: 41.9563957,lng: 13.2311503}},
   {title: 'Monte Cacume', location: {lat: 41.5666667,lng: 13.2333333}},
   {title: 'Grotte di Collepardo', location: {lat: 41.7583057,lng: 13.3647073}},
-  {title: 'Temple of Jupiter', location: {lat: 41.89239,lng: 12.4821978}},
+  {title: 'Temple of Jupiter', location: {lat: 41.2907741,lng: 13.2601077}},
   {title: "Terracina", location: {lat: 41.2841265,lng: 13.2467785}},
   {title: 'Capo Fiume', location: {lat: 41.781229,lng: 13.4105518}},
   {title: 'Dal Patricano', location: {lat: 41.574439,lng: 13.269065}},
   {title: 'Valle dei Lepini', location: {lat: 41.5929749,lng: 13.2830475}},
   {title: 'La Torretta', location: {lat: 41.593569,lng: 13.251473}},
   {title: 'Zambardino', location: {lat: 41.5741811,lng: 13.3233213}},
-  // {title: , location: {lat: ,lng:}},
-  // {title: , location: {lat: ,lng:}},
-  // {title: , location: {lat: ,lng:}},
-  // {title: , location: {lat: ,lng:}},
-  // {title: , location: {lat: ,lng:}},
+  {title: 'La Mola', location: {lat: 41.6405164,lng: 13.2077839}},
+  {title: 'La Scifa', location: {lat: 41.6459897,lng: 13.3519947}},
+  {title: 'La Cometa', location: {lat: 41.647915,lng: 13.3367828}},
+  {title: 'Pizzeria Brunella', location: {lat: 41.6520719,lng: 13.3412584}},
+  {title: 'Le Migliori Pizza alla Pala', location: {lat: 41.611247,lng: 13.228897}},
+  // {title: 'La Terrazza', location: {lat: ,lng:}},
+  {title: 'La Passeggiata', location: {lat: 41.5916799,lng: 13.2427548}},
+  {title: 'Ricordi Lievitati', location: {lat: 41.590483,lng: 13.241865}},
 ];
 
 var largeInfowindow = new google.maps.InfoWindow();
@@ -159,12 +162,42 @@ function populateInfoWindow(marker, infowindow) {
   if(infowindow.marker !=marker) {
     //clear the infowindow content allowing streetview to load
     infowindow.marker = marker;
-    infowindow.setContent('<div>' + marker.title + '</div>');
-    infowindow.open(map, marker);
+    infowindow.setContent('');
     //see if the marker property is cleared if infowindow is closed
     infowindow.addListener('closeclick', function() {
       infowindow.marker = null;
     });
+    //create new streetViewService instance
+    var streetViewService = new google.maps.StreetViewService();
+    var radius = 50;
+    //if the status is OK a pano was found, get position of streetview
+    //image and calculate the heading, then get the panorama from that
+    //then set the options
+    function getStreetView(data, status) {
+      if (status == google.maps.StreetViewStatus.OK) {
+        var nearStreetViewLocation = data.location.latLng;
+        var heading = google.maps.geometry.spherical.computeHeading(
+          nearStreetViewLocation, marker.position);
+          infowindow.setContent('<div>' + marker.title + '</div><div id = "pano"></div>');
+          var panoramaOptions = {
+            position: nearStreetViewLocation,
+            pov: {
+              heading: heading,
+              pitch: 30
+            }
+          };
+          var panorama = new google.maps.StreetViewPanorama(
+            document.getElementById('pano'), panoramaOptions);
+      } else {
+        infowindow.setContent('<div>' + marker.title + '</div>' +
+          '<div>No Street View Found </div>');
+      }
+    }
+    //use streetview service to get closest streetview image
+    //50 metres of the markers position
+    streetViewService.getPanoramaByLocation(marker.position, radius, getStreetView);
+    //open the infowindow on the proper marker
+    infowindow.open(map, marker);
   }
 }
 
