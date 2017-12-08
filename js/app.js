@@ -139,6 +139,7 @@ for (var i = 0; i < locations.length; i++) {
   // //create an onclick event to open the large InfoWindow
   marker.addListener('click', function(){
     populateInfoWindow(this, largeInfowindow);
+    getPlacesDetails(this, largeInfowindow);
   });
   //extend bounds for every maker we make
   bounds.extend(markers[i].position);
@@ -154,6 +155,53 @@ for (var i = 0; i < locations.length; i++) {
  }
  //tell map to fit itself to those bounds
  map.fitBounds(bounds);
+}
+
+function getPlacesDetails(marker, infowindow) {
+  var service = new google.maps.places.PlacesService(map);
+  service.getDetails({
+    placeId: marker.id
+  }, function(place, status) {
+    if (status === google.maps.places.PlacesServiceStatus.OK) {
+      // Set the marker property on this infowindow so it isn't created again.
+      infowindow.marker = marker;
+      var innerHTML = '<div id = "info_details">';
+      if (place.name) {
+        innerHTML += '<strong>' + place.name + '</strong>';
+      }
+      if (place.formatted_address) {
+        innerHTML += '<br>' + place.formatted_address;
+      }
+      if (place.formatted_phone_number) {
+        innerHTML += '<br>' + place.formatted_phone_number;
+      }
+      if (place.opening_hours) {
+        innerHTML += '<br><br><strong>Hours:</strong><br>' +
+            place.opening_hours.weekday_text[0] + '<br>' +
+            place.opening_hours.weekday_text[1] + '<br>' +
+            place.opening_hours.weekday_text[2] + '<br>' +
+            place.opening_hours.weekday_text[3] + '<br>' +
+            place.opening_hours.weekday_text[4] + '<br>' +
+            place.opening_hours.weekday_text[5] + '<br>' +
+            place.opening_hours.weekday_text[6];
+      }
+      if(place.website) {
+        innerHTML +='<br><br><a href='+ place.website +'>'+place.website+'</a>';
+      }
+      if (place.photos) {
+        //placePhotosArray = place.photos[];
+        innerHTML += '<br><br><img src="' + place.photos[0].getUrl(
+            {maxHeight: 100, maxWidth: 200}) + '">';
+      }
+      innerHTML += '</div>';
+      infowindow.setContent(innerHTML);
+      infowindow.open(map, marker);
+      // Make sure the marker property is cleared if the infowindow is closed.
+      infowindow.addListener('closeclick', function() {
+        infowindow.marker = null;
+      });
+    }
+  });
 }
 
 // // function to populate the infowindow when marker is clicked.
@@ -176,6 +224,8 @@ function populateInfoWindow(marker, infowindow) {
     function getStreetView(data, status) {
       if (status == google.maps.StreetViewStatus.OK) {
         var nearStreetViewLocation = data.location.latLng;
+        //computes correct heading so that we're looking at our building
+        //from the nearest streetViewLocation
         var heading = google.maps.geometry.spherical.computeHeading(
           nearStreetViewLocation, marker.position);
           infowindow.setContent('<div>' + marker.title + '</div><div id = "pano"></div>');
@@ -200,6 +250,8 @@ function populateInfoWindow(marker, infowindow) {
     infowindow.open(map, marker);
   }
 }
+
+
 
 // //create markers and color to use in loop to create
 //marker array for each location, using defaultIcon, highlightedIcon
