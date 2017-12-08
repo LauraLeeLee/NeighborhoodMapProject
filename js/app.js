@@ -82,6 +82,7 @@ map = new google.maps.Map(document.getElementById('map'), {
   center: {lat: 41.5916799,lng: 13.2427548},
   zoom: 13,
   styles: styles,
+  gestureHandling: 'greedy',
   mapTypeControl: false
 });
 
@@ -139,8 +140,8 @@ for (var i = 0; i < locations.length; i++) {
   markers.push(marker);
   // //create an onclick event to open the large InfoWindow
   marker.addListener('click', function(){
-    populateInfoWindow(this, largeInfowindow);
     getPlacesDetails(this, largeInfowindow);
+    populateInfoWindow(this, largeInfowindow);
   });
   //extend bounds for every maker we make
   bounds.extend(markers[i].position);
@@ -157,7 +158,7 @@ for (var i = 0; i < locations.length; i++) {
  //tell map to fit itself to those bounds
  map.fitBounds(bounds);
 }
-
+//gets place details from place_id via PlacesService
 function getPlacesDetails(marker, infowindow) {
   var service = new google.maps.places.PlacesService(map);
   service.getDetails({
@@ -166,7 +167,7 @@ function getPlacesDetails(marker, infowindow) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
       // Set the marker property on this infowindow so it isn't created again.
       infowindow.marker = marker;
-      var innerHTML = '<div id = "info_details">';
+      var innerHTML = '<div>';
       if (place.name) {
         innerHTML += '<strong>' + place.name + '</strong>';
       }
