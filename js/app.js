@@ -170,38 +170,7 @@ function populateInfoWindow(marker, infowindow) {
     infowindow.addListener('closeclick', function() {
       infowindow.marker = null;
     });
-    //create new streetViewService instance
-    var streetViewService = new google.maps.StreetViewService();
-    var radius = 50;
-    //if the status is OK a pano was found, get position of streetview
-    //image and calculate the heading, then get the panorama from that
-    //then set the options
-    function getStreetView(data, status) {
-      if (status === google.maps.StreetViewStatus.OK) {
-        var nearStreetViewLocation = data.location.latLng;
-        //computes correct heading so that we're looking at our building
-        //from the nearest streetViewLocation
-        var heading = google.maps.geometry.spherical.computeHeading(
-          nearStreetViewLocation, marker.position);
 
-          var panoramaOptions = {
-            position: nearStreetViewLocation,
-            pov: {
-              heading: heading,
-              pitch: 30
-            }
-          };
-          var panorama = new google.maps.StreetViewPanorama(
-            document.getElementById('pano'), panoramaOptions);
-      } else {
-        infowindow.setContent('<div>' + marker.title + '</div>' +
-          '<div>No Street View Found </div>');
-      }
-    }
-    //use streetview service to get closest streetview image
-    //50 metres of the markers position
-    streetViewService.getPanoramaByLocation(marker.position, radius, getStreetView);
-    //open the infowindow on the proper marker
     infowindow.open(map, marker);
   }
 }
@@ -252,6 +221,38 @@ function getPlacesDetails(marker, infowindow) {
       infowindow.addListener('closeclick', function() {
         infowindow.marker = null;
       });
+      //create new streetViewService instance
+      var streetViewService = new google.maps.StreetViewService();
+      var radius = 50;
+      //if the status is OK a pano was found, get position of streetview
+      //image and calculate the heading, then get the panorama from that
+      //then set the options
+      function getStreetView(data, status) {
+        if (status === google.maps.StreetViewStatus.OK) {
+          var nearStreetViewLocation = data.location.latLng;
+          //computes correct heading so that we're looking at our building
+          //from the nearest streetViewLocation
+          var heading = google.maps.geometry.spherical.computeHeading(
+            nearStreetViewLocation, marker.position);
+
+            var panoramaOptions = {
+              position: nearStreetViewLocation,
+              pov: {
+                heading: heading,
+                pitch: 30
+              }
+            };
+            var panorama = new google.maps.StreetViewPanorama(
+              document.getElementById('pano'), panoramaOptions);
+        } else {
+          infowindow.setContent('<div>' + marker.title + '</div>' +
+            '<div>No Street View Found </div>');
+        }
+      }
+      //use streetview service to get closest streetview image
+      //50 metres of the markers position
+      streetViewService.getPanoramaByLocation(marker.position, radius, getStreetView);
+      //open the infowindow on the proper marker
     }
   });
 }
