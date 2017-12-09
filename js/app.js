@@ -140,7 +140,7 @@ for (var i = 0; i < locations.length; i++) {
   markers.push(marker);
   // //create an onclick event to open the large InfoWindow
   marker.addListener('click', function(){
-    getPlacesDetails(this, largeInfowindow);
+    //getPlacesDetails(this, largeInfowindow);
     populateInfoWindow(this, largeInfowindow);
   });
   //extend bounds for every maker we make
@@ -158,53 +158,7 @@ for (var i = 0; i < locations.length; i++) {
  //tell map to fit itself to those bounds
  map.fitBounds(bounds);
 }
-//gets place details from place_id via PlacesService
-function getPlacesDetails(marker, infowindow) {
-  var service = new google.maps.places.PlacesService(map);
-  service.getDetails({
-    placeId: marker.id
-  }, function(place, status) {
-    if (status === google.maps.places.PlacesServiceStatus.OK) {
-      // Set the marker property on this infowindow so it isn't created again.
-      infowindow.marker = marker;
-      var innerHTML = '<div>';
-      if (place.name) {
-        innerHTML += '<strong>' + place.name + '</strong>';
-      }
-      if (place.formatted_address) {
-        innerHTML += '<br>' + place.formatted_address;
-      }
-      if (place.formatted_phone_number) {
-        innerHTML += '<br>' + place.formatted_phone_number;
-      }
-      if (place.opening_hours) {
-        innerHTML += '<br><br><strong>Hours:</strong><br>' +
-            place.opening_hours.weekday_text[0] + '<br>' +
-            place.opening_hours.weekday_text[1] + '<br>' +
-            place.opening_hours.weekday_text[2] + '<br>' +
-            place.opening_hours.weekday_text[3] + '<br>' +
-            place.opening_hours.weekday_text[4] + '<br>' +
-            place.opening_hours.weekday_text[5] + '<br>' +
-            place.opening_hours.weekday_text[6];
-      }
-      if(place.website) {
-        innerHTML +='<br><br><a href='+ place.website +'>'+place.website+'</a>';
-      }
-      if (place.photos) {
-        //placePhotosArray = place.photos[];
-        innerHTML += '<br><br><img src="' + place.photos[0].getUrl(
-            {maxHeight: 100, maxWidth: 200}) + '">';
-      }
-      innerHTML += '</div>';
-      infowindow.setContent(innerHTML);
-      infowindow.open(map, marker);
-      // Make sure the marker property is cleared if the infowindow is closed.
-      infowindow.addListener('closeclick', function() {
-        infowindow.marker = null;
-      });
-    }
-  });
-}
+
 
 // // function to populate the infowindow when marker is clicked.
 function populateInfoWindow(marker, infowindow) {
@@ -217,38 +171,89 @@ function populateInfoWindow(marker, infowindow) {
     infowindow.addListener('closeclick', function() {
       infowindow.marker = null;
     });
-    //create new streetViewService instance
-    var streetViewService = new google.maps.StreetViewService();
-    var radius = 50;
-    //if the status is OK a pano was found, get position of streetview
-    //image and calculate the heading, then get the panorama from that
-    //then set the options
-    function getStreetView(data, status) {
-      if (status == google.maps.StreetViewStatus.OK) {
-        var nearStreetViewLocation = data.location.latLng;
-        //computes correct heading so that we're looking at our building
-        //from the nearest streetViewLocation
-        var heading = google.maps.geometry.spherical.computeHeading(
-          nearStreetViewLocation, marker.position);
-          infowindow.setContent('<div>' + marker.title + '</div><div id = "pano"></div>');
-          var panoramaOptions = {
-            position: nearStreetViewLocation,
-            pov: {
-              heading: heading,
-              pitch: 30
+
+    //gets place details from place_id via PlacesService
+    function getPlacesDetails(marker, infowindow) {
+      var service = new google.maps.places.PlacesService(map);
+      service.getDetails({
+        placeId: marker.id
+      }, function(place, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          // Set the marker property on this infowindow so it isn't created again.
+          infowindow.marker = marker;
+          var innerHTML = '<div>';
+          if (place.name) {
+            innerHTML += '<strong>' + place.name + '</strong>';
+          }
+          if (place.formatted_address) {
+            innerHTML += '<br>' + place.formatted_address;
+          }
+          if (place.formatted_phone_number) {
+            innerHTML += '<br>' + place.formatted_phone_number;
+          }
+          if (place.opening_hours) {
+            innerHTML += '<br><br><strong>Hours:</strong><br>' +
+                place.opening_hours.weekday_text[0] + '<br>' +
+                place.opening_hours.weekday_text[1] + '<br>' +
+                place.opening_hours.weekday_text[2] + '<br>' +
+                place.opening_hours.weekday_text[3] + '<br>' +
+                place.opening_hours.weekday_text[4] + '<br>' +
+                place.opening_hours.weekday_text[5] + '<br>' +
+                place.opening_hours.weekday_text[6];
+          }
+          if(place.website) {
+            innerHTML +='<br><br><a href='+ place.website +'>'+place.website+'</a>';
+          }
+          if (place.photos) {
+            //placePhotosArray = place.photos[];
+            innerHTML += '<br><br><img src="' + place.photos[0].getUrl(
+                {maxHeight: 100, maxWidth: 200}) + '">';
+          }
+          innerHTML += '</div>';
+          //creates #pano element for streetViewService
+          infowindow +='<div>' + marker.title + '</div><div id = "pano"></div>';
+          infowindow.setContent(innerHTML);
+          infowindow.open(map, marker);
+          // Make sure the marker property is cleared if the infowindow is closed.
+          infowindow.addListener('closeclick', function() {
+            infowindow.marker = null;
+          });
+
+          //create new streetViewService instance
+          var streetViewService = new google.maps.StreetViewService();
+          var radius = 50;
+          //if the status is OK a pano was found, get position of streetview
+          //image and calculate the heading, then get the panorama from that
+          //then set the options
+          function getStreetView(data, status) {
+            if (status == google.maps.StreetViewStatus.OK) {
+              var nearStreetViewLocation = data.location.latLng;
+              //computes correct heading so that we're looking at our building
+              //from the nearest streetViewLocation
+              var heading = google.maps.geometry.spherical.computeHeading(
+                nearStreetViewLocation, marker.position);
+
+                var panoramaOptions = {
+                  position: nearStreetViewLocation,
+                  pov: {
+                    heading: heading,
+                    pitch: 30
+                  }
+                };
+                var panorama = new google.maps.StreetViewPanorama(
+                  document.getElementById('pano'), panoramaOptions);
+            } else {
+              infowindow.setContent('<div>' + marker.title + '</div>' +
+                '<div>No Street View Found </div>');
             }
-          };
-          var panorama = new google.maps.StreetViewPanorama(
-            document.getElementById('pano'), panoramaOptions);
-      } else {
-        infowindow.setContent('<div>' + marker.title + '</div>' +
-          '<div>No Street View Found </div>');
-      }
+          }
+          //use streetview service to get closest streetview image
+          //50 metres of the markers position
+          streetViewService.getPanoramaByLocation(marker.position, radius, getStreetView);
+          //open the infowindow on the proper marker
+        }
+      });
     }
-    //use streetview service to get closest streetview image
-    //50 metres of the markers position
-    streetViewService.getPanoramaByLocation(marker.position, radius, getStreetView);
-    //open the infowindow on the proper marker
     infowindow.open(map, marker);
   }
 }
