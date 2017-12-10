@@ -110,6 +110,9 @@ var locations = [
   // {title: 'La Terrazza', location: {lat: ,lng:}, id: },
   {title: 'La Passeggiata', location: {lat: 41.5916799,lng: 13.2427548}, id: 'ChIJpR7JqQxDJRMRzk_oQbpBuLA'},
   {title: 'Ricordi Lievitati', location: {lat: 41.590483,lng: 13.241865}, id: 'ChIJ1dX5PwtDJRMRYeOfHiynQ_k'},
+  {title:  'Abbazia di Fossanova', location: {lat: 41.4381536,lng: 13.1957528}, id: 'ChIJw8cFRMo_JRMRujicGH4ep0E'},
+  {title:  'Villa d\'Este', location: {lat: 41.9633123,lng: 12.7958058}, id: 'ChIJw-YlX3B4LxMRmeEzTuqQHr8'},
+  // {title:  , location: {lat: ,lng:}, id: },
 ];
 
 var largeInfowindow = new google.maps.InfoWindow();
