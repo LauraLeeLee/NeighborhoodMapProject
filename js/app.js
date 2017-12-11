@@ -113,11 +113,13 @@ var locations = [
   {title:  'Abbazia di Fossanova', location: {lat: 41.4381536,lng: 13.1957528}, id: 'ChIJw8cFRMo_JRMRujicGH4ep0E'},
   {title:  'Villa d\'Este', location: {lat: 41.9633123,lng: 12.7958058}, id: 'ChIJw-YlX3B4LxMRmeEzTuqQHr8'},
   {title:  'Reggia Caserta', location: {lat: 41.07321810000001,lng: 14.3270683}, id: 'ChIJMxPtKrJVOhMRRXKEJAoCnMc'},
+  {title:  'Bob & Jesael', location: {lat: 41.6457318,lng: 13.3477838}, id: 'ChIJ4Ydsg4VaJRMRV5Hm8O4TIcM'},
   // {title:  , location: {lat: ,lng:}, id: },
   // {title:  , location: {lat: ,lng:}, id: },
 ];
 
 var largeInfowindow = new google.maps.InfoWindow();
+//largeInfowindow.setAttribute('style', 'background-color: #ffffcc');
 //new latlng bounds instance capturing SW and NE corners of viewport
 var bounds = new google.maps.LatLngBounds();
 
@@ -168,7 +170,7 @@ function populateInfoWindow(marker, infowindow) {
   //check to see if infowindow is already open
   if(infowindow.marker != marker) {
     //clear the infowindow content allowing streetview to load
-    //infowindow.setContent('');
+    infowindow.setContent('');
     infowindow.marker = marker;
     getPlacesDetails(marker, infowindow);
     //see if the marker property is cleared if infowindow is closed
