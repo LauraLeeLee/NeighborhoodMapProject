@@ -112,6 +112,8 @@ var locations = [
   {title: 'Ricordi Lievitati', location: {lat: 41.590483,lng: 13.241865}, id: 'ChIJ1dX5PwtDJRMRYeOfHiynQ_k'},
   {title:  'Abbazia di Fossanova', location: {lat: 41.4381536,lng: 13.1957528}, id: 'ChIJw8cFRMo_JRMRujicGH4ep0E'},
   {title:  'Villa d\'Este', location: {lat: 41.9633123,lng: 12.7958058}, id: 'ChIJw-YlX3B4LxMRmeEzTuqQHr8'},
+  {title:  'Reggia Caserta', location: {lat: 41.07321810000001,lng: 14.3270683}, id: 'ChIJMxPtKrJVOhMRRXKEJAoCnMc'},
+  // {title:  , location: {lat: ,lng:}, id: },
   // {title:  , location: {lat: ,lng:}, id: },
 ];
 
@@ -187,7 +189,7 @@ function getPlacesDetails(marker, infowindow) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
       // Set the marker property on this infowindow so it isn't created again.
       infowindow.marker = marker;
-      var innerHTML = '<div>';
+      var innerHTML = '<div id = "places-details">';
       if (place.name) {
         innerHTML += '<strong>' + place.name + '</strong>';
       }
@@ -217,7 +219,7 @@ function getPlacesDetails(marker, infowindow) {
       }
       innerHTML += '</div>';
       //creates #pano element for streetViewService to use
-      innerHTML +='<div>' + marker.title + '</div><div id = "pano"></div>';
+      innerHTML += ' <div id = "pano"></div>';
       infowindow.setContent(innerHTML);
       infowindow.open(map, marker);
       // Make sure the marker property is cleared if the infowindow is closed.
@@ -248,8 +250,7 @@ function getPlacesDetails(marker, infowindow) {
             var panorama = new google.maps.StreetViewPanorama(
               document.getElementById('pano'), panoramaOptions);
         } else {
-          infowindow.setContent('<div>' + marker.title + '</div>' +
-            '<div>No Street View Found </div>');
+          document.getElementById('pano').innerHTML = '<br>' + 'No Street View Found';
         }
       }
       //use streetview service to get closest streetview image

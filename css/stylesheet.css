@@ -41,7 +41,14 @@ body {
   width: 100%;
 }
 
+#places-details {
+  text-align: center;
+  margin: auto;
+}
+
 #pano {
   width: 150px;
   height: 150px;
+  text-align: center;
+  margin: auto;
 }
