@@ -35,10 +35,15 @@ body {
   z-index: 0;
 }
 
-#places-list {
+#places-section {
   background-color: #ffffcc;
+}
+
+#places-list {
+  list-style: none;
   height: 95vh;
   width: 100%;
+  padding-top: 10px;
 }
 
 #places-details {

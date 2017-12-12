@@ -11,20 +11,25 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
  </head>
  <body>
-   <section class="container">
+   <div class="container">
      <div class = "row no-gutter">
-        <div class = "col-sm-4">
-         <div id = "places-list"></div>
+        <div id = "places-section"class = "col-sm-3">
+          <span class="text">Filter</span>
+          <input id="filter-places" type="text" placeholder="Ex: MonteCassino">
+          <input id="go-filter" type="button" value="Go">
+         <ul id = "places-list" data-bind = "foreach: locations">
+           <li data-bind = "text: title"></li>
+         </ul>
         </div>
-        <div class = "col-sm-8">
+        <div class = "col-sm-9">
          <div id="map"></div>
        </div>
      </div>
-   </section>
+   </div>
  <script asyc defer
     src = "https://maps.googleapis.com/maps/api/js?libraries=places,geometry,drawing&key=AIzaSyDRAVW_MKSUbo5TYT4oQCd12pOdFH5G8Og&v=3&callback=initMap"></script>
+ <script src="js/lib/knockout-3.2.0.js"></script>
  <script src = "js/ko.js"></script>
  <script src = "js/app.js"></script>
- <script src="js/lib/knockout-3.2.0.js"></script>
  </body>
 </html>
