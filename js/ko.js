@@ -112,23 +112,40 @@ var locations = [
 var ViewModel = function() {
   var self = this;
 
+  // // function to populate the infowindow when marker is clicked.
+   this.populateInfoWindow = function(marker, infowindow) {
+    //check to see if infowindow is already open
+    if(infowindow.marker != marker) {
+      //clear the infowindow content allowing streetview to load
+      infowindow.setContent('');
+      infowindow.marker = marker;
+      getPlacesDetails(marker, infowindow);
+      //see if the marker property is cleared if infowindow is closed
+      infowindow.addListener('closeclick', function() {
+        infowindow.marker = null;
+      });
+      //open the infowindow on the proper marker
+      infowindow.open(map, marker);
+    }
+  }
+
   this.placesList = ko.observableArray([]);
   locations.forEach(function(location) {
   });
-
-document.getElementById('go-filter').addEventListener('click', );
-
-function filterPlaces() {
-  var bounds = map.getBounds();
-  hideMarkers(placeMarkers);
-
-}
-
-function hideMarkers(markers) {
-  for (var i = 0; i < markers.length; i++) {
-    markers.[i].setMap(null);
-  }
-}
+//
+// document.getElementById('go-filter').addEventListener('click', );
+//
+// function filterPlaces() {
+//   var bounds = map.getBounds();
+//   hideMarkers(placeMarkers);
+//
+// }
+//
+// function hideMarkers(markers) {
+//   for (var i = 0; i < markers.length; i++) {
+//     markers.[i].setMap(null);
+//   }
+// }
 
 }
 ko.applyBindings(new ViewModel());

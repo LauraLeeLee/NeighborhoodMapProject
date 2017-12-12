@@ -6,6 +6,20 @@ body {
   padding: 0;
 }
 
+#filter-places {
+  margin-top: 15px;
+  margin-left: 20px;
+  display: inline-block;
+}
+
+::placeholder {
+  color: #d9d9d9;
+}
+
+hr {
+  width: 90%;
+}
+
 .row {
   width: 100vw;
 }

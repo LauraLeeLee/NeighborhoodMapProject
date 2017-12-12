@@ -14,11 +14,10 @@
    <div class="container">
      <div class = "row no-gutter">
         <div id = "places-section"class = "col-sm-3">
-          <span class="text">Filter</span>
-          <input id="filter-places" type="text" placeholder="Ex: MonteCassino">
-          <input id="go-filter" type="button" value="Go">
+         <input id ="filter-places" data-bind = "text-input: , valueUpdate: 'afterkeydown'"type="text" placeholder="Filter Locations...">
+         <hr>
          <ul id = "places-list" data-bind = "foreach: locations">
-           <li data-bind = "text: title"></li>
+           <a href = "#"><li class = "list-items" data-bind = "text: title"></li></a>
          </ul>
         </div>
         <div class = "col-sm-9">
