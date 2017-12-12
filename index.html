@@ -17,7 +17,7 @@
          <input id ="filter-places" data-bind = "text-input: , valueUpdate: 'afterkeydown'"type="text" placeholder="Filter Locations...">
          <hr>
          <ul id = "places-list" data-bind = "foreach: locations">
-           <a href = "#"><li class = "list-items" data-bind = "text: title"></li></a>
+           <a href = "#"><li class = "list-items" data-bind = "text: title, click: $parent.showInfowindow"></li></a>
          </ul>
         </div>
         <div class = "col-sm-9">

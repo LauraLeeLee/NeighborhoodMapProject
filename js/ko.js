@@ -111,9 +111,14 @@ var locations = [
 //-------------ViewModel
 var ViewModel = function() {
   var self = this;
+  //creates list to populate on page 
+  self.placesList = ko.observableArray([]);
+  locations.forEach(function(location) {
+  });
+
 
   // // function to populate the infowindow when marker is clicked.
-   this.populateInfoWindow = function(marker, infowindow) {
+   self.populateInfoWindow = function(marker, infowindow) {
     //check to see if infowindow is already open
     if(infowindow.marker != marker) {
       //clear the infowindow content allowing streetview to load
@@ -129,9 +134,9 @@ var ViewModel = function() {
     }
   }
 
-  this.placesList = ko.observableArray([]);
-  locations.forEach(function(location) {
-  });
+  self.showInfowindow = function(location) {
+    self.populateInfoWindow();
+  }
 //
 // document.getElementById('go-filter').addEventListener('click', );
 //
