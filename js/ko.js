@@ -111,11 +111,20 @@ var locations = [
 //-------------ViewModel
 var ViewModel = function() {
   var self = this;
-  //creates list to populate on page 
+  //creates list to populate on page
   self.placesList = ko.observableArray([]);
   locations.forEach(function(location) {
   });
 
+var i;
+  locations[i].marker = new google.maps.Marker({
+    map: map,
+    position: position,
+    title: title,
+    animation: google.maps.Animation.DROP,
+    icon: defaultIcon,
+    id: id
+  });
 
   // // function to populate the infowindow when marker is clicked.
    self.populateInfoWindow = function(marker, infowindow) {
@@ -135,6 +144,7 @@ var ViewModel = function() {
   }
 
   self.showInfowindow = function(location) {
+    console.log(location);
     self.populateInfoWindow();
   }
 //

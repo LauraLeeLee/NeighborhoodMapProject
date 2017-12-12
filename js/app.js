@@ -105,14 +105,14 @@ for (var i = 0; i < locations.length; i++) {
   var title = locations[i].title;
   var id = locations[i].id;
   //create a marker for location
-  var marker = new google.maps.Marker({
-    map: map,
-    position: position,
-    title: title,
-    animation: google.maps.Animation.DROP,
-    icon: defaultIcon,
-    id: id
-  });
+  // var marker = new google.maps.Marker({
+  //   map: map,
+  //   position: position,
+  //   title: title,
+  //   animation: google.maps.Animation.DROP,
+  //   icon: defaultIcon,
+  //   id: id
+  // });
   //push marker to array of markers
   markers.push(marker);
   // //create an onclick event to open the large InfoWindow
