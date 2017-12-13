@@ -116,19 +116,10 @@ var ViewModel = function() {
   locations.forEach(function(location) {
   });
 
-var i;
-  locations[i].marker = new google.maps.Marker({
-    map: map,
-    position: {lat: self.lat, lng: self.lng},
-    title: self.title,
-    animation: google.maps.Animation.DROP,
-    //icon: defaultIcon,
-    id: self.id
-  });
-
   // // function to populate the infowindow when marker is clicked.
    self.populateInfoWindow = function(marker, infowindow) {
     //check to see if infowindow is already open
+    var marker = locations[i].marker;
     if(infowindow.marker != marker) {
       //clear the infowindow content allowing streetview to load
       infowindow.setContent('');
@@ -163,5 +154,5 @@ var i;
 // }
 
 }
-ko.applyBindings(new ViewModel());
+// ko.applyBindings(new ViewModel());
 //--------------View

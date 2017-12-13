@@ -86,10 +86,6 @@ map = new google.maps.Map(document.getElementById('map'), {
   mapTypeControl: false
 });
 
-// Instantiate Knockout once the map is initialized
-ko.applyBindings(new ViewModel());
-
-
 var largeInfowindow = new google.maps.InfoWindow();
 //largeInfowindow.setAttribute('style', 'background-color: #ffffcc');
 //new latlng bounds instance capturing SW and NE corners of viewport
@@ -106,17 +102,19 @@ for (var i = 0; i < locations.length; i++) {
   var position = locations[i].location;
   var title = locations[i].title;
   var id = locations[i].id;
-  //create a marker for location
-  // var marker = new google.maps.Marker({
-  //   map: map,
-  //   position: position,
-  //   title: title,
-  //   animation: google.maps.Animation.DROP,
-  //   icon: defaultIcon,
-  //   id: id
-  // });
+
+  //create a marker for location as a property for each location
+  locations[i].marker = new google.maps.Marker({
+    map: map,
+    position: position,
+    title: title,
+    animation: google.maps.Animation.DROP,
+    icon: defaultIcon,
+    id: id
+  });
+  var marker = locations[i].marker;
   //push marker to array of markers
-  markers.push(marker);
+  markers.push(locations[i].marker);
   // //create an onclick event to open the large InfoWindow
   marker.addListener('click', function(){
     //getPlacesDetails(this, largeInfowindow);
@@ -136,6 +134,8 @@ for (var i = 0; i < locations.length; i++) {
  }
  //tell map to fit itself to those bounds
  map.fitBounds(bounds);
+ // Instantiate Knockout once the map is initialized
+ ko.applyBindings(new ViewModel());
 }
 //gets place details from place_id via PlacesService
 function getPlacesDetails(marker, infowindow) {
