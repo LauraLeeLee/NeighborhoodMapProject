@@ -121,7 +121,7 @@ var ViewModel = function() {
 
   self.showInfowindow = function(location) {
     console.log(location);
-    populateInfoWindow();
+    populateInfoWindow(location.marker);
   }
 //
 // document.getElementById('go-filter').addEventListener('click', );
