@@ -86,6 +86,8 @@ map = new google.maps.Map(document.getElementById('map'), {
   mapTypeControl: false
 });
 
+// Instantiate Knockout once the map is initialized
+ko.applyBindings(new ViewModel());
 
 
 var largeInfowindow = new google.maps.InfoWindow();

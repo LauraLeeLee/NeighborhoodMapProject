@@ -119,11 +119,11 @@ var ViewModel = function() {
 var i;
   locations[i].marker = new google.maps.Marker({
     map: map,
-    position: position,
-    title: title,
+    position: {lat: self.lat, lng: self.lng},
+    title: self.title,
     animation: google.maps.Animation.DROP,
-    icon: defaultIcon,
-    id: id
+    //icon: defaultIcon,
+    id: self.id
   });
 
   // // function to populate the infowindow when marker is clicked.
