@@ -46,15 +46,25 @@ hr {
 }
 
 #map {
+  height: 100vh;
+    z-index: 0;
+  /*width:100%;
+  top: 0px;
+  left: 0px;*/
   /*bottom:0px;*/
-  height: 95vh;
   /*position: absolute;*/
   /*right: 0px;*/
-  z-index: 0;
 }
 
 #places-section {
   background-color: #ffffcc;
+  /*width: 30vw;*/
+  /*height:60vh;*/
+  /*overflow: scroll;*/
+  /*z-index: 10;*/
+  /*position: absolute;*/
+  /*top: 0;*/
+  /*left: 0;*/
 }
 
 #places-list {
@@ -66,12 +76,12 @@ hr {
 
 #places-details {
   text-align: center;
-  margin: auto;
+  margin: 0 auto 10px;
 }
 
 #pano {
   width: 150px;
   height: 150px;
   text-align: center;
-  margin: auto;
+  margin: 10px auto 0;
 }
