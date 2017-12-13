@@ -112,6 +112,7 @@ for (var i = 0; i < locations.length; i++) {
     icon: defaultIcon,
     id: id
   });
+
   var marker = locations[i].marker;
   //push marker to array of markers
   markers.push(locations[i].marker);
@@ -132,10 +133,10 @@ for (var i = 0; i < locations.length; i++) {
     this.setIcon(defaultIcon);
   });
  }
- //tell map to fit itself to those bounds
- map.fitBounds(bounds);
  // Instantiate Knockout once the map is initialized
  ko.applyBindings(new ViewModel());
+ //tell map to fit itself to those bounds
+ map.fitBounds(bounds);
 }
 //gets place details from place_id via PlacesService
 function getPlacesDetails(marker, infowindow) {
