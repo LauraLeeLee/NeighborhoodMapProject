@@ -1,5 +1,5 @@
 var map;
-
+var largeInfowindow;
 //create new blank array for location hideMarkers
 var markers = [];
 
@@ -86,7 +86,7 @@ map = new google.maps.Map(document.getElementById('map'), {
   mapTypeControl: false
 });
 
-var largeInfowindow = new google.maps.InfoWindow();
+largeInfowindow = new google.maps.InfoWindow();
 //largeInfowindow.setAttribute('style', 'background-color: #ffffcc');
 //new latlng bounds instance capturing SW and NE corners of viewport
 var bounds = new google.maps.LatLngBounds();
