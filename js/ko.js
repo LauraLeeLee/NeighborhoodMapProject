@@ -121,7 +121,7 @@ var ViewModel = function() {
 
   self.showInfowindow = function(location) {
     console.log(location);
-    self.populateInfoWindow();
+    populateInfoWindow();
   }
 //
 // document.getElementById('go-filter').addEventListener('click', );
@@ -139,5 +139,7 @@ var ViewModel = function() {
 // }
 
 }
+
+
 // ko.applyBindings(new ViewModel());
 //--------------View
