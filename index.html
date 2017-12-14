@@ -14,7 +14,8 @@
    <div class="container">
      <div class = "row no-gutter">
         <div id = "places-section"class = "col-sm-3">
-            <input id ="filter-places" data-bind = "text-input: , valueUpdate: 'afterkeydown'"type="text" placeholder="Filter Locations...">
+            <input id ="toggle-off-places" type="button" value="Toggle Places List">
+            <input id ="filter-places" data-bind = "value: filter, valueUpdate: 'afterkeydown'"type="text" placeholder="Filter Locations...">
             <hr>
             <ul id = "places-list" data-bind = "foreach: locations">
               <a href = "#"><li class = "list-items" data-bind = "text: title, click: $parent.showInfowindow"></li></a>

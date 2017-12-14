@@ -123,7 +123,19 @@ var ViewModel = function() {
     console.log(location);
     populateInfoWindow(location.marker, largeInfowindow);
   }
-//
+
+  //filter locations
+  var filteredItems = ko.computed(function() {
+    var filter = self.filter().toLowerCase();
+    if(!filter) {
+      return this.items();
+    } else {
+      return ko.utils.arrayFilter(this.items(), function(item){
+        return ko.utils.stringStartsWith(item.name().toLowerCase(), filter);
+      });
+    }
+  });
+
 // document.getElementById('go-filter').addEventListener('click', );
 //
 // function filterPlaces() {
