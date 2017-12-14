@@ -125,32 +125,31 @@ var ViewModel = function() {
   }
 
   //filter locations
-  var filteredItems = ko.computed(function() {
-    var filter = self.filter().toLowerCase();
-    if(!filter) {
-      return this.items();
-    } else {
-      return ko.utils.arrayFilter(this.items(), function(item){
-        return ko.utils.stringStartsWith(item.name().toLowerCase(), filter);
-      });
-    }
-  });
+  // var filteredItems = ko.computed(function() {
+  //   var filter = self.filter().toLowerCase();
+  //   if(!filter) {
+  //     return this.items();
+  //   } else {
+  //     return ko.utils.arrayFilter(this.items(), function(item){
+  //       return ko.utils.stringStartsWith(item.name().toLowerCase(), filter);
+  //     });
+  //   }
+  // });
 
-// document.getElementById('go-filter').addEventListener('click', );
-//
-// function filterPlaces() {
-//   var bounds = map.getBounds();
-//   hideMarkers(placeMarkers);
-//
-// }
-//
-// function hideMarkers(markers) {
-//   for (var i = 0; i < markers.length; i++) {
-//     markers.[i].setMap(null);
-//   }
-// }
+  ViewModel.filteredItems = ko.computed(function() {
+    var filter = self.filter().toLowerCase();
+    if (!filter) {
+        return this.items();
+    } else {
+        return ko.utils.arrayFilter(this.items(), function(item) {
+            return ko.utils.stringStartsWith(item.name().toLowerCase(), filter);
+        });
+    }
+  }, ViewModel);
 
 }
+
+
 
 
 // ko.applyBindings(new ViewModel());

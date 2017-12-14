@@ -10,16 +10,6 @@ body {
   padding: 0;
 }
 
-#filter-places {
-  margin-top: 15px;
-  margin-left: 20px;
-  display: inline-block;
-}
-
-::placeholder {
-  color: #d9d9d9;
-}
-
 hr {
   width: 90%;
 }
@@ -56,6 +46,17 @@ hr {
   /*right: 0px;*/
 }
 
+#filter-places {
+  margin-top: 15px;
+  margin-left: 12.5px;
+  width: 90%;
+  /*display: inline-block;*/
+}
+
+::placeholder {
+  color: #d9d9d9;
+}
+
 #places-section {
   background-color: #ffffcc;
   /*width: 30vw;*/
@@ -72,6 +73,10 @@ hr {
   height: 95vh;
   width: 100%;
   padding-top: 10px;
+}
+
+#toggle-off-places {
+  width: 100%;
 }
 
 #places-details {
