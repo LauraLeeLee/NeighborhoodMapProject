@@ -1,6 +1,5 @@
 //-------------Model
-// location data
-//POI locations
+// POI location data
 var locations = [
   {title: 'Monte Cassino',
   location: {lat: 41.4903315,lng: 13.8133865},
@@ -112,6 +111,9 @@ var locations = [
 var ViewModel = function() {
   var self = this;
 
+  //variable to contain input value
+  self.filter = ko.observable("");
+
   this.locations = ko.observableArray(locations);
   //creates list to populate on page
   self.placesList = ko.observableArray([]);
@@ -125,28 +127,23 @@ var ViewModel = function() {
   }
 
   //filter locations
-  // var filteredItems = ko.computed(function() {
-  //   var filter = self.filter().toLowerCase();
-  //   if(!filter) {
-  //     return this.items();
-  //   } else {
-  //     return ko.utils.arrayFilter(this.items(), function(item){
-  //       return ko.utils.stringStartsWith(item.name().toLowerCase(), filter);
-  //     });
-  //   }
-  // });
+    self.filterPlaces = ko.computed(function() {
+      var filter = self.filter().toLowerCase();
 
-    self.filteredPlaces = ko.computed(function() {
-    var filter = document.getElementById('filter-places');
-     filter = self.filter().toLowerCase();
-    if (!filter) {
-        return this.places();
-    } else {
-        return ko.utils.arrayFilter(this.places(), function(place) {
-            return ko.utils.toindexOfs(place.name().toLowerCase(), filter);
-        });
-    }
-  }, ViewModel);
+      self.locations().forEach(function(location) {
+        if(location.title.toLowerCase().indexOf(filter) !== -1) {
+
+        }
+      });
+    });
+  //   if (!filter) {
+  //       return this.places();
+  //   } else {
+  //       return ko.utils.arrayFilter(this.places(), function(place) {
+  //           return ko.utils.toindexOfs(place.name().toLowerCase(), filter);
+  //       });
+  //   }
+  // }, ViewModel);
 
 }
 
