@@ -136,13 +136,14 @@ var ViewModel = function() {
   //   }
   // });
 
-  ViewModel.filteredItems = ko.computed(function() {
-    var filter = self.filter().toLowerCase();
+    self.filteredPlaces = ko.computed(function() {
+    var filter = document.getElementById('filter-places');
+     filter = self.filter().toLowerCase();
     if (!filter) {
-        return this.items();
+        return this.places();
     } else {
-        return ko.utils.arrayFilter(this.items(), function(item) {
-            return ko.utils.stringStartsWith(item.name().toLowerCase(), filter);
+        return ko.utils.arrayFilter(this.places(), function(place) {
+            return ko.utils.toindexOfs(place.name().toLowerCase(), filter);
         });
     }
   }, ViewModel);
