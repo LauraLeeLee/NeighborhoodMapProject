@@ -115,8 +115,10 @@ var ViewModel = function() {
   self.filter = ko.observable("");
 
   this.locations = ko.observableArray(locations);
-  //creates list to populate on page
-  self.placesList = ko.observableArray([]);
+
+  // //creates list to populate on page
+  // self.placesList = ko.observableArray([]);
+
   locations.forEach(function(location) {
   });
 
