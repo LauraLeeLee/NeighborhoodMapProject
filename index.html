@@ -16,8 +16,8 @@
 
         <div id = "places-section"class = "col-sm-3">
           <input id ="toggle-off-places" type="button" value="Toggle Places List">
-          <input id ="filter-places" data-bind = "textInput: filter, foreach: filterPlaces"type="text" placeholder="Filter Locations...">
           <hr>
+          <input id ="filter-places" data-bind = "textInput: filter, foreach: filterPlaces"type="text" placeholder="Filter Locations...">
           <ul id = "places-list" data-bind = "foreach: locations">
             <a href = "#"><li class = "list-items" data-bind = "text: title, click: $parent.showInfowindow, visible: showFiltered"></li></a>
           </ul>
