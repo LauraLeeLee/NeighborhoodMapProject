@@ -5,7 +5,7 @@
 html,
 body {
   font-family: Arial, sans-serif;
-  height: 95vh;
+  height: 100vh;
   margin: 0;
   padding: 0;
 }
@@ -14,16 +14,14 @@ hr {
   width: 90%;
 }
 
-.row {
+/*.row {
   width: 100vw;
-}
-.container {
-  /*height: 100%;*/
-  /*width: 100vw;*/
-  position: absolute;
+}*/
+.container-fluid {
+  background-color: #000;
 }
 
-.row.no-gutter {
+/*.row.no-gutter {
   margin-right:0;
   margin-left:0;
 }
@@ -33,7 +31,7 @@ hr {
     padding-left:0;
     margin-right:0;
     margin-left:0;
-}
+}*/
 
 #map {
   height: 100vh;
@@ -47,10 +45,8 @@ hr {
 }
 
 #filter-places {
-  margin-top: 15px;
   margin-left: 12.5px;
   width: 90%;
-  /*display: inline-block;*/
 }
 
 ::placeholder {
@@ -59,24 +55,24 @@ hr {
 
 #places-section {
   background-color: #ffffcc;
-  /*width: 30vw;*/
-  /*height:60vh;*/
-  /*overflow: scroll;*/
-  /*z-index: 10;*/
-  /*position: absolute;*/
-  /*top: 0;*/
-  /*left: 0;*/
+  width: 20vw;
+  height:60vh;
+  overflow: scroll;
+  z-index: 10;
+  position: absolute;
+  float: left;
+  /*left: 5;*/
 }
 
 #places-list {
   list-style: none;
-  height: 95vh;
+  /*height: 95vh;*/
   width: 100%;
   padding-top: 10px;
 }
 
 #toggle-off-places {
-  width: 100%;
+  width: 20vw;
   background-color: #00b300;
   color: #fff;
   /*position: relative;*/

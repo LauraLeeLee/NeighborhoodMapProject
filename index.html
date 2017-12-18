@@ -11,21 +11,20 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
  </head>
  <body>
-   <div class="container">
-     <div class = "row no-gutter">
-
-        <div id = "places-section"class = "col-sm-3">
-          <input id ="toggle-off-places" type="button" value="Toggle Places List">
+   <div class="container-fluid">
+     <!-- <div class = "row no-gutter"> -->
+        <input id ="toggle-off-places" data-bind = "click: $parent.togglePlaces" type="button" value="Toggle Places List">
+        <div id = "places-section" >
           <hr>
           <input id ="filter-places" data-bind = "textInput: filter, foreach: filterPlaces"type="text" placeholder="Filter Locations...">
           <ul id = "places-list" data-bind = "foreach: locations">
             <a href = "#"><li class = "list-items" data-bind = "text: title, click: $parent.showInfowindow, visible: showFiltered"></li></a>
           </ul>
         </div>
-        <div class = "col-sm-9">
+        <!-- <div class = "col-sm-9"> -->
          <div id="map"></div>
-       </div>
-   </div>
+       <!-- </div> -->
+   <!-- </div> -->
  </div>
  <script asyc defer
     src = "https://maps.googleapis.com/maps/api/js?libraries=places,geometry,drawing&key=AIzaSyDRAVW_MKSUbo5TYT4oQCd12pOdFH5G8Og&v=3&callback=initMap"></script>

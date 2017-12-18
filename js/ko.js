@@ -168,6 +168,10 @@ var ViewModel = function() {
       });
     });
 
+    var togglePlaces = ko.observable(function(){
+      document.getElementById('places-section').style.visibility('hidden');
+    });
+
 }
 
 
