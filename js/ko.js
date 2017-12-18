@@ -107,6 +107,10 @@ var locations = [
   // {title:  , location: {lat: ,lng:}, id: },
 ];
 
+// This is bound to each location in index.html
+
+this.showFiltered = ko.observable(true); // initial set visible
+
 //-------------ViewModel
 var ViewModel = function() {
   var self = this;
@@ -134,18 +138,14 @@ var ViewModel = function() {
 
       self.locations().forEach(function(location) {
         if(location.title.toLowerCase().indexOf(filter) !== -1) {
-
+          location.showFiltered(true); //show filtered location(s)
+          location.marker.setVisible(true); //show filtered location map marker
+        } else {
+          location.showFiltered(false); // hide non matching list item
+          location.marker.setVisible(false); //hide map markre for non matching
         }
       });
     });
-  //   if (!filter) {
-  //       return this.places();
-  //   } else {
-  //       return ko.utils.arrayFilter(this.places(), function(place) {
-  //           return ko.utils.toindexOfs(place.name().toLowerCase(), filter);
-  //       });
-  //   }
-  // }, ViewModel);
 
 }
 
