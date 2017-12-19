@@ -170,7 +170,7 @@ var ViewModel = function() {
 
      togglePlaces = function(){
        if (document.getElementById('places-section').style.height == '60vh') {
-          document.getElementById('places-section').style.height = 0;
+          document.getElementById('places-section').style.height = '0';
           document.getElementById('places-section').style.border = 'none';
       } else {
         document.getElementById('places-section').style.height = '60vh';

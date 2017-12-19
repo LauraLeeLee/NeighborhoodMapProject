@@ -62,15 +62,15 @@ body {
   width: 20vw;
   height: 60vh;
   z-index: 10;
-  position: fixed;
-  top: 35px;
-  left: 15px;
-  /*float: left;*/
+  position: absolute;
+  /*top: 35px; /* use if using position fixed*/
+  left: 15px;*/
+  float: left;
   visibility: visible;
   border: 2px solid #009933;
   /*left: 5;*/
   overflow: scroll;
-  transition: 0.5s;
+  transition: 1s;
 
 }
 
