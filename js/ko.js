@@ -169,10 +169,12 @@ var ViewModel = function() {
     });
 
      togglePlaces = function(){
-       if (document.getElementById('places-section').style.display == 'none') {
-          document.getElementById('places-section').style.display = 'block';
+       if (document.getElementById('places-section').style.height == '60vh') {
+          document.getElementById('places-section').style.height = 0;
+          document.getElementById('places-section').style.border = 'none';
       } else {
-        document.getElementById('places-section').style.display = 'none';
+        document.getElementById('places-section').style.height = '60vh';
+        document.getElementById('places-section').style.border = '2px solid #009933';
       }
     }
       // document.getElementById('places-section').style.visibility = 'hidden';
