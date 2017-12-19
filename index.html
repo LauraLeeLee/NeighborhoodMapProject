@@ -13,9 +13,9 @@
  <body>
    <div class="container-fluid">
      <!-- <div class = "row no-gutter"> -->
-        <input id ="toggle-off-places" data-bind = "click: $parent.togglePlaces" type="button" value="Toggle Places List">
+        <input id ="toggle-off-places" data-bind = "click: togglePlaces" type="button" value="Toggle Places List">
         <div id = "places-section" >
-          <hr>
+          <hr id = "hr">
           <input id ="filter-places" data-bind = "textInput: filter, foreach: filterPlaces"type="text" placeholder="Filter Locations...">
           <ul id = "places-list" data-bind = "foreach: locations">
             <a href = "#"><li class = "list-items" data-bind = "text: title, click: $parent.showInfowindow, visible: showFiltered"></li></a>

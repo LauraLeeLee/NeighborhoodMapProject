@@ -168,9 +168,17 @@ var ViewModel = function() {
       });
     });
 
-    var togglePlaces = ko.observable(function(){
-      document.getElementById('places-section').style.visibility('hidden');
-    });
+     togglePlaces = function(){
+       if (document.getElementById('places-section').style.display == 'none') {
+          document.getElementById('places-section').style.display = 'block';
+      } else {
+        document.getElementById('places-section').style.display = 'none';
+      }
+    }
+      // document.getElementById('places-section').style.visibility = 'hidden';
+      // document.getElementById('places-section').style.visibility = 'visible';
+
+
 
 }
 

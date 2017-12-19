@@ -10,8 +10,9 @@ body {
   padding: 0;
 }
 
-hr {
+#hr {
   width: 90%;
+  border-color: #009933;
 }
 
 /*.row {
@@ -47,6 +48,9 @@ hr {
 #filter-places {
   margin-left: 12.5px;
   width: 90%;
+  -moz-box-shadow:    1px 1px 2px 1px #ccc;
+  -webkit-box-shadow: 1px 1px 2px 1px #ccc;
+  box-shadow:         1px 1px 2px 1px #ccc;
 }
 
 ::placeholder {
@@ -54,14 +58,17 @@ hr {
 }
 
 #places-section {
-  background-color: #ffffcc;
+  background-color: #fff7e6;
   width: 20vw;
   height:60vh;
-  overflow: scroll;
   z-index: 10;
   position: absolute;
   float: left;
+  visibility: visible;
+  border: 2px solid #009933;
   /*left: 5;*/
+  overflow: scroll;
+
 }
 
 #places-list {
@@ -71,13 +78,39 @@ hr {
   padding-top: 10px;
 }
 
+.list-items {
+  color: #009933;
+}
+
 #toggle-off-places {
   width: 20vw;
-  background-color: #00b300;
+  background-color: #009933;
+  border: none;
   color: #fff;
+  margin: 5px 0 10px 0;
+
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0px 5px 0px #006622;
+  -moz-box-shadow: 0px 5px 0px #006622;
+  box-shadow: 0px 5px 0px #006622;
   /*position: relative;*/
   /*float: left;
   z-index: 1;*/
+  -webkit-transition: all .1s ease;
+	-moz-transition: all .1s ease;
+	-ms-transition: all .1s ease;
+	-o-transition: all .1s ease;
+	transition: all .1s ease;
+}
+
+#toggle-off-places:active {
+  -webkit-box-shadow: 0px 3px 0px #fff, 0px 3px 6px #ccc;
+  -moz-box-shadow: 0px 3px 0px #fff, 0px 3px 6px #ccc;
+  box-shadow: 0px 3px 0px #fff, 0px 3px 6px #ccc;
+  position: relative;
+  top: 6px;
 }
 
 #places-details {
