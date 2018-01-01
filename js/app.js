@@ -110,7 +110,8 @@ for (var i = 0; i < locations.length; i++) {
     title: title,
     animation: google.maps.Animation.DROP,
     icon: defaultIcon,
-    id: id
+    id: id,
+    open: false
   });
 
   var marker = locations[i].marker;
@@ -137,7 +138,25 @@ for (var i = 0; i < locations.length; i++) {
  ko.applyBindings(new ViewModel());
  //tell map to fit itself to those bounds
  map.fitBounds(bounds);
+
+
+ //click anywhere on map to close infowindow
+ // map.addListener(marker, 'click', function() {
+ //     if(!marker.open){
+ //         largeInfoWindow.open(map,marker);
+ //         marker.open = true;
+ //     }
+ //     else{
+ //         largeInfoWindow.close();
+ //         marker.open = false;
+ //     }
+ //     map.addListener(map, 'click', function() {
+ //         largeInfoWindow.close();
+ //         marker.open = false;
+ //     });
+ // });
 }
+
 
  // function to populate the infowindow when marker is clicked.
 function populateInfoWindow (marker, infowindow) {
@@ -165,9 +184,11 @@ function getPlacesDetails(marker, infowindow) {
       // Set the marker property on this infowindow so it isn't created again.
       infowindow.marker = marker;
       var innerHTML = '<div id = "places-details">';
+      innerHTML += ' <div id = "place-name">';
       if (place.name) {
         innerHTML += '<strong>' + place.name + '</strong>';
       }
+      innerHTML += '</div>';
       if (place.formatted_address) {
         innerHTML += '<br>' + place.formatted_address;
       }
@@ -185,15 +206,17 @@ function getPlacesDetails(marker, infowindow) {
             place.opening_hours.weekday_text[6];
       }
       if(place.website) {
-        innerHTML +='<br><br><a href='+ place.website +'>'+place.website+'</a>';
+        innerHTML +='<br><br><a id = "website" href='+ place.website +'>'+place.website+'</a>';
       }
       if (place.photos) {
         innerHTML += '<br><br><img src="' + place.photos[0].getUrl(
             {maxHeight: 100, maxWidth: 200}) + '">';
       }
-      innerHTML += '</div>';
       //creates #pano element for streetViewService to use
       innerHTML += ' <div id = "pano"></div>';
+      innerHTML +=  '<div class="iw-bottom-gradient"></div>';
+      innerHTML += '</div>';
+
       infowindow.setContent(innerHTML);
       infowindow.open(map, marker);
       // Make sure the marker property is cleared if the infowindow is closed.

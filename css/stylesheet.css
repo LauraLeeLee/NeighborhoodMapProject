@@ -4,15 +4,9 @@
 
 html,
 body {
-  font-family: Arial, sans-serif;
-  height: 100vh;
+  /*height: 100vh;*/
   margin: 0;
   padding: 0;
-}
-
-#hr {
-  width: 90%;
-  border-color: #009933;
 }
 
 /*.row {
@@ -34,9 +28,25 @@ body {
     margin-left:0;
 }*/
 
+#h1 {
+  font-family: 'Laila', serif;
+  font-size: 40px;
+  font-weight: 600;
+  color: #fff7e6;
+  text-align: center;
+  margin: 10px 0 0 0;
+  padding: 0;
+}
+
+#hr {
+  width: 90%;
+  border-color: #009933;
+}
+
 #map {
   height: 100vh;
   z-index: 0;
+  /*margin-top: 30px;*/
   /*width:100%;
   top: 0px;
   left: 0px;*/
@@ -45,16 +55,25 @@ body {
   /*right: 0px;*/
 }
 
+.filter-buttons {
+  background-color: #009933;
+  font-family: 'Laila', serif;
+  color: #fff;
+  display: inline-block;
+  border-radius: 10px;
+}
+
 #filter-places {
-  margin-left: 12.5px;
   width: 90%;
   -moz-box-shadow:    1px 1px 2px 1px #ccc;
   -webkit-box-shadow: 1px 1px 2px 1px #ccc;
   box-shadow:         1px 1px 2px 1px #ccc;
+  margin-top: 5px;
 }
 
 ::placeholder {
   color: #d9d9d9;
+  font-size: 1em;
 }
 
 #places-section {
@@ -63,15 +82,13 @@ body {
   height: 60vh;
   z-index: 10;
   position: absolute;
-  /*top: 35px; /* use if using position fixed*/
   left: 15px;*/
   float: left;
   visibility: visible;
   border: 2px solid #009933;
-  /*left: 5;*/
   overflow: scroll;
   transition: 1s;
-
+  text-align: center;
 }
 
 #places-list {
@@ -79,28 +96,47 @@ body {
   /*height: 95vh;*/
   width: 100%;
   padding-top: 10px;
+  text-align: left;
 }
 
 .list-items {
+  font-family: 'Laila', serif;
+  font-size: 16px;
+  font-weight: 400;
   color: #009933;
 }
 
+a:hover {
+  text-decoration: none;
+  color: #e60000;
+}
+
+/*fades text at bottom of places list*/
+#fade-text {
+  height: 50px;
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-image: linear-gradient(to bottom, transparent, #fff7e6);
+}
+
 #toggle-off-places {
+  font-family: 'Laila', serif;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
   width: 20vw;
   background-color: #009933;
   border: none;
-  color: #fff;
-  margin: 5px 0 10px 0;
-
+  margin: 0 0 7px 0;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   border-radius: 8px;
   -webkit-box-shadow: 0px 5px 0px #006622;
   -moz-box-shadow: 0px 5px 0px #006622;
   box-shadow: 0px 5px 0px #006622;
-  /*position: relative;*/
-  /*float: left;
-  z-index: 1;*/
+  /*gives button 'button' motion*/
   -webkit-transition: all .1s ease;
 	-moz-transition: all .1s ease;
 	-ms-transition: all .1s ease;
@@ -108,6 +144,7 @@ body {
 	transition: all .1s ease;
 }
 
+/*gives toggle buttom 3d-ish look*/
 #toggle-off-places:active {
   -webkit-box-shadow: 0px 3px 0px #fff, 0px 3px 6px #ccc;
   -moz-box-shadow: 0px 3px 0px #fff, 0px 3px 6px #ccc;
@@ -117,8 +154,36 @@ body {
 }
 
 #places-details {
+  font-family: 'Laila', serif;
+  font-size: 1em;
+  font-weight: 400;
+  width: 300px;
+  height: 200px;
+  overflow: auto;
+  background-color: #c6ecd9;
+  border-radius: 10px;
   text-align: center;
+  color: #006622;
   margin: 0 auto 10px;
+}
+
+#place-name {
+  background-color: #fff7e6;
+  /*width: 90%;*/
+  /*margin-left: 15px;
+  margin-top: 10px;*/
+  height: 30px;
+  font-family: 'Laila', serif;
+  font-weight: 400;
+  font-size: 1.4em;
+  text-align: center;
+  border-bottom: 7px double #006622;
+  border-radius: 10px;
+}
+
+#website {
+  color: #006622;
+  font-size: 1em;
 }
 
 #pano {
@@ -126,4 +191,67 @@ body {
   height: 150px;
   text-align: center;
   margin: 10px auto 0;
+}
+
+
+/*gradient to bottom of infowindow*/
+.iw-bottom-gradient {
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  width: 326px;
+  height: 45px;
+  /*bottom: 10px;
+  right: 16px;*/
+  background-image: linear-gradient(to bottom, transparent,#c6ecd9);
+  /*background: linear-gradient(to bottom, rgba(198, 236, 217,0) 0%, rgba(198, 236, 217, 1) 100%);
+  background: -webkit-linear-gradient(top, rgba(198, 236, 217,0) 0%, rgba(198, 236, 217, 1) 100%);
+  background: -moz-linear-gradient(top, rgba(198, 236, 217,0) 0%, rgba(198, 236, 217, 1) 100%);
+  background: -ms-linear-gradient(top, rgba(198, 236, 217,0) 0%, rgba(198, 236, 217, 1)) 100%);*/
+   }
+
+/*makes the google infowindow transparent, to allow for custom styling*/
+/* white background and box outline */
+.gm-style > div:first-child > div + div > div:last-child > div > div:first-child > div
+{
+    /* we have to use !important because we are overwritng inline styles */
+    background-color: transparent !important;
+    box-shadow: none !important;
+    width: auto !important;
+    height: auto !important;
+}
+
+/* arrow colour */
+.gm-style > div:first-child > div + div > div:last-child > div > div:first-child > div > div > div
+{
+    background-color: #c6ecd9  !important;
+}
+
+/* close button */
+.gm-style > div:first-child > div + div > div:last-child > div > div:last-child
+{
+  margin-right: 10px !important;
+  margin-top: 6px;
+  background-color: #c6ecd9 !important;
+  z-index: 5;
+  opacity: 1 !important; /* by default the close button has an opacity of 0.7*/
+  /*right: 50px;*/
+  /*top: 3px; /* button repositioning*/
+  border: 1px solid #c6ecd9 !important;  /*increasing button border and new color*/
+  border-radius: 4px !important; /* circular effect*/
+  box-shadow: 0 0 5px #3990B9 !important;/* 3D effect to highlight the button*/
+}
+
+/* image icon inside close button */
+.gm-style > div:first-child > div + div > div:last-child > div > div:last-child > img
+{
+    color: #006622;
+    /*display: none;*/
+}
+
+/* positioning of infowindow */
+.gm-style-iw
+{
+    top: 22px !important;
+    left: 22px !important;
 }

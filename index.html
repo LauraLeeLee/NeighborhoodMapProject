@@ -7,19 +7,28 @@
   <!-- <link rel = "stylesheet" href = "//fonts.googleapis.com/css?family=font1|font2|etc" type = "text/css"> -->
   <link rel = "stylesheet" href = "css/stylesheet.css" type = "text/css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Laila:400,600" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
  </head>
  <body>
    <div class="container-fluid">
+     <h1 id = "h1">POI Visited Near Patrica Italia</h1>
      <!-- <div class = "row no-gutter"> -->
         <input id ="toggle-off-places" data-bind = "click: togglePlaces" type="button" value="Toggle Places List">
         <div id = "places-section" >
           <hr id = "hr">
-          <input id ="filter-places" data-bind = "textInput: filter, foreach: filterPlaces"type="text" placeholder="Filter Locations...">
+          <input id ="city-filter" class="filter-buttons" type= "button" value="City">
+          <input id ="poi-filter" class="filter-buttons" type= "button" value="POI">
+          <input id ="food-filter" class="filter-buttons" type= "button" value="Food">
+          <input id ="shop-filter" class="filter-buttons" type= "button" value="Shop">
+          <input id ="hotel-filter" class="filter-buttons" type= "button" value="Hotel">
+          <input id ="church-filter" class="filter-buttons" type= "button" value="Churches">
+          <input id ="filter-places" data-bind = "textInput: filter, foreach: filterPlaces"type="text" placeholder="Filter locations by name...">
           <ul id = "places-list" data-bind = "foreach: locations">
             <a href = "#"><li class = "list-items" data-bind = "text: title, click: $parent.showInfowindow, visible: showFiltered"></li></a>
           </ul>
+          <div id = "fade-text"></div>
         </div>
         <!-- <div class = "col-sm-9"> -->
          <div id="map"></div>
