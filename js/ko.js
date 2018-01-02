@@ -196,12 +196,89 @@ var ViewModel = function() {
     //filter city
       self.filterCity = function(category) {
         self.locations().forEach(function(location) {
-          if(location.category === "city") {
-            location.showFiltered(true);
-            location.marker.setVisible(true);
-          } else {
-            location.showFiltered(false);
-            location.marker.setVisible(false);
+          for ( var i = 0; i < location.category.length; i++) {
+            if(location.category[i] == "city") {
+              location.showFiltered(true);
+              location.marker.setVisible(true);
+            } else {
+              location.showFiltered(false);
+              location.marker.setVisible(false);
+            }
+          }
+        });
+      };
+
+    //filter poi
+      self.filterPOI = function(category) {
+        self.locations().forEach(function(location) {
+          for ( var i = 0; i < location.category.length; i++) {
+            if(location.category[i] == "poi") {
+              location.showFiltered(true);
+              location.marker.setVisible(true);
+            } else {
+              location.showFiltered(false);
+              location.marker.setVisible(false);
+            }
+          }
+        });
+      };
+
+    //filter Food
+      self.filterFood = function(category) {
+        self.locations().forEach(function(location) {
+          for ( var i = 0; i < location.category.length; i++) {
+            if(location.category[i] == "food") {
+              location.showFiltered(true);
+              location.marker.setVisible(true);
+            } else {
+              location.showFiltered(false);
+              location.marker.setVisible(false);
+            }
+          }
+        });
+      };
+
+      //filter shop
+      self.filterShop = function(category) {
+        self.locations().forEach(function(location) {
+          for ( var i = 0; i < location.category.length; i++) {
+            if(location.category[i] == "shopping") {
+              location.showFiltered(true);
+              location.marker.setVisible(true);
+            } else {
+              location.showFiltered(false);
+              location.marker.setVisible(false);
+            }
+          }
+        });
+      };
+
+    //filter hotel
+      self.filterHotel = function(category) {
+        self.locations().forEach(function(location) {
+          for ( var i = 0; i < location.category.length; i++) {
+            if(location.category[i] == "hotel") {
+              location.showFiltered(true);
+              location.marker.setVisible(true);
+            } else {
+              location.showFiltered(false);
+              location.marker.setVisible(false);
+            }
+          }
+        });
+      };
+
+    //filter churches
+      self.filterChurch = function(category) {
+        self.locations().forEach(function(location) {
+          for ( var i = 0; i < location.category.length; i++) {
+            if(location.category[i] == "churches") {
+              location.showFiltered(true);
+              location.marker.setVisible(true);
+            } else {
+              location.showFiltered(false);
+              location.marker.setVisible(false);
+            }
           }
         });
       };

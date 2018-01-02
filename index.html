@@ -19,11 +19,11 @@
         <div id = "places-section" >
           <hr id = "hr">
           <input id ="city-filter" data-bind = "click: filterCity" class="filter-buttons" type= "button" value="City">
-          <input id ="poi-filter" class="filter-buttons" type= "button" value="POI">
-          <input id ="food-filter" class="filter-buttons" type= "button" value="Food">
-          <input id ="shop-filter" class="filter-buttons" type= "button" value="Shop">
-          <input id ="hotel-filter" class="filter-buttons" type= "button" value="Hotel">
-          <input id ="church-filter" class="filter-buttons" type= "button" value="Churches">
+          <input id ="poi-filter" data-bind = "click: filterPOI" class="filter-buttons" type= "button" value="POI">
+          <input id ="food-filter" data-bind = "click: filterFood" class="filter-buttons" type= "button" value="Food">
+          <input id ="shop-filter" data-bind = "click: filterShop" class="filter-buttons" type= "button" value="Shop">
+          <input id ="hotel-filter" data-bind = "click: filterHotel" class="filter-buttons" type= "button" value="Hotel">
+          <input id ="church-filter" data-bind = "click: filterChurch" class="filter-buttons" type= "button" value="Churches">
           <input id ="filter-places" data-bind = "textInput: filter"type="text" placeholder="Filter locations by name...">
           <ul id = "places-list" data-bind = "foreach: locations">
             <a href = "#"><li class = "list-items" data-bind = "text: title, click: $parent.showInfowindow, visible: showFiltered"></li></a>
