@@ -196,8 +196,9 @@ var ViewModel = function() {
     //filter city
       self.filterCity = function(category) {
         self.locations().forEach(function(location) {
+          //for loop to check each item in locations property of category array
           for ( var i = 0; i < location.category.length; i++) {
-            if(location.category[i] == "city") {
+            if(location.category[i] === "city") {
               location.showFiltered(true);
               location.marker.setVisible(true);
             } else {
@@ -212,7 +213,7 @@ var ViewModel = function() {
       self.filterPOI = function(category) {
         self.locations().forEach(function(location) {
           for ( var i = 0; i < location.category.length; i++) {
-            if(location.category[i] == "poi") {
+            if(location.category[i] === "poi") {
               location.showFiltered(true);
               location.marker.setVisible(true);
             } else {
@@ -227,7 +228,7 @@ var ViewModel = function() {
       self.filterFood = function(category) {
         self.locations().forEach(function(location) {
           for ( var i = 0; i < location.category.length; i++) {
-            if(location.category[i] == "food") {
+            if(location.category[i] === "food") {
               location.showFiltered(true);
               location.marker.setVisible(true);
             } else {
@@ -242,7 +243,7 @@ var ViewModel = function() {
       self.filterShop = function(category) {
         self.locations().forEach(function(location) {
           for ( var i = 0; i < location.category.length; i++) {
-            if(location.category[i] == "shopping") {
+            if(location.category[i] === "shopping") {
               location.showFiltered(true);
               location.marker.setVisible(true);
             } else {
@@ -257,7 +258,7 @@ var ViewModel = function() {
       self.filterHotel = function(category) {
         self.locations().forEach(function(location) {
           for ( var i = 0; i < location.category.length; i++) {
-            if(location.category[i] == "hotel") {
+            if(location.category[i] === "hotel") {
               location.showFiltered(true);
               location.marker.setVisible(true);
             } else {
@@ -272,7 +273,7 @@ var ViewModel = function() {
       self.filterChurch = function(category) {
         self.locations().forEach(function(location) {
           for ( var i = 0; i < location.category.length; i++) {
-            if(location.category[i] == "churches") {
+            if(location.category[i] === "churches") {
               location.showFiltered(true);
               location.marker.setVisible(true);
             } else {
