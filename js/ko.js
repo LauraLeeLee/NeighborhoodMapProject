@@ -194,18 +194,17 @@ var ViewModel = function() {
     });
 
     //filter city
-      self.filterCity = ko.computed(function() {
+      self.filterCity = function(category) {
         self.locations().forEach(function(location) {
           if(location.category === "city") {
             location.showFiltered(true);
-            location.marker.setVisibile(true);
+            location.marker.setVisible(true);
           } else {
             location.showFiltered(false);
             location.marker.setVisible(false);
           }
-          console.log("am I filtering city?");
         });
-      });
+      };
 
      togglePlaces = function(){
        if (document.getElementById('places-section').style.height == '60vh') {

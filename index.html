@@ -25,7 +25,7 @@
           <input id ="hotel-filter" class="filter-buttons" type= "button" value="Hotel">
           <input id ="church-filter" class="filter-buttons" type= "button" value="Churches">
           <input id ="filter-places" data-bind = "textInput: filter"type="text" placeholder="Filter locations by name...">
-          <ul id = "places-list" data-bind = "foreach: locations, filterPlaces">
+          <ul id = "places-list" data-bind = "foreach: locations">
             <a href = "#"><li class = "list-items" data-bind = "text: title, click: $parent.showInfowindow, visible: showFiltered"></li></a>
           </ul>
           <div id = "fade-text"></div>
