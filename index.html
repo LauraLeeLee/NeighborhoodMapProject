@@ -18,14 +18,14 @@
         <input id ="toggle-off-places" data-bind = "click: togglePlaces" type="button" value="Toggle Places List">
         <div id = "places-section" >
           <hr id = "hr">
-          <!-- <input id ="city-filter" data-bind = "foreach: filterCity" class="filter-buttons" type= "button" value="City"> -->
+          <input id ="city-filter" data-bind = "click: filterCity" class="filter-buttons" type= "button" value="City">
           <input id ="poi-filter" class="filter-buttons" type= "button" value="POI">
           <input id ="food-filter" class="filter-buttons" type= "button" value="Food">
           <input id ="shop-filter" class="filter-buttons" type= "button" value="Shop">
           <input id ="hotel-filter" class="filter-buttons" type= "button" value="Hotel">
           <input id ="church-filter" class="filter-buttons" type= "button" value="Churches">
-          <input id ="filter-places" data-bind = "textInput: filter, foreach: filterPlaces"type="text" placeholder="Filter locations by name...">
-          <ul id = "places-list" data-bind = "foreach: locations">
+          <input id ="filter-places" data-bind = "textInput: filter"type="text" placeholder="Filter locations by name...">
+          <ul id = "places-list" data-bind = "foreach: locations, filterPlaces">
             <a href = "#"><li class = "list-items" data-bind = "text: title, click: $parent.showInfowindow, visible: showFiltered"></li></a>
           </ul>
           <div id = "fade-text"></div>
