@@ -193,6 +193,19 @@ var ViewModel = function() {
       });
     });
 
+    //filter city
+      self.filterCity = ko.computed(function() {
+        self.locations().forEach(function(location) {
+          if(location.category === "city") {
+            location.showFiltered(true);
+            location.marker.setVisibile(true);
+          } else {
+            location.showFiltered(false);
+            location.marker.setVisible(false);
+          }
+        });
+      });
+
      togglePlaces = function(){
        if (document.getElementById('places-section').style.height == '60vh') {
           document.getElementById('places-section').style.height = '0';
