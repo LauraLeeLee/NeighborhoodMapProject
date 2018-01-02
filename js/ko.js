@@ -203,6 +203,7 @@ var ViewModel = function() {
             location.showFiltered(false);
             location.marker.setVisible(false);
           }
+          console.log("am I filtering city?");
         });
       });
 
