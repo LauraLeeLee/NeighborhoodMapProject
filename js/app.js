@@ -157,22 +157,27 @@ for (var i = 0; i < locations.length; i++) {
  // });
 }
 
-
  // function to populate the infowindow when marker is clicked.
 function populateInfoWindow (marker, infowindow) {
+  //create marker for when its open
+  var openedIcon = makeMarkerIcon('000000');
+
 //check to see if infowindow is already open
-if(infowindow.marker != marker) {
-  //clear the infowindow content allowing streetview to load
-  infowindow.setContent('');
-  infowindow.marker = marker;
-  getPlacesDetails(marker, infowindow);
-  //see if the marker property is cleared if infowindow is closed
-  infowindow.addListener('closeclick', function() {
-    infowindow.marker = null;
-  });
-  //open the infowindow on the proper marker
-  infowindow.open(map, marker);
-}
+  if(infowindow.marker != marker) {
+    //clear the infowindow content allowing streetview to load
+    infowindow.setContent('');
+    infowindow.marker = marker;
+    getPlacesDetails(marker, infowindow);
+    //see if the marker property is cleared if infowindow is closed
+    infowindow.addListener('closeclick', function() {
+      infowindow.marker = null;
+      marker.setAnimation(null);
+    });
+    //open the infowindow on the proper marker
+    infowindow.open(map, marker);
+    marker.setAnimation(google.maps.Animation.BOUNCE);
+    marker.setIcon(openedIcon);
+  }
 }
 //gets place details from place_id via PlacesService
 function getPlacesDetails(marker, infowindow) {
