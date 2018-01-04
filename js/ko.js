@@ -297,17 +297,30 @@ var ViewModel = function() {
       // document.getElementById('places-section').style.visibility = 'visible';
 }
 
+//create empty array to hold foursquare results
+var results = [];
 
 //Adds Foursquare api to search for what is near a location
 var foursquare = function(location) {
+  console.log(location);
   //foursquare info to execute the API request
   var clientId = 'ITOWGAPHCUEOKCWFWWZAS4OUQECKZD0TGGXN0Z0AH1RAKRHS';
   var clientSecret = 'AWQG20HB2FRHVKEEMMN5SGCP4EQXXPBH2PP0SM01XPNVUTFE';
   var fourSqUrl = "https://api.foursquare.com/v2/venues/explore";
-  var latLng = locations.location;
-  var useUrl = fourSqUrl + "?" + latLng+ "&client_id=" + clientId + "&client_secret=" + clientSecret + "&v=20180104";
+  var latLng = 'll=${location.lat},${location.lng}'
+  var useUrl = fourSqUrl + "?" + latLng + "&client_id=" + clientId + "&client_secret=" + clientSecret + "&v=20180104";
 
+  function nearBy(search) {
+    results.forEach(function(result) {
+      for (var i = 0; i <results.length; i++) {
+        result.push(results);
+      }
+    });
+
+  }
 }
+
+
 
 
 
