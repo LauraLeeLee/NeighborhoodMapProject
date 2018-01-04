@@ -295,8 +295,17 @@ var ViewModel = function() {
     }
       // document.getElementById('places-section').style.visibility = 'hidden';
       // document.getElementById('places-section').style.visibility = 'visible';
+}
 
 
+//Adds Foursquare api to search for what is near a location
+var foursquare = function(location) {
+  //foursquare info to execute the API request
+  var clientId = 'ITOWGAPHCUEOKCWFWWZAS4OUQECKZD0TGGXN0Z0AH1RAKRHS';
+  var clientSecret = 'AWQG20HB2FRHVKEEMMN5SGCP4EQXXPBH2PP0SM01XPNVUTFE';
+  var fourSqUrl = "https://api.foursquare.com/v2/venues/explore";
+  var fourSqId = location.fqId;
+  var useUrl = fourSqUrl + fourSqId + "?client_id=" + clientId + "&client_secret=" + clientSecret + "&v=20180104";
 
 }
 
