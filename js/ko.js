@@ -304,8 +304,8 @@ var foursquare = function(location) {
   var clientId = 'ITOWGAPHCUEOKCWFWWZAS4OUQECKZD0TGGXN0Z0AH1RAKRHS';
   var clientSecret = 'AWQG20HB2FRHVKEEMMN5SGCP4EQXXPBH2PP0SM01XPNVUTFE';
   var fourSqUrl = "https://api.foursquare.com/v2/venues/explore";
-  var fourSqId = location.fqId;
-  var useUrl = fourSqUrl + fourSqId + "?client_id=" + clientId + "&client_secret=" + clientSecret + "&v=20180104";
+  var latLng = locations.location;
+  var useUrl = fourSqUrl + "?" + latLng+ "&client_id=" + clientId + "&client_secret=" + clientSecret + "&v=20180104";
 
 }
 
