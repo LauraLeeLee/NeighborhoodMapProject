@@ -327,13 +327,14 @@ $.ajax({
   url: useUrl,
   success: function(data) {
     var localeName = data.groups[2].items[1].venue.name;
-    var localeAddress = data.groups[2].items[2].location.formattedAddress;
-    var localeLat = data.groups[2].items[2].location.lat;
-    var localelng = data.groups[2].items[2].location.lng;
-    var localeDistance = data.groups[2].items[2].location.distance;
+    var location = data.groups[2].items[2].location;
+    var localeAddress = location.formattedAddress;
+    var localeLat = location.lat;
+    var localelng = location.lng;
+    var localeDistance = slocation.distance;
 
     }
-    
+
 });
 
 
