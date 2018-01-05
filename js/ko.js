@@ -308,7 +308,7 @@ var foursquare = function(location) {
   var clientSecret = 'AWQG20HB2FRHVKEEMMN5SGCP4EQXXPBH2PP0SM01XPNVUTFE';
   var fourSqUrl = "https://api.foursquare.com/v2/venues/explore";
   var latLng = 'll=${location.lat},${location.lng}'
-  var useUrl = fourSqUrl + "?" + latLng + "&client_id=" + clientId + "&client_secret=" + clientSecret + "&v=20180104";
+  var useUrl = fourSqUrl + "?" + latLng + "&radius=400" + "&client_id=" + clientId + "&client_secret=" + clientSecret + "&v=20180104";
 
   function nearBy(search) {
     results.forEach(function(result) {
@@ -319,6 +319,22 @@ var foursquare = function(location) {
 
   }
 }
+
+//ajax request
+$.ajax({
+  type. "GET",
+  dataType: "json",
+  url: useUrl,
+  success: function(data) {
+    var localeName = data.groups[2].items[1].venue.name;
+    var localeAddress = data.groups[2].items[2].location.formattedAddress;
+    var localeLat = data.groups[2].items[2].location.lat;
+    var localelng = data.groups[2].items[2].location.lng;
+    var localeDistance = data.groups[2].items[2].location.distance;
+
+    }
+    
+});
 
 
 

@@ -160,7 +160,7 @@ for (var i = 0; i < locations.length; i++) {
  // function to populate the infowindow when marker is clicked.
 function populateInfoWindow (marker, infowindow) {
   //create marker for when its open
-  var openedIcon = makeMarkerIcon('000000');
+  var openedIcon = makeMarkerIcon('ffffff');
 
 //check to see if infowindow is already open
   if(infowindow.marker != marker) {
