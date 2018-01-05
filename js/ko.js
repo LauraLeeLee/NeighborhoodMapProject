@@ -333,7 +333,15 @@ $.ajax({
     var localelng = location.lng;
     var localeDistance = location.distance;
 
-    }
+      if(localeName) {
+
+      }
+
+      var fourSqResults = '<h3>' + localeName + '</h3' +
+        '<p>' + localeAddress + '</p>' +
+        '<p> Distance away ' + localeDistance + ' meters</p>';
+        document.getElementById("four_sq_content").innerHTML = fourSqResults;
+  }
 
 });
 
