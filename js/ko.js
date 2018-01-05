@@ -331,7 +331,7 @@ $.ajax({
     var localeAddress = location.formattedAddress;
     var localeLat = location.lat;
     var localelng = location.lng;
-    var localeDistance = slocation.distance;
+    var localeDistance = location.distance;
 
     }
 
