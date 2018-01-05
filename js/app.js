@@ -121,6 +121,7 @@ for (var i = 0; i < locations.length; i++) {
   marker.addListener('click', function(){
     //getPlacesDetails(this, largeInfowindow);
     populateInfoWindow(this, largeInfowindow);
+    foursquare(this);
   });
   //extend bounds for every maker we make
   bounds.extend(markers[i].position);
