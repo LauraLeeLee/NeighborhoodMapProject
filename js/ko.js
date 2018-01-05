@@ -307,7 +307,7 @@ var foursquare = function(location) {
   var clientId = 'ITOWGAPHCUEOKCWFWWZAS4OUQECKZD0TGGXN0Z0AH1RAKRHS';
   var clientSecret = 'AWQG20HB2FRHVKEEMMN5SGCP4EQXXPBH2PP0SM01XPNVUTFE';
   var fourSqUrl = "https://api.foursquare.com/v2/venues/explore";
-  var latLng = 'll=${location.lat},${location.lng}'
+  var latLng = `ll=${location.lat},${location.lng}`
   var useUrl = fourSqUrl + "?" + latLng + "&radius=400" + "&client_id=" + clientId + "&client_secret=" + clientSecret + "&v=20180104";
 
   function nearBy(search) {
@@ -318,34 +318,34 @@ var foursquare = function(location) {
     });
 
   }
+
+
+  //ajax request
+  $.ajax({
+    type: "GET",
+    dataType: "json",
+    url: useUrl,
+    success: function(data) {
+      var localeName = data.groups[2].items[1].venue.name;
+      var location = data.groups[2].items[2].location;
+      var localeAddress = location.formattedAddress;
+      var localeLat = location.lat;
+      var localelng = location.lng;
+      var localeDistance = location.distance;
+
+        if(localeName) {
+
+        }
+
+        var fourSqResults = '<h3>' + localeName + '</h3' +
+          '<p>' + localeAddress + '</p>' +
+          '<p> Distance away ' + localeDistance + ' meters</p>';
+          document.getElementById("four_sq_content").innerHTML = fourSqResults;
+    }
+
+  });
+
 }
-
-//ajax request
-$.ajax({
-  type. "GET",
-  dataType: "json",
-  url: useUrl,
-  success: function(data) {
-    var localeName = data.groups[2].items[1].venue.name;
-    var location = data.groups[2].items[2].location;
-    var localeAddress = location.formattedAddress;
-    var localeLat = location.lat;
-    var localelng = location.lng;
-    var localeDistance = location.distance;
-
-      if(localeName) {
-
-      }
-
-      var fourSqResults = '<h3>' + localeName + '</h3' +
-        '<p>' + localeAddress + '</p>' +
-        '<p> Distance away ' + localeDistance + ' meters</p>';
-        document.getElementById("four_sq_content").innerHTML = fourSqResults;
-  }
-
-});
-
-
 
 
 
