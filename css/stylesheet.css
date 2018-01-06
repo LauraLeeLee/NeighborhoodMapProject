@@ -38,7 +38,7 @@ body {
   padding: 0;
 }
 
-#hr {
+.hr {
   width: 90%;
   border-color: #009933;
 }
@@ -193,6 +193,31 @@ a:hover {
   margin: 10px auto 0;
 }
 
+#four_sq_content {
+  width: 30%;
+  background-color: #c6ecd9;
+  float: left;
+  text-align: center;
+}
+
+.h3_fs {
+  font-family: 'Laila', serif;
+  font-weight: 600;
+  font-size: 1em;
+  color: #006622;
+  margin-bottom: 0;
+}
+
+.p_fs {
+  font-family: 'Laila', serif;
+  font-weight: 400;
+  font-size: 1em;
+  color: #006622;
+  margin: 0;
+}
+
+
+/*styles for infowindow  */
 
 /*gradient to bottom of infowindow*/
 .iw-bottom-gradient {

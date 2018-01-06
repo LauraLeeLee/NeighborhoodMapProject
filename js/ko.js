@@ -336,17 +336,28 @@ var foursquare = function(location) {
         var localeAddress = location.formattedAddress;
         console.log(localeAddress);
         var localeLat = location.lat;
-        var localelng = location.lng;
+        console.log(localeLat);
+        var localeLng = location.lng;
+        console.log(localeLng);
         var localeDistance = location.distance;
+        console.log(localeDistance);
+        // var localePhone = fourSqResult[i].venue.contact.formattedPhone;
+        // console.log(localePhone);
+        // var localeHours = fourSqResult[i].venue.hours;
+        // console.log(localeHours);
+        // var localeUrl = fourSqResult[i].venue.url;
+        // console.log(localeUrl);
+
+        var formattedAddress = localeAddress.join();
+        console.log(formattedAddress);
 
 
-        var fourSqResults = '<h3>' + localeName + '</h3' +
-          '<p>' + localeAddress + '</p>' +
-          '<p> Distance away ' + localeDistance + ' meters</p>';
-          document.getElementById("four_sq_content").innerHTML = fourSqResults;
+        var fourSqRendering = '<h3 class = "h3_fs">' + localeName + '</h3>' +
+          '<p class = "p_fs"> Address: ' + formattedAddress + '</p>' +
+          '<p class = "p_fs"> Distance away: ' + localeDistance + ' meters</p>' + '<hr class = "hr">';
+          document.getElementById("four_sq_content").innerHTML = fourSqRendering;
       }
     }
-
   });
 
 }
