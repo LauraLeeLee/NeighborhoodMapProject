@@ -173,6 +173,7 @@ function populateInfoWindow (marker, infowindow) {
     infowindow.addListener('closeclick', function() {
       infowindow.marker = null;
       marker.setAnimation(null);
+      // marker.setIcon(defaultIcon);
     });
     //open the infowindow on the proper marker
     infowindow.open(map, marker);

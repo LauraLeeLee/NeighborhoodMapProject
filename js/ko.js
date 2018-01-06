@@ -188,7 +188,7 @@ var ViewModel = function() {
           location.marker.setVisible(true); //show filtered location map marker
         } else {
           location.showFiltered(false); // hide non matching list item
-          location.marker.setVisible(false); //hide map markre for non matching
+          location.marker.setVisible(false); //hide map marker for non matching
         }
       });
     });
@@ -307,19 +307,16 @@ var foursquare = function(location) {
   var clientId = 'ITOWGAPHCUEOKCWFWWZAS4OUQECKZD0TGGXN0Z0AH1RAKRHS';
   var clientSecret = 'AWQG20HB2FRHVKEEMMN5SGCP4EQXXPBH2PP0SM01XPNVUTFE';
   var fourSqUrl = "https://api.foursquare.com/v2/venues/explore";
-  var latLng = `ll=${location.lat},${location.lng}`
+  var latLng = `ll=${location.position.lat()},${location.position.lng()}`;
   var useUrl = fourSqUrl + "?" + latLng + "&radius=400" + "&client_id=" + clientId + "&client_secret=" + clientSecret + "&v=20180104";
-
+  console.log(`${location.position.lat()},${location.position.lng()}`);
   function nearBy(search) {
     results.forEach(function(result) {
       for (var i = 0; i <results.length; i++) {
         result.push(results);
       }
     });
-
   }
-
-
   //ajax request
   $.ajax({
     type: "GET",

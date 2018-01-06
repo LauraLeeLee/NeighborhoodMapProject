@@ -27,7 +27,7 @@ Accept-Language: en,it
           <input id ="church-filter" data-bind = "click: filterChurch" class="filter-buttons" type= "button" value="Churches">
           <input id ="filter-places" data-bind = "textInput: filter"type="text" placeholder="Filter locations by name...">
           <ul id = "places-list" data-bind = "foreach: locations">
-            <a href = "#"><li class = "list-items" data-bind = "text: title, click: $parent.showInfowindow, $parent.foursquare, visible: showFiltered"></li></a>
+            <a href = "#"><li class = "list-items" data-bind = "text: title, click: $parent.showInfowindow, foursquare, visible: showFiltered"></li></a>
           </ul>
           <div id = "fade-text"></div>
         </div>
