@@ -325,14 +325,16 @@ var foursquare = function(location) {
     success: function(data) {
       console.log(data);
       console.log(data.response.groups[0].items);
-      console.log(localeName);
 
       var fourSqResult = data.response.groups[0].items;
-      console.log(fourSqResult);
+
       for(var i = 0; i <fourSqResult.length; i++) {
+        console.log(fourSqResult[i]);
         var localeName = fourSqResult[i].venue.name;
+        console.log(localeName);
         var location = fourSqResult[i].location;
         var localeAddress = location.formattedAddress;
+        console.log(localeAddress);
         var localeLat = location.lat;
         var localelng = location.lng;
         var localeDistance = location.distance;
