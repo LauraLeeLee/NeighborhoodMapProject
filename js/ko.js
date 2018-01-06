@@ -323,21 +323,24 @@ var foursquare = function(location) {
     dataType: "json",
     url: useUrl,
     success: function(data) {
-      var localeName = data.groups[2].items[1].venue.name;
-      var location = data.groups[2].items[2].location;
-      var localeAddress = location.formattedAddress;
-      var localeLat = location.lat;
-      var localelng = location.lng;
-      var localeDistance = location.distance;
+      console.log(data);
+      console.log(data.response.groups[0].items);
+      console.log(localeName);
+      var fourSqResult = data.response.groups[0].items;
+      for(var i = 0; i <fourSqResult.length; i++) {
+        var localeName = fourSqResult[i].venue.name;
+        var location = fourSqResult[i].location;
+        var localeAddress = location.formattedAddress;
+        var localeLat = location.lat;
+        var localelng = location.lng;
+        var localeDistance = location.distance;
 
-        if(localeName) {
-
-        }
 
         var fourSqResults = '<h3>' + localeName + '</h3' +
           '<p>' + localeAddress + '</p>' +
           '<p> Distance away ' + localeDistance + ' meters</p>';
           document.getElementById("four_sq_content").innerHTML = fourSqResults;
+      }
     }
 
   });
