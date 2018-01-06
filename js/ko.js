@@ -326,7 +326,9 @@ var foursquare = function(location) {
       console.log(data);
       console.log(data.response.groups[0].items);
       console.log(localeName);
+
       var fourSqResult = data.response.groups[0].items;
+      console.log(fourSqResult);
       for(var i = 0; i <fourSqResult.length; i++) {
         var localeName = fourSqResult[i].venue.name;
         var location = fourSqResult[i].location;
