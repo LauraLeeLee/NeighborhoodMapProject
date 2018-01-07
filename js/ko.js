@@ -157,6 +157,9 @@ var locations = [
   // {title:  , location: {lat: ,lng:}, id: },
 ];
 
+//global variable for our view model, defined in app.js and instantiated there
+var vm;
+
 //-------------ViewModel
 var ViewModel = function() {
   var self = this;
@@ -298,7 +301,7 @@ var ViewModel = function() {
 }
 
 //create empty array to hold foursquare results
-var results = [];
+var fourSqFinds =  ko.observableArray();
 
 //Adds Foursquare api to search for what is near a location
 var foursquare = function(location) {
@@ -333,7 +336,7 @@ var foursquare = function(location) {
         var localeName = fourSqResult[i].venue.name;
         console.log(localeName);
         var location = fourSqResult[i].venue.location;
-        var localeAddress = location.formattedAddress;
+        var localeAddress = location.formattedAddres;
         console.log(localeAddress);
         var localeLat = location.lat;
         console.log(localeLat);
@@ -355,7 +358,8 @@ var foursquare = function(location) {
         var fourSqRendering = '<h3 class = "h3_fs">' + localeName + '</h3>' +
           '<p class = "p_fs"> Address: ' + formattedAddress + '</p>' +
           '<p class = "p_fs"> Distance away: ' + localeDistance + ' meters</p>' + '<hr class = "hr">';
-          document.getElementById("four_sq_content").innerHTML = fourSqRendering;
+          fourSqFinds.push(fourSqRendering);
+        //  document.getElementById("four_sq_content").innerHTML = fourSqRendering;
       }
     }
   });
