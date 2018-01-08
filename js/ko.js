@@ -329,24 +329,24 @@ var foursquare = function(location) {
       console.log(data);
       console.log(data.response.groups[0].items);
 
-      var fourSqResult = data.response.groups[0].items;
-      fourSqFinds.push(fourSqResult);
+      // var fourSqResult = data.response.groups[0].items;
+      fourSqFinds(data.response.groups[0].items);
         console.log(fourSqFinds());
 
-      for(var i = 0; i <fourSqResult.length; i++) {
-        console.log(fourSqResult[i]);
-        var localeName = fourSqResult[i].venue.name;
-        console.log(localeName);
-        var location = fourSqResult[i].venue.location;
-        console.log(location);
-        var localeAddress = location.formattedAddress;
-        console.log(localeAddress);
-        var localeLat = location.lat;
-        console.log(localeLat);
-        var localeLng = location.lng;
-        console.log(localeLng);
-        var localeDistance = location.distance;
-        console.log(localeDistance);
+      // for(var i = 0; i <fourSqResult.length; i++) {
+      //   console.log(fourSqResult[i]);
+      //   var localeName = fourSqResult[i].venue.name;
+      //   console.log(localeName);
+      //   var location = fourSqResult[i].venue.location;
+      //   console.log(location);
+      //   var localeAddress = location.formattedAddress;
+      //   console.log(localeAddress);
+      //   var localeLat = location.lat;
+      //   console.log(localeLat);
+      //   var localeLng = location.lng;
+      //   console.log(localeLng);
+      //   var localeDistance = location.distance;
+      //   console.log(localeDistance);
         // var localePhone = fourSqResult[i].venue.contact.formattedPhone;
         // console.log(localePhone);
         // var localeHours = fourSqResult[i].venue.hours;
@@ -354,8 +354,8 @@ var foursquare = function(location) {
         // var localeUrl = fourSqResult[i].venue.url;
         // console.log(localeUrl);
 
-        var formattedAddress = localeAddress.join();
-        console.log(formattedAddress);
+        // var formattedAddress = localeAddress.join();
+        // console.log(formattedAddress);
 
 
         // var fourSqRendering = '<h3>' + localeName + '</h3>' +
@@ -374,7 +374,6 @@ var foursquare = function(location) {
 
           }
         //  document.getElementById("four_sq_content").innerHTML = fourSqRendering;
-      }
     }
   });
 
