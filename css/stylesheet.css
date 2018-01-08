@@ -41,6 +41,7 @@ body {
 .hr {
   width: 90%;
   border-color: #009933;
+  margin: 0;
 }
 
 #map {
@@ -194,6 +195,25 @@ a:hover {
   margin: 10px auto 0;
 }
 
+#fs_h2 {
+  font-family: 'Laila', serif;
+  font-weight: 600;
+  font-size: 1.5em;
+  color: #006622;
+  margin: 5px 0 0 0;
+  padding: 0;
+}
+
+#fs_h3 {
+  font-family: 'Laila', serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 1em;
+  color: #006622;
+  margin: 0;
+  padding: 0;
+}
+
 #four_sq_content {
   width: 30vw;
   height: 60vh;
@@ -207,7 +227,7 @@ a:hover {
 }
 /*fades bottom of Foursquare results */
 #fade-four-sq {
-  height: 50px;
+  height: 100px;
   position: sticky;
   bottom: 0;
   left: 0;
@@ -215,12 +235,16 @@ a:hover {
   background-image: linear-gradient(to bottom, transparent, #c6ecd9);
 }
 
+.fs_items{
+  margin-top: 5px;
+}
 .h3_name {
   font-family: 'Laila', serif;
   font-weight: 600;
   font-size: 1em;
   color: #006622;
-  margin-bottom: 0;
+  margin: 8px 0 0 0;
+  padding: 0;
 }
 
 .span_address, .span_distance {

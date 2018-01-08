@@ -333,6 +333,12 @@ var foursquare = function(location) {
       fourSqFinds(data.response.groups[0].items);
         console.log(fourSqFinds());
 
+      var closePlacesAndToggle = function() {
+        document.getElementById('places-section').style.visibility = 'none';
+        document.getElementById('toggle-off-places').style.visibility = 'none';
+        
+      }
+
       // for(var i = 0; i <fourSqResult.length; i++) {
       //   console.log(fourSqResult[i]);
       //   var localeName = fourSqResult[i].venue.name;

@@ -33,12 +33,19 @@ Accept-Language: en,it
         </div>
         <!-- div for foursquare results  -->
         <div id = "four_sq_content">
+          <h2 id = "fs_h2">Locations Nearby</h2>
+          <h3 id = "fs_h3">results powered by Foursquare</h3>
           <ul id = "foursquare_list" data-bind = "foreach: fourSqFinds">
-            <li>
+            <li class = "fs_items">
               <h3 class = "h3_name" data-bind = "text: venue.name"></h3>
               <p>
-                <span class = "span_address" data-bind = "text: venue.location.formattedAddress"> </span><br>
-                <span class = "span_distance" data-bind= "text: venue.location.distance">Distance away: meters</span>
+                <span data-bind = "text: venue.location.address"></span><br>
+                <span data-bind = "text: venue.location.labeledLatLngs.postalCode"></span>
+                <span data-bind = "text: venue.location.city"></span>
+                <span data-bind = "text: venue.location.country"></span><br>
+                <!-- <span class = "span_address" data-bind = "text: venue.location.formattedAddress"> </span><br> -->
+                Distance away: <span class = "span_distance" data-bind= "text: venue.location.distance"></span> meters<br>
+                <a href= <span data-bind = "text: venue.menu.externalUrl"></span>></a>
               </p>
               <hr class = "hr">
             </li>
