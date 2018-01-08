@@ -82,7 +82,7 @@ body {
   height: 60vh;
   z-index: 10;
   position: absolute;
-  left: 15px;*/
+  left: 15px;
   float: left;
   visibility: visible;
   border: 2px solid #009933;
@@ -90,6 +90,17 @@ body {
   transition: 1s;
   text-align: center;
 }
+
+/*fades text at bottom of places section*/
+#fade-text {
+  height: 50px;
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-image: linear-gradient(to bottom, transparent, #fff7e6);
+}
+
 
 #places-list {
   list-style: none;
@@ -109,16 +120,6 @@ body {
 a:hover {
   text-decoration: none;
   color: #e60000;
-}
-
-/*fades text at bottom of places list*/
-#fade-text {
-  height: 50px;
-  position: sticky;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-image: linear-gradient(to bottom, transparent, #fff7e6);
 }
 
 #toggle-off-places {
@@ -194,10 +195,24 @@ a:hover {
 }
 
 #four_sq_content {
-  width: 30%;
+  width: 30vw;
+  height: 60vh;
+  overflow: auto;
+  z-index: 10;
+  position: absolute;
   background-color: #c6ecd9;
   float: left;
   text-align: center;
+  display: block;
+}
+/*fades bottom of Foursquare results */
+#fade-four-sq {
+  height: 50px;
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-image: linear-gradient(to bottom, transparent, #c6ecd9);
 }
 
 .h3_fs {

@@ -302,6 +302,7 @@ var ViewModel = function() {
 
 //create empty array to hold foursquare results
 var fourSqFinds =  ko.observableArray();
+console.log(fourSqFinds);
 
 //Adds Foursquare api to search for what is near a location
 var foursquare = function(location) {
@@ -360,6 +361,14 @@ var foursquare = function(location) {
           '<p class = "p_fs"> Address: ' + formattedAddress + '</p>' +
           '<p class = "p_fs"> Distance away: ' + localeDistance + ' meters</p>' + '<hr class = "hr">';
           fourSqFinds.push(fourSqRendering);
+
+          var closeToggle = function() {
+            document.getElementById('four_sq_content').style.display = 'block';
+            document.getElementById('places-section').style.height = '0';
+            document.getElementById('places-section').style.border = 'none';
+            document.getElementById('toggle-off-places').display = 'none';
+
+          }
         //  document.getElementById("four_sq_content").innerHTML = fourSqRendering;
       }
     }
