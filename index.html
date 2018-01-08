@@ -35,10 +35,10 @@ Accept-Language: en,it
         <div id = "four_sq_content">
           <ul id = "foursquare_list" data-bind = "foreach: fourSqFinds">
             <li>
-              <h3 class = "h3_name" data-bind = "text: localeName"></h3>
+              <h3 class = "h3_name" data-bind = "text: $parent.localeName"></h3>
               <p>
-                <span class = "span_address" data-bind = "text: formattedAddress"> </span>
-                <span class = "span_distance" data-bind= "text: localeDistance"></span>
+                <span class = "span_address" data-bind = "text: $parent.formattedAddress"> </span>
+                <span class = "span_distance" data-bind= "text: $parent.localeDistance"></span>
               </p>
               <hr class = "hr">
             </li>

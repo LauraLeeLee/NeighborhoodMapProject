@@ -356,10 +356,12 @@ var foursquare = function(location) {
         console.log(formattedAddress);
 
 
-        var fourSqRendering = '<h3>' + localeName + '</h3>' +
-          '<span> Address: ' + formattedAddress + '</span>' +
-          '<span> Distance away: ' + localeDistance + ' meters</span>';
-          fourSqFinds.push(fourSqRendering);
+        // var fourSqRendering = '<h3>' + localeName + '</h3>' +
+        //   '<span> Address: ' + formattedAddress + '</span>' +
+        //   '<span> Distance away: ' + localeDistance + ' meters</span>';
+          fourSqFinds.push(localeName);
+          fourSqFinds.push(formattedAddress);
+          fourSqFinds.push(localeDistance);
           console.log(fourSqFinds());
 
           var closeToggle = function() {
