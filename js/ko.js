@@ -330,6 +330,8 @@ var foursquare = function(location) {
       console.log(data.response.groups[0].items);
 
       var fourSqResult = data.response.groups[0].items;
+      fourSqFinds.push(fourSqResult);
+        console.log(fourSqFinds());
 
       for(var i = 0; i <fourSqResult.length; i++) {
         console.log(fourSqResult[i]);
@@ -359,10 +361,10 @@ var foursquare = function(location) {
         // var fourSqRendering = '<h3>' + localeName + '</h3>' +
         //   '<span> Address: ' + formattedAddress + '</span>' +
         //   '<span> Distance away: ' + localeDistance + ' meters</span>';
-          fourSqFinds.push(localeName);
-          fourSqFinds.push(formattedAddress);
-          fourSqFinds.push(localeDistance);
-          console.log(fourSqFinds());
+          // fourSqFinds.push(localeName);
+          // fourSqFinds.push(formattedAddress);
+          // fourSqFinds.push(localeDistance);
+
 
           var closeToggle = function() {
             document.getElementById('four_sq_content').style.display = 'block';
