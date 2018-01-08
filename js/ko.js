@@ -340,7 +340,7 @@ var foursquare = function(location) {
         this.zip = venue.location.labeledLatLngs.postalCode ? venue.location.labeledLatLngs.postalCode: "No postal code available";
         this.city = venue.location.city ? venue.location.city: "No city available";
         this.country = venue.location.country ? venue.location.country: "No country available";
-        this.url = venue.menu.externalUrl ? venue.menu.externalUrl: "No url available";
+        this.url = venue.stats.url ? venue.stats.url: "No url available";
       }
       fourSqFinds.push(NearByLocation());
 
