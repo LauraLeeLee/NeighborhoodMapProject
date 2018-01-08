@@ -336,7 +336,8 @@ var foursquare = function(location) {
         var localeName = fourSqResult[i].venue.name;
         console.log(localeName);
         var location = fourSqResult[i].venue.location;
-        var localeAddress = location.formattedAddres;
+        console.log(location);
+        var localeAddress = location.formattedAddress;
         console.log(localeAddress);
         var localeLat = location.lat;
         console.log(localeLat);

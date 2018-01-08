@@ -137,7 +137,7 @@ for (var i = 0; i < locations.length; i++) {
  }
  // Instantiate Knockout once the map is initialized
   //adds value to our global variable
-  vm = new appViewModel();
+  vm = new ViewModel();
   ko.applyBindings(vm);
   //ko.applyBindings(new ViewModel());
  //tell map to fit itself to those bounds
