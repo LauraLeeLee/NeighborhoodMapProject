@@ -333,11 +333,30 @@ var foursquare = function(location) {
       fourSqFinds(data.response.groups[0].items);
         console.log(fourSqFinds());
 
+      //temporary object to obtain information from foursquare results
+      var NearByLocation = function(venue) {
+        this.name = venue.name ? venue.name: "No name available";
+        this.address = venue.location.address ? venue.location.address: "No address available";
+        this.zip = venue.location.labeledLatLngs.postalCode ? venue.location.labeledLatLngs.postalCode: "No postal code available";
+        this.city = venue.location.city ? venue.location.city: "No city available";
+        this.country = venue.location.country ? venue.location.country: "No country available";
+        this.url = venue.menu.externalUrl ? venue.menu.externalUrl: "No url available";
+      }
+      fourSqFinds.push(NearByLocation());
+
+      //push new instances of our class into the observable array
+      venues.forEach(function(venue) {
+        fourSqFinds.push(new NearByLocation(venue));
+      });
+
       var closePlacesAndToggle = function() {
         document.getElementById('places-section').style.visibility = 'none';
         document.getElementById('toggle-off-places').style.visibility = 'none';
-        
+
       }
+
+
+    //  document.getElementById("four_sq_content").innerHTML = fourSqRendering;
 
       // for(var i = 0; i <fourSqResult.length; i++) {
       //   console.log(fourSqResult[i]);
@@ -370,16 +389,6 @@ var foursquare = function(location) {
           // fourSqFinds.push(localeName);
           // fourSqFinds.push(formattedAddress);
           // fourSqFinds.push(localeDistance);
-
-
-          var closeToggle = function() {
-            document.getElementById('four_sq_content').style.display = 'block';
-            document.getElementById('places-section').style.height = '0';
-            document.getElementById('places-section').style.border = 'none';
-            document.getElementById('toggle-off-places').display = 'none';
-
-          }
-        //  document.getElementById("four_sq_content").innerHTML = fourSqRendering;
     }
   });
 
