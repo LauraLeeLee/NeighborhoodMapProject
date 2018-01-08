@@ -302,7 +302,6 @@ var ViewModel = function() {
 
 //create empty array to hold foursquare results
 var fourSqFinds =  ko.observableArray();
-console.log(fourSqFinds);
 
 //Adds Foursquare api to search for what is near a location
 var foursquare = function(location) {
@@ -357,10 +356,11 @@ var foursquare = function(location) {
         console.log(formattedAddress);
 
 
-        var fourSqRendering = '<h3 class = "h3_fs">' + localeName + '</h3>' +
-          '<p class = "p_fs"> Address: ' + formattedAddress + '</p>' +
-          '<p class = "p_fs"> Distance away: ' + localeDistance + ' meters</p>' + '<hr class = "hr">';
+        var fourSqRendering = '<h3>' + localeName + '</h3>' +
+          '<span> Address: ' + formattedAddress + '</span>' +
+          '<span> Distance away: ' + localeDistance + ' meters</span>';
           fourSqFinds.push(fourSqRendering);
+          console.log(fourSqFinds());
 
           var closeToggle = function() {
             document.getElementById('four_sq_content').style.display = 'block';

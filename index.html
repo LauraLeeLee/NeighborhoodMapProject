@@ -32,7 +32,19 @@ Accept-Language: en,it
           <div id = "fade-text"></div>
         </div>
         <!-- div for foursquare results  -->
-        <div id = "four_sq_content" data-bind = "foreach: fourSqFinds"><div id = "fade-four-sq"></div> </div>
+        <div id = "four_sq_content">
+          <ul id = "foursquare_list" data-bind = "foreach: fourSqFinds">
+            <li>
+              <h3 class = "h3_name" data-bind = "text: localeName"></h3>
+              <p>
+                <span class = "span_address" data-bind = "text: formattedAddress"> </span>
+                <span class = "span_distance" data-bind= "text: localeDistance"></span>
+              </p>
+              <hr class = "hr">
+            </li>
+          </ul>
+          <div id = "fade-four-sq"></div>
+        </div>
         <!-- <div class = "col-sm-9"> -->
          <div id="map"><div id = "fade-four-sq"></div></div>
        <!-- </div> -->
