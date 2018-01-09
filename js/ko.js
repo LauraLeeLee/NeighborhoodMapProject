@@ -302,6 +302,7 @@ var ViewModel = function() {
 
 //create empty array to hold foursquare results
 var fourSqFinds =  ko.observableArray();
+console.log(fourSqFinds());
 
 //object constructor to obtain information from foursquare results
 var NearByVenues = function(venue) {
@@ -309,10 +310,11 @@ var NearByVenues = function(venue) {
   this.name = venue.venue.name ? venue.venue.name: "No name available";
   this.address = venue.venue.location.address ? venue.venue.location.address: "No address available";
   this.zip = venue.venue.location.labeledLatLngs.postalCode ? venue.venue.location.labeledLatLngs.postalCode: "No postal code available";
+  console.log(venue.venue.location.labeledLatLngs.postalCode);
   this.city = venue.venue.location.city ? venue.venue.location.city: "No city available";
   this.country = venue.venue.location.country ? venue.venue.location.country: "No country available";
   this.url = venue.venue.url ?venue.venue.url: "No url available";
-  this.distance = venue.venue.location.distance ? venue.venue.locaiton.distance: "No distance available";
+  this.distance = venue.venue.location.distance ? venue.venue.location.distance: "No distance available";
 };
 // fourSqFinds.push(NearByVenues());
 
