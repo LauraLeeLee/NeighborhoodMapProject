@@ -347,9 +347,11 @@ var foursquare = function(location) {
         console.log(fourSqFinds());
 
       var venues = data.response.groups[0].items;
+      console.log(venues);
       //push new instances of our class into the observable array
       venues.forEach(function(venue) {
         fourSqFinds.push(new NearByVenues(venue));
+        console.log(venue);
       });
     }
   });
