@@ -307,11 +307,12 @@ var fourSqFinds =  ko.observableArray();
 var NearByVenues = function(venue) {
     console.log("venue",venue);
   this.name = venue.venue.name ? venue.venue.name: "No name available";
-  this.address = venue.location.address ? venue.location.address: "No address available";
-  this.zip = venue.location.labeledLatLngs.postalCode ? venue.location.labeledLatLngs.postalCode: "No postal code available";
-  this.city = venue.location.city ? venue.location.city: "No city available";
-  this.country = venue.location.country ? venue.location.country: "No country available";
-  this.url = venue.url ? venue.url: "No url available";
+  this.address = venue.venue.location.address ? venue.venue.location.address: "No address available";
+  this.zip = venue.venue.location.labeledLatLngs.postalCode ? venue.venue.location.labeledLatLngs.postalCode: "No postal code available";
+  this.city = venue.venue.location.city ? venue.venue.location.city: "No city available";
+  this.country = venue.venue.location.country ? venue.venue.location.country: "No country available";
+  this.url = venue.venue.url ?venue.venue.url: "No url available";
+  this.distance = venue.venue.location.distance ? venue.venue.locaiton.distance: "No distance available";
 };
 // fourSqFinds.push(NearByVenues());
 

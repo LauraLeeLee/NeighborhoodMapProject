@@ -39,13 +39,13 @@ Accept-Language: en,it
             <li class = "fs_items">
               <h3 class = "h3_name" data-bind = "text: name"></h3>
               <p>
-                <span data-bind = "text: venue.location.address"></span><br>
-                <span data-bind = "text: venue.location.labeledLatLngs.postalCode"></span>
-                <span data-bind = "text: venue.location.city"></span>
-                <span data-bind = "text: venue.location.country"></span><br>
+                <span data-bind = "text: address"></span><br>
+                <span data-bind = "text: zip"></span>
+                <span data-bind = "text: city"></span>
+                <span data-bind = "text: country"></span><br>
                 <!-- <span class = "span_address" data-bind = "text: venue.location.formattedAddress"> </span><br> -->
-                Distance away: <span class = "span_distance" data-bind= "text: venue.location.distance"></span> meters<br>
-                <span data-bind = "text: venue.url"></span>
+                Distance away: <span class = "span_distance" data-bind= "text: distance"></span> meters<br>
+                <span data-bind = "text: url"></span>
               </p>
               <hr class = "hr">
             </li>
