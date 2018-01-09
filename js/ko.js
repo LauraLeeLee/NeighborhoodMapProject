@@ -303,6 +303,17 @@ var ViewModel = function() {
 //create empty array to hold foursquare results
 var fourSqFinds =  ko.observableArray();
 
+//temporary object to obtain information from foursquare results
+var NearByVenues = function(venue) {
+  this.name = venue.name ? venue.name: "No name available";
+  this.address = venue.location.address ? venue.location.address: "No address available";
+  this.zip = venue.location.labeledLatLngs.postalCode ? venue.location.labeledLatLngs.postalCode: "No postal code available";
+  this.city = venue.location.city ? venue.location.city: "No city available";
+  this.country = venue.location.country ? venue.location.country: "No country available";
+  this.url = venue.url ? venue.url: "No url available";
+}
+fourSqFinds.push(NearByVenues());
+
 //Adds Foursquare api to search for what is near a location
 var foursquare = function(location) {
   console.log(location);
@@ -332,66 +343,13 @@ var foursquare = function(location) {
       // var fourSqResult = data.response.groups[0].items;
       fourSqFinds(data.response.groups[0].items);
         console.log(fourSqFinds());
-
-      //temporary object to obtain information from foursquare results
-      var NearByLocation = function(venue) {
-        this.name = venue.name ? venue.name: "No name available";
-        this.address = venue.location.address ? venue.location.address: "No address available";
-        this.zip = venue.location.labeledLatLngs.postalCode ? venue.location.labeledLatLngs.postalCode: "No postal code available";
-        this.city = venue.location.city ? venue.location.city: "No city available";
-        this.country = venue.location.country ? venue.location.country: "No country available";
-        this.url = venue.url ? venue.url: "No url available";
-      }
-      fourSqFinds.push(NearByLocation());
-
+      var venues = data.response.groups[0].items;
       //push new instances of our class into the observable array
-      venues.forEach(function(venue) {
+      venue.forEach(function(venue) {
         fourSqFinds.push(new NearByLocation(venue));
       });
-
-      var closePlacesAndToggle = function() {
-        document.getElementById('places-section').style.visibility = 'none';
-        document.getElementById('toggle-off-places').style.visibility = 'none';
-
-      }
-
-
-    //  document.getElementById("four_sq_content").innerHTML = fourSqRendering;
-
-      // for(var i = 0; i <fourSqResult.length; i++) {
-      //   console.log(fourSqResult[i]);
-      //   var localeName = fourSqResult[i].venue.name;
-      //   console.log(localeName);
-      //   var location = fourSqResult[i].venue.location;
-      //   console.log(location);
-      //   var localeAddress = location.formattedAddress;
-      //   console.log(localeAddress);
-      //   var localeLat = location.lat;
-      //   console.log(localeLat);
-      //   var localeLng = location.lng;
-      //   console.log(localeLng);
-      //   var localeDistance = location.distance;
-      //   console.log(localeDistance);
-        // var localePhone = fourSqResult[i].venue.contact.formattedPhone;
-        // console.log(localePhone);
-        // var localeHours = fourSqResult[i].venue.hours;
-        // console.log(localeHours);
-        // var localeUrl = fourSqResult[i].venue.url;
-        // console.log(localeUrl);
-
-        // var formattedAddress = localeAddress.join();
-        // console.log(formattedAddress);
-
-
-        // var fourSqRendering = '<h3>' + localeName + '</h3>' +
-        //   '<span> Address: ' + formattedAddress + '</span>' +
-        //   '<span> Distance away: ' + localeDistance + ' meters</span>';
-          // fourSqFinds.push(localeName);
-          // fourSqFinds.push(formattedAddress);
-          // fourSqFinds.push(localeDistance);
     }
   });
-
 }
 
 

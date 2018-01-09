@@ -45,7 +45,8 @@ Accept-Language: en,it
                 <span data-bind = "text: venue.location.country"></span><br>
                 <!-- <span class = "span_address" data-bind = "text: venue.location.formattedAddress"> </span><br> -->
                 Distance away: <span class = "span_distance" data-bind= "text: venue.location.distance"></span> meters<br>
-                <a href= <span data-bind = "text: venue.url"></span>></a>
+                <span data-bind = "text: venue.url"></span>
+                <!-- "attr: { href: url, title: details }" -->
               </p>
               <hr class = "hr">
             </li>
