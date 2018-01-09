@@ -316,7 +316,6 @@ var NearByVenues = function(venue) {
   this.url = venue.venue.url ?venue.venue.url: "No url available";
   this.distance = venue.venue.location.distance ? venue.venue.location.distance: "No distance available";
 };
-// fourSqFinds.push(NearByVenues());
 
 //Adds Foursquare api to search for what is near a location
 var foursquare = function(location) {
@@ -335,15 +334,14 @@ var foursquare = function(location) {
     url: useUrl,
     success: function(data) {
       console.log(data);
-      console.log(data.response.groups[0].items);
 
       var venues = data.response.groups[0].items;
 
       //push new instances of our class into the observable array
       venues.forEach(function(venue) {
         fourSqFinds.push(new NearByVenues(venue));
-        console.log(venue);
       });
+      console.log("Completed Array", fourSqFinds());
     }
   });
 };
