@@ -305,18 +305,18 @@ var fourSqFinds =  ko.observableArray();
 
 //object constructor to obtain information from foursquare results
 var NearByVenues = function(venue) {
-  this.name = venue.name ? venue.name: "No name available";
+    console.log("venue",venue);
+  this.name = venue.venue.name ? venue.venue.name: "No name available";
   this.address = venue.location.address ? venue.location.address: "No address available";
   this.zip = venue.location.labeledLatLngs.postalCode ? venue.location.labeledLatLngs.postalCode: "No postal code available";
   this.city = venue.location.city ? venue.location.city: "No city available";
   this.country = venue.location.country ? venue.location.country: "No country available";
   this.url = venue.url ? venue.url: "No url available";
 };
-fourSqFinds.push(NearByVenues());
+// fourSqFinds.push(NearByVenues());
 
 //Adds Foursquare api to search for what is near a location
 var foursquare = function(location) {
-  console.log(location);
   //foursquare info to execute the API request
   var clientId = 'ITOWGAPHCUEOKCWFWWZAS4OUQECKZD0TGGXN0Z0AH1RAKRHS';
   var clientSecret = 'AWQG20HB2FRHVKEEMMN5SGCP4EQXXPBH2PP0SM01XPNVUTFE';
@@ -324,14 +324,6 @@ var foursquare = function(location) {
   var latLng = `ll=${location.position.lat()},${location.position.lng()}`;
   var useUrl = fourSqUrl + "?" + latLng + "&radius=400" + "&client_id=" + clientId + "&client_secret=" + clientSecret + "&v=20180104";
   console.log(`${location.position.lat()},${location.position.lng()}`);
-  function nearBy(search) {
-    results.forEach(function(result) {
-      for (var i = 0; i <results.length; i++) {
-        result.push(results);
-      }
-    });
-    console.log(nearBy());
-  }
 
   //ajax request
   $.ajax({
@@ -342,38 +334,8 @@ var foursquare = function(location) {
       console.log(data);
       console.log(data.response.groups[0].items);
 
-      // var fourSqResult = data.response.groups[0].items;
-      fourSqFinds(data.response.groups[0].items);
-        console.log(fourSqFinds());
-
-<<<<<<< HEAD
       var venues = data.response.groups[0].items;
-      console.log(venues);
-||||||| 58115e5... changes the category to gather the url from foursquare results
-      //temporary object to obtain information from foursquare results
-      var NearByLocation = function(venue) {
-        this.name = venue.name ? venue.name: "No name available";
-        this.address = venue.location.address ? venue.location.address: "No address available";
-        this.zip = venue.location.labeledLatLngs.postalCode ? venue.location.labeledLatLngs.postalCode: "No postal code available";
-        this.city = venue.location.city ? venue.location.city: "No city available";
-        this.country = venue.location.country ? venue.location.country: "No country available";
-        this.url = venue.url ? venue.url: "No url available";
-      }
-      fourSqFinds.push(NearByLocation());
 
-=======
-      //temporary object to obtain information from foursquare results
-      var NearByLocation = function(venue) {
-        this.name = venue.name ? venue.name: "No name available";
-        this.address = venue.location.address ? venue.location.address: "No address available";
-        this.zip = venue.location.labeledLatLngs.postalCode ? venue.location.labeledLatLngs.postalCode: "No postal code available";
-        this.city = venue.location.city ? venue.location.city: "No city available";
-        this.country = venue.location.country ? venue.location.country: "No country available";
-        this.url = venue.stats.url ? venue.stats.url: "No url available";
-      }
-      fourSqFinds.push(NearByLocation());
-
->>>>>>> parent of 58115e5... changes the category to gather the url from foursquare results
       //push new instances of our class into the observable array
       venues.forEach(function(venue) {
         fourSqFinds.push(new NearByVenues(venue));
