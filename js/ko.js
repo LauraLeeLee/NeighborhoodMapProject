@@ -346,8 +346,34 @@ var foursquare = function(location) {
       fourSqFinds(data.response.groups[0].items);
         console.log(fourSqFinds());
 
+<<<<<<< HEAD
       var venues = data.response.groups[0].items;
       console.log(venues);
+||||||| 58115e5... changes the category to gather the url from foursquare results
+      //temporary object to obtain information from foursquare results
+      var NearByLocation = function(venue) {
+        this.name = venue.name ? venue.name: "No name available";
+        this.address = venue.location.address ? venue.location.address: "No address available";
+        this.zip = venue.location.labeledLatLngs.postalCode ? venue.location.labeledLatLngs.postalCode: "No postal code available";
+        this.city = venue.location.city ? venue.location.city: "No city available";
+        this.country = venue.location.country ? venue.location.country: "No country available";
+        this.url = venue.url ? venue.url: "No url available";
+      }
+      fourSqFinds.push(NearByLocation());
+
+=======
+      //temporary object to obtain information from foursquare results
+      var NearByLocation = function(venue) {
+        this.name = venue.name ? venue.name: "No name available";
+        this.address = venue.location.address ? venue.location.address: "No address available";
+        this.zip = venue.location.labeledLatLngs.postalCode ? venue.location.labeledLatLngs.postalCode: "No postal code available";
+        this.city = venue.location.city ? venue.location.city: "No city available";
+        this.country = venue.location.country ? venue.location.country: "No country available";
+        this.url = venue.stats.url ? venue.stats.url: "No url available";
+      }
+      fourSqFinds.push(NearByLocation());
+
+>>>>>>> parent of 58115e5... changes the category to gather the url from foursquare results
       //push new instances of our class into the observable array
       venues.forEach(function(venue) {
         fourSqFinds.push(new NearByVenues(venue));
