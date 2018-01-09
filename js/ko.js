@@ -303,7 +303,7 @@ var ViewModel = function() {
 //create empty array to hold foursquare results
 var fourSqFinds =  ko.observableArray();
 
-//temporary object to obtain information from foursquare results
+//object constructor to obtain information from foursquare results
 var NearByVenues = function(venue) {
   this.name = venue.name ? venue.name: "No name available";
   this.address = venue.location.address ? venue.location.address: "No address available";
@@ -311,7 +311,7 @@ var NearByVenues = function(venue) {
   this.city = venue.location.city ? venue.location.city: "No city available";
   this.country = venue.location.country ? venue.location.country: "No country available";
   this.url = venue.url ? venue.url: "No url available";
-}
+};
 fourSqFinds.push(NearByVenues());
 
 //Adds Foursquare api to search for what is near a location
@@ -330,7 +330,9 @@ var foursquare = function(location) {
         result.push(results);
       }
     });
+    console.log(nearBy());
   }
+
   //ajax request
   $.ajax({
     type: "GET",
@@ -343,14 +345,15 @@ var foursquare = function(location) {
       // var fourSqResult = data.response.groups[0].items;
       fourSqFinds(data.response.groups[0].items);
         console.log(fourSqFinds());
+
       var venues = data.response.groups[0].items;
       //push new instances of our class into the observable array
-      venue.forEach(function(venue) {
-        fourSqFinds.push(new NearByLocation(venue));
+      venues.forEach(function(venue) {
+        fourSqFinds.push(new NearByVenues(venue));
       });
     }
   });
-}
+};
 
 
 
