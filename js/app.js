@@ -94,7 +94,12 @@ largeInfowindow = new google.maps.InfoWindow();
 //new latlng bounds instance capturing SW and NE corners of viewport
 var bounds = new google.maps.LatLngBounds();
 
-
+//style the markers.
+defaultIcon = makeMarkerIcon('009933');
+//highlight marker when mouse over
+highlightedIcon = makeMarkerIcon('e60000');
+//create marker for when its open
+openedIcon = makeMarkerIcon('ffffff');
 
 //uses location array to create an array of markers on Initialize
 for (var i = 0; i < locations.length; i++) {
@@ -117,13 +122,6 @@ for (var i = 0; i < locations.length; i++) {
   var marker = locations[i].marker;
   //push marker to array of markers
   markers.push(locations[i].marker);
-
-  //style the markers.
-  defaultIcon = makeMarkerIcon('009933');
-  //highlight marker when mouse over
-  highlightedIcon = makeMarkerIcon('e60000');
-  //create marker for when its open
-  openedIcon = makeMarkerIcon('ffffff');
 
   //extend bounds for every maker we make
   bounds.extend(markers[i].position);
@@ -152,23 +150,6 @@ for (var i = 0; i < locations.length; i++) {
   //ko.applyBindings(new ViewModel());
  //tell map to fit itself to those bounds
  map.fitBounds(bounds);
-
-
- //click anywhere on map to close infowindow
- // map.addListener(marker, 'click', function() {
- //     if(!marker.open){
- //         largeInfoWindow.open(map,marker);
- //         marker.open = true;
- //     }
- //     else{
- //         largeInfoWindow.close();
- //         marker.open = false;
- //     }
- //     map.addListener(map, 'click', function() {
- //         largeInfoWindow.close();
- //         marker.open = false;
- //     });
- // });
 }
 
  // function to populate the infowindow when marker is clicked.
