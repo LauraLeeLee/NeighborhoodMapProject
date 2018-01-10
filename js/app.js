@@ -91,10 +91,7 @@ largeInfowindow = new google.maps.InfoWindow();
 //new latlng bounds instance capturing SW and NE corners of viewport
 var bounds = new google.maps.LatLngBounds();
 
-//style the markers.
-var defaultIcon = makeMarkerIcon('009933');
-//highlight marker when mouse over
-var highlightedIcon = makeMarkerIcon('e60000');
+
 
 //uses location array to create an array of markers on Initialize
 for (var i = 0; i < locations.length; i++) {
@@ -117,13 +114,7 @@ for (var i = 0; i < locations.length; i++) {
   var marker = locations[i].marker;
   //push marker to array of markers
   markers.push(locations[i].marker);
-  // //create an onclick event to open the large InfoWindow
-  marker.addListener('click', function(){
-    //getPlacesDetails(this, largeInfowindow);
-    populateInfoWindow(this, largeInfowindow);
-    fourSqFinds([]);
-    foursquare(this);
-  });
+
   //extend bounds for every maker we make
   bounds.extend(markers[i].position);
 
@@ -134,6 +125,14 @@ for (var i = 0; i < locations.length; i++) {
   });
   marker.addListener('mouseout', function(){
     this.setIcon(defaultIcon);
+  });
+
+  // //create an onclick event to open the large InfoWindow
+  marker.addListener('click', function(){
+    this.setIcon(openedIcon);
+    populateInfoWindow(this, largeInfowindow);
+    fourSqFinds([]);
+    foursquare(this);
   });
  }
  // Instantiate Knockout once the map is initialized
@@ -164,8 +163,6 @@ for (var i = 0; i < locations.length; i++) {
 
  // function to populate the infowindow when marker is clicked.
 function populateInfoWindow (marker, infowindow) {
-  //create marker for when its open
-  var openedIcon = makeMarkerIcon('ffffff');
 
 //check to see if infowindow is already open
   if(infowindow.marker != marker) {
@@ -177,7 +174,6 @@ function populateInfoWindow (marker, infowindow) {
     //see if the marker property is cleared if infowindow is closed
     infowindow.addListener('closeclick', function() {
       infowindow.marker = null;
-      marker.setAnimation(null);
       document.getElementById('four_sq_content').style.display = "none";
        fourSqFinds([]);
       // marker.setIcon(defaultIcon);
@@ -187,7 +183,6 @@ function populateInfoWindow (marker, infowindow) {
     infowindow.open(map, marker);
     marker.setAnimation(google.maps.Animation.BOUNCE);
     setTimeout(function () { marker.setAnimation(null); }, 5000);
-    marker.setIcon(openedIcon);
   }
 }
 //gets place details from place_id via PlacesService
@@ -286,3 +281,10 @@ function makeMarkerIcon(markerColor) {
     new google.maps.Size(20,35));
   return markerImage;
 }
+
+//style the markers.
+var defaultIcon = makeMarkerIcon('009933');
+//highlight marker when mouse over
+var highlightedIcon = makeMarkerIcon('e60000');
+//create marker for when its open
+var openedIcon = makeMarkerIcon('ffffff');
