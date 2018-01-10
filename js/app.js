@@ -118,6 +118,13 @@ for (var i = 0; i < locations.length; i++) {
   //push marker to array of markers
   markers.push(locations[i].marker);
 
+  //style the markers.
+  defaultIcon = makeMarkerIcon('009933');
+  //highlight marker when mouse over
+  highlightedIcon = makeMarkerIcon('e60000');
+  //create marker for when its open
+  openedIcon = makeMarkerIcon('ffffff');
+
   //extend bounds for every maker we make
   bounds.extend(markers[i].position);
 
@@ -284,10 +291,3 @@ function makeMarkerIcon(markerColor) {
     new google.maps.Size(20,35));
   return markerImage;
 }
-
-//style the markers.
-defaultIcon = makeMarkerIcon('009933');
-//highlight marker when mouse over
-highlightedIcon = makeMarkerIcon('e60000');
-//create marker for when its open
-openedIcon = makeMarkerIcon('ffffff');
