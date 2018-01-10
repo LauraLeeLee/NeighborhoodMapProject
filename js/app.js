@@ -184,6 +184,7 @@ function populateInfoWindow (marker, infowindow) {
     //see if the marker property is cleared if infowindow is closed
     infowindow.addListener('closeclick', function() {
       infowindow.marker = null;
+      marker.setIcon(defaultIcon);
       document.getElementById('four_sq_content').style.display = "none";
        fourSqFinds([]);
       // marker.setIcon(defaultIcon);
@@ -191,6 +192,7 @@ function populateInfoWindow (marker, infowindow) {
 
     //open the infowindow on the proper marker
     infowindow.open(map, marker);
+    marker.setIcon(openedIcon);
     marker.setAnimation(google.maps.Animation.BOUNCE);
     setTimeout(function () { marker.setAnimation(null); }, 5000);
   }
