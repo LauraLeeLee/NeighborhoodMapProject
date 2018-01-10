@@ -181,6 +181,7 @@ function populateInfoWindow (marker, infowindow) {
     //open the infowindow on the proper marker
     infowindow.open(map, marker);
     marker.setAnimation(google.maps.Animation.BOUNCE);
+    setTimeout(function () { marker.setAnimation(null); }, 5000);
     marker.setIcon(openedIcon);
   }
 }
