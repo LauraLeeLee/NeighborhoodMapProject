@@ -159,6 +159,8 @@ var locations = [
 
 //global variable for our view model, defined in app.js and instantiated there
 var vm;
+//global var for no results found by FS
+var noResults;
 
 //-------------ViewModel
 var ViewModel = function() {
@@ -343,11 +345,15 @@ var foursquare = function(location) {
       var venues = data.response.groups[0].items;
 
       //push new instances of our class into the observable array
-
-      venues.forEach(function(venue) {
-        fourSqFinds.push(new NearByVenues(venue));
-      });
-      // document.getElementsByClassName('h3_name').innerHTML = "No Results Found";
+      if(venues.length > 0){
+        venues.forEach(function(venue) {
+          fourSqFinds.push(new NearByVenues(venue));
+        });
+      } else {
+        //creates fallback message if no results are found nearby
+        noResults = document.createElement('h2').innerHTML = "No Results Found Nearby";
+        document.getElementById('four_sq_content').append(noResults);
+      }
       console.log("Completed Array", fourSqFinds());
     },
 

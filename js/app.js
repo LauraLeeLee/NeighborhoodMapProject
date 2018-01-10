@@ -152,6 +152,15 @@ for (var i = 0; i < locations.length; i++) {
  map.fitBounds(bounds);
 }
 
+// Error message if google maps isn't loading
+function googleError() {
+    document.getElementById('errorGoogle').innerHTML = "Google Maps is not loading. Please try again later";
+}
+
+if (map != map) {
+  googleError();
+}
+
  // function to populate the infowindow when marker is clicked.
 function populateInfoWindow (marker, infowindow) {
 
@@ -167,7 +176,8 @@ function populateInfoWindow (marker, infowindow) {
       infowindow.marker = null;
       marker.setIcon(defaultIcon);
       document.getElementById('four_sq_content').style.display = "none";
-       fourSqFinds([]);
+      fourSqFinds([]);
+      noResults.innerHTML = ' ';
       // marker.setIcon(defaultIcon);
     });
 
