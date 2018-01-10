@@ -179,6 +179,8 @@ var ViewModel = function() {
   self.showInfowindow = function(location) {
     console.log(location);
     populateInfoWindow(location.marker, largeInfowindow);
+    fourSqFinds([]);
+    foursquare(location.marker);
   }
 
   //filter locations
@@ -295,10 +297,12 @@ var ViewModel = function() {
         document.getElementById('places-section').style.height = '60vh';
         document.getElementById('places-section').style.border = '2px solid #009933';
       }
+      document.getElementById('four_sq_content').style.display = "none";
     }
       // document.getElementById('places-section').style.visibility = 'hidden';
       // document.getElementById('places-section').style.visibility = 'visible';
 }
+// var fourSqDiv = document.getElementById('four_sq_content');
 
 //create empty array to hold foursquare results
 var fourSqFinds =  ko.observableArray();
@@ -333,6 +337,7 @@ var foursquare = function(location) {
     url: useUrl,
     success: function(data) {
       console.log(data);
+      document.getElementById('four_sq_content').style.display = "block";
 
       var venues = data.response.groups[0].items;
 

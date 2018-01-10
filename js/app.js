@@ -121,6 +121,7 @@ for (var i = 0; i < locations.length; i++) {
   marker.addListener('click', function(){
     //getPlacesDetails(this, largeInfowindow);
     populateInfoWindow(this, largeInfowindow);
+    fourSqFinds([]);
     foursquare(this);
   });
   //extend bounds for every maker we make
@@ -172,12 +173,16 @@ function populateInfoWindow (marker, infowindow) {
     infowindow.setContent('');
     infowindow.marker = marker;
     getPlacesDetails(marker, infowindow);
+
     //see if the marker property is cleared if infowindow is closed
     infowindow.addListener('closeclick', function() {
       infowindow.marker = null;
       marker.setAnimation(null);
+      document.getElementById('four_sq_content').style.display = "none";
+       fourSqFinds([]);
       // marker.setIcon(defaultIcon);
     });
+
     //open the infowindow on the proper marker
     infowindow.open(map, marker);
     marker.setAnimation(google.maps.Animation.BOUNCE);

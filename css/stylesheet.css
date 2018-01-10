@@ -223,7 +223,7 @@ a:hover {
   background-color: #c6ecd9;
   float: left;
   text-align: center;
-  display: block;
+  display: none;
 }
 /*fades bottom of Foursquare results */
 #fade-four-sq {
