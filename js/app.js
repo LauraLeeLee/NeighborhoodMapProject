@@ -1,5 +1,8 @@
 var map;
 var largeInfowindow;
+var defaultIcon;
+var highlightedIcon;
+var openedIcon;
 //create new blank array for location hideMarkers
 var markers = [];
 
@@ -283,8 +286,8 @@ function makeMarkerIcon(markerColor) {
 }
 
 //style the markers.
-var defaultIcon = makeMarkerIcon('009933');
+defaultIcon = makeMarkerIcon('009933');
 //highlight marker when mouse over
-var highlightedIcon = makeMarkerIcon('e60000');
+highlightedIcon = makeMarkerIcon('e60000');
 //create marker for when its open
-var openedIcon = makeMarkerIcon('ffffff');
+openedIcon = makeMarkerIcon('ffffff');
