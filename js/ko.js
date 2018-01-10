@@ -349,6 +349,11 @@ var foursquare = function(location) {
       });
       // document.getElementsByClassName('h3_name').innerHTML = "No Results Found";
       console.log("Completed Array", fourSqFinds());
+    },
+
+    error: function(e) {
+      document.getElementById('four_sq_content').style.display = "block";
+      document.getElementById('fs_h3').innerHTML = '<h3>Foursquare data unable to load. Please try later</h3>';
     }
   });
 };
