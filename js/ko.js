@@ -337,9 +337,11 @@ var foursquare = function(location) {
       var venues = data.response.groups[0].items;
 
       //push new instances of our class into the observable array
+
       venues.forEach(function(venue) {
         fourSqFinds.push(new NearByVenues(venue));
       });
+      // document.getElementsByClassName('h3_name').innerHTML = "No Results Found";
       console.log("Completed Array", fourSqFinds());
     }
   });
