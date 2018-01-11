@@ -292,24 +292,24 @@ var ViewModel = function() {
         });
       };
 
-     togglePlaces = function(){
-       if (document.getElementById('places-section').style.height == '60vh') {
-          document.getElementById('places-section').style.height = '0';
-          document.getElementById('places-section').style.border = 'none';
-      } else {
-        document.getElementById('places-section').style.height = '60vh';
-        document.getElementById('places-section').style.border = '2px solid #009933';
-      }
-      document.getElementById('four_sq_content').style.display = "none";
+   togglePlaces = function(){
+     if (document.getElementById('places-section').style.height == '60vh') {
+        document.getElementById('places-section').style.height = '0';
+        document.getElementById('places-section').style.border = 'none';
+    } else {
+      document.getElementById('places-section').style.height = '60vh';
+      document.getElementById('places-section').style.border = '2px solid #009933';
     }
-      // document.getElementById('places-section').style.visibility = 'hidden';
-      // document.getElementById('places-section').style.visibility = 'visible';
-}
-// var fourSqDiv = document.getElementById('four_sq_content');
+    document.getElementById('four_sq_content').style.display = "none";
+  }
 
-//create empty array to hold foursquare results
-var fourSqFinds =  ko.observableArray();
-console.log(fourSqFinds());
+  //create empty array to hold foursquare results
+  var fourSqFinds =  ko.observableArray();
+  console.log(fourSqFinds());
+}
+
+
+
 
 //object constructor to obtain information from foursquare results
 var NearByVenues = function(venue) {
@@ -347,14 +347,13 @@ var foursquare = function(location) {
       //push new instances of our class into the observable array
       if(venues.length > 0){
         venues.forEach(function(venue) {
-          fourSqFinds.push(new NearByVenues(venue));
+          vm.fourSqFinds.push(new NearByVenues(venue));
         });
       } else {
         //creates fallback message if no results are found nearby
-        noResults = document.createElement('h2').innerHTML = "No Results Found Nearby";
-        document.getElementById('four_sq_content').append(noResults);
+
       }
-      console.log("Completed Array", fourSqFinds());
+      console.log("Completed Array", vm.fourSqFinds());
     },
 
     error: function(e) {
