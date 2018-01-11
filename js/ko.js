@@ -177,14 +177,20 @@ var ViewModel = function() {
   });
 
   //create empty array to hold foursquare results
-  var fourSqFinds =  ko.observableArray();
-  console.log(fourSqFinds());
+  self.fourSqFinds =  ko.observableArray();
+  console.log(self.fourSqFinds());
+
+  self.emptySearch = ko.computed(function) {
+    if(self.fourSqFinds.length > 0){
+      return false;
+    }
+  }
 
   self.showInfowindow = function(location) {
     console.log(location);
     location.marker.setIcon(openedIcon);
     populateInfoWindow(location.marker, largeInfowindow);
-    fourSqFinds([]);
+    vm.fourSqFinds([]);
     foursquare(location.marker);
   }
 
@@ -350,6 +356,7 @@ var foursquare = function(location) {
         });
       } else {
         //creates fallback message if no results are found nearby
+        vm.emptySearch(true);
 
       }
       console.log("Completed Array", vm.fourSqFinds());

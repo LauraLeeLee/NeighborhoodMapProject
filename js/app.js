@@ -177,7 +177,6 @@ function populateInfoWindow (marker, infowindow) {
       marker.setIcon(defaultIcon);
       document.getElementById('four_sq_content').style.display = "none";
       vm.fourSqFinds([]);
-      noResults.innerHTML = ' ';
       // marker.setIcon(defaultIcon);
     });
 

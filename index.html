@@ -38,7 +38,8 @@ Accept-Language: en,it
           <ul id = "foursquare_list" data-bind = "foreach: fourSqFinds">
             <li class = "fs_items">
               <h3 class = "h3_name" data-bind = "text: name"></h3>
-              <p>
+              <p dada-bind = "visible: emptySearch">
+                No Results Found Nearby  
                 <span data-bind = "text: address"></span><br>
                 <span data-bind = "text: zip"></span>
                 <span data-bind = "text: city"></span>
