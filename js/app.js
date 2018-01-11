@@ -10,6 +10,14 @@ var markers = [];
 //over the number of places that show.
 var placeMarkers = [];
 
+// Error message if google maps isn't loading
+function googleError() {
+  alert("Google Maps is not loading");
+    var mapError = document.createElement('h2');
+    mapError.id = "errorGoogle";
+    document.getElementById('errorGoogle').innerHTML = "Google Maps is not loading. Please try again later";
+}
+
 //initial map
 function initMap() {
   //creeat a styles array to use with map
@@ -152,13 +160,6 @@ for (var i = 0; i < locations.length; i++) {
  map.fitBounds(bounds);
 }
 
-// Error message if google maps isn't loading
-function googleError() {
-  alert("Google Maps is not loading");
-    var mapError = document.createElement('h2');
-    mapError.id = "errorGoogle";
-    document.getElementById('errorGoogle').innerHTML = "Google Maps is not loading. Please try again later";
-}
 
  // function to populate the infowindow when marker is clicked.
 function populateInfoWindow (marker, infowindow) {
