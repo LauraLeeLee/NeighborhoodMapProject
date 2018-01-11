@@ -180,11 +180,11 @@ var ViewModel = function() {
   self.fourSqFinds =  ko.observableArray();
   console.log(self.fourSqFinds());
 
-  self.emptySearch = ko.computed(function() {
+  self.emptySearch = function() {
     if(self.fourSqFinds.length > 0){
       return false;
     }
-  });
+  }
 
   self.showInfowindow = function(location) {
     console.log(location);

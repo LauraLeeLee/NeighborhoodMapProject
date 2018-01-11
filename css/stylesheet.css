@@ -121,6 +121,15 @@ body {
   text-align: left;
 }
 
+#no_fs_near {
+  font-family: 'Laila', serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #009933;
+  text-align: center;
+  margin-top: 25px;
+}
+
 .list-items {
   font-family: 'Laila', serif;
   font-size: 16px;
@@ -227,7 +236,7 @@ a:hover {
 
 #four_sq_content {
   width: 30vw;
-  height: 60vh;
+  max-height: 60vh;
   overflow: auto;
   z-index: 10;
   position: absolute;

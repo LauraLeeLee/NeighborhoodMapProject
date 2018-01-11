@@ -35,11 +35,11 @@ Accept-Language: en,it
         <div id = "four_sq_content">
           <h2 id = "fs_h2">Locations Nearby</h2>
           <h3 id = "fs_h3">results powered by Foursquare</h3>
+
           <ul id = "foursquare_list" data-bind = "foreach: fourSqFinds">
             <li class = "fs_items">
               <h3 class = "h3_name" data-bind = "text: name"></h3>
-              <p dada-bind = "visible: emptySearch">
-                No Results Found Nearby  
+              <p>
                 <span data-bind = "text: address"></span><br>
                 <span data-bind = "text: zip"></span>
                 <span data-bind = "text: city"></span>
@@ -50,8 +50,8 @@ Accept-Language: en,it
               <hr class = "hr">
             </li>
           </ul>
+            <p id = "no_fs_near" data-bind = "visible: emptySearch">No Results Found Nearby</p>
           <div id = "fade-four-sq"></div>
-          <
         </div>
         <!-- <div class = "col-sm-9"> -->
          <div id="map"><div id = "fade-four-sq"></div></div>
