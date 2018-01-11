@@ -154,6 +154,9 @@ for (var i = 0; i < locations.length; i++) {
 
 // Error message if google maps isn't loading
 function googleError() {
+  alert("Google Maps is not loading");
+    var mapError = document.createElement('h2');
+    mapError.id = "errorGoogle";
     document.getElementById('errorGoogle').innerHTML = "Google Maps is not loading. Please try again later";
 }
 
