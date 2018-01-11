@@ -160,7 +160,6 @@ var locations = [
 //global variable for our view model, defined in app.js and instantiated there
 var vm;
 //global var for no results found by FS
-var noResults;
 
 //-------------ViewModel
 var ViewModel = function() {
@@ -180,7 +179,6 @@ var ViewModel = function() {
   //create empty array to hold foursquare results
   var fourSqFinds =  ko.observableArray();
   console.log(fourSqFinds());
-
 
   self.showInfowindow = function(location) {
     console.log(location);

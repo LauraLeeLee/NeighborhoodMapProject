@@ -139,7 +139,7 @@ for (var i = 0; i < locations.length; i++) {
   marker.addListener('click', function(){
     this.setIcon(openedIcon);
     populateInfoWindow(this, largeInfowindow);
-    fourSqFinds([]);
+    vm.fourSqFinds([]);
     foursquare(this);
   });
  }
@@ -176,7 +176,7 @@ function populateInfoWindow (marker, infowindow) {
       infowindow.marker = null;
       marker.setIcon(defaultIcon);
       document.getElementById('four_sq_content').style.display = "none";
-      fourSqFinds([]);
+      vm.fourSqFinds([]);
       noResults.innerHTML = ' ';
       // marker.setIcon(defaultIcon);
     });
