@@ -177,6 +177,10 @@ var ViewModel = function() {
   locations.forEach(function(location) {
   });
 
+  //create empty array to hold foursquare results
+  var fourSqFinds =  ko.observableArray();
+  console.log(fourSqFinds());
+
 
   self.showInfowindow = function(location) {
     console.log(location);
@@ -303,9 +307,6 @@ var ViewModel = function() {
     document.getElementById('four_sq_content').style.display = "none";
   }
 
-  //create empty array to hold foursquare results
-  var fourSqFinds =  ko.observableArray();
-  console.log(fourSqFinds());
 }
 
 
