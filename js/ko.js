@@ -310,6 +310,7 @@ var ViewModel = function() {
       document.getElementById('places-section').style.border = '2px solid #009933';
     }
     document.getElementById('four_sq_content').style.display = "none";
+    document.getElementById('fade-four-sq').style.display = "none";
   }
 
 }
@@ -347,6 +348,7 @@ var foursquare = function(location) {
     success: function(data) {
       console.log(data);
       document.getElementById('four_sq_content').style.display = "block";
+      document.getElementById('fade-four-sq').style.display = "block";
 
       var venues = data.response.groups[0].items;
 
@@ -355,6 +357,7 @@ var foursquare = function(location) {
         venues.forEach(function(venue) {
           vm.fourSqFinds.push(new NearByVenues(venue));
         });
+        vm.emptySearch(false);
       } else {
         //creates fallback message if no results are found nearby
         vm.emptySearch(true);

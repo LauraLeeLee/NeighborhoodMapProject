@@ -253,6 +253,7 @@ a:hover {
   left: 0;
   width: 100%;
   background-image: linear-gradient(to bottom, transparent, #c6ecd9);
+  display: none;
 }
 
 .fs_items{
