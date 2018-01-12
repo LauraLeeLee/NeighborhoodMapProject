@@ -146,10 +146,11 @@ for (var i = 0; i < locations.length; i++) {
 
   // //create an onclick event to open the large InfoWindow
   marker.addListener('click', function(){
-    this.setIcon(openedIcon);
+    togglePlaces();
     populateInfoWindow(this, largeInfowindow);
     vm.fourSqFinds([]);
     foursquare(this);
+
   });
  }
  // Instantiate Knockout once the map is initialized
@@ -179,6 +180,7 @@ function populateInfoWindow (marker, infowindow) {
       document.getElementById('four_sq_content').style.display = "none";
       document.getElementById('fade-four-sq').style.display = "none";
       vm.fourSqFinds([]);
+      togglePlaces();
       // marker.setIcon(defaultIcon);
     });
 
