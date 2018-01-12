@@ -338,7 +338,7 @@ var foursquare = function(location) {
   var clientSecret = 'AWQG20HB2FRHVKEEMMN5SGCP4EQXXPBH2PP0SM01XPNVUTFE';
   var fourSqUrl = "https://api.foursquare.com/v2/venues/explore";
   var latLng = `ll=${location.position.lat()},${location.position.lng()}`;
-  var useUrl = fourSqUrl + "?" + latLng + "&radius=1600" + "&client_id=" + clientId + "&client_secret=" + clientSecret + "&v=20180104";
+  var useUrl = fourSqUrl + "?" + latLng + "&radius=1600" +"&locale=it&sortByDistance=1" + "&client_id=" + clientId + "&client_secret=" + clientSecret + "&v=20180104";
   console.log(`${location.position.lat()},${location.position.lng()}`);
 
   //ajax request
