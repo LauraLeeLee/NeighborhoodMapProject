@@ -16,7 +16,7 @@
      <h1 id = "h1">POI Visited Near Patrica Italia</h1>
      <!-- <div class = "row no-gutter"> -->
         <input id ="toggle-off-places" data-bind = "click: togglePlaces" type="button" value="Toggle Places List">
-        <div id = "places-section" >
+        <div id = "places-section" data-bind = "style: {visibility: showInfowindow ? 'visible' : 'hidden'}" >
           <hr class = "hr">
           <input id ="city-filter" data-bind = "click: filterCity" class="filter-buttons" type= "button" value="City">
           <input id ="poi-filter" data-bind = "click: filterPOI" class="filter-buttons" type= "button" value="POI">

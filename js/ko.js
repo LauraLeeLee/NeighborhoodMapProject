@@ -193,7 +193,7 @@ var ViewModel = function() {
     populateInfoWindow(location.marker, largeInfowindow);
     vm.fourSqFinds([]);
     foursquare(location.marker);
-    togglePlaces();
+    // togglePlaces();
   }
 
   //filter locations
