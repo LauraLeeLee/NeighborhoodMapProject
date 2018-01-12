@@ -346,6 +346,9 @@ var foursquare = function(location) {
     type: "GET",
     dataType: "json",
     url: useUrl,
+    headers: {
+    'Accept-Language': 'it'
+  },
     success: function(data) {
       console.log(data);
       document.getElementById('four_sq_content').style.display = "block";
