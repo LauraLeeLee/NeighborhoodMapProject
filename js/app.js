@@ -175,12 +175,12 @@ function populateInfoWindow (marker, infowindow) {
 
     //see if the marker property is cleared if infowindow is closed
     infowindow.addListener('closeclick', function() {
+      togglePlaces();
       infowindow.marker = null;
       marker.setIcon(defaultIcon);
       document.getElementById('four_sq_content').style.display = "none";
       document.getElementById('fade-four-sq').style.display = "none";
       vm.fourSqFinds([]);
-      togglePlaces();
       // marker.setIcon(defaultIcon);
     });
 
