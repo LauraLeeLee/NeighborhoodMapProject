@@ -12,10 +12,11 @@ var placeMarkers = [];
 
 // Error message if google maps isn't loading
 function googleError() {
-  alert("Google Maps is not loading");
     var mapError = document.createElement('h2');
-    mapError.id = "errorGoogle";
-    document.getElementById('errorGoogle').innerHTML = "Google Maps is not loading. Please try again later";
+    mapError.setAttribute("id", "errorGoogle" );
+    mapError.innerHTML = "Google Maps is not loading. Please try again later";
+    document.getElementsByClassName('container-fluid')[0].appendChild(mapError);
+    alert("Google Maps is not loading");
 }
 
 //initial map

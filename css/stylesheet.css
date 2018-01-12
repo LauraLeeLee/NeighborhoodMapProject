@@ -29,16 +29,14 @@ body {
 }*/
 
 #errorGoogle {
-
-  background-color: #fff;
-  color: #ffff00;
   font-family: 'Laila', serif;
   font-weight: 600;
-  font-size: 40px;
+  font-size: 30px;
+  color: #cc0000;
   text-align: center;
   position: fixed;
-  top: 400;
-  left: 350;
+  top: 200;
+  left: 140;
 }
 
 #h1 {
