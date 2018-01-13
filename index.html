@@ -16,7 +16,7 @@
      <h1 id = "h1">POI Visited Near Patrica Italia</h1>
      <!-- <div class = "row no-gutter"> -->
         <input id ="toggle-off-places" data-bind = "click: togglePlaces" type="button" value="Toggle Places List">
-        <div id = "places-section" data-bind = "visible: showMe" >
+        <div id = "places-section" data-bind = "visible: showMe">
           <hr class = "hr">
           <input id ="city-filter" data-bind = "click: filterCity" class="filter-buttons" type= "button" value="City">
           <input id ="poi-filter" data-bind = "click: filterPOI" class="filter-buttons" type= "button" value="POI">
@@ -26,7 +26,7 @@
           <input id ="church-filter" data-bind = "click: filterChurch" class="filter-buttons" type= "button" value="Churches">
           <input id ="filter-places" data-bind = "textInput: filter"type="text" placeholder="Filter locations by name...">
           <ul id = "places-list" data-bind = "foreach: locations">
-            <a href = "#"><li class = "list-items" data-bind = "text: title, click: $parent.showInfowindow, foursquare visible: showFiltered"></li></a>
+            <a href = "#"><li class = "list-items" data-bind = "text: title, click: $parent.showInfowindow, foursquare, visible: showFiltered"></li></a>
           </ul>
           <div id = "fade-text"></div>
         </div>
