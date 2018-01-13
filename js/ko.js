@@ -351,8 +351,8 @@ var foursquare = function(location) {
   },
     success: function(data) {
       console.log(data);
-      // document.getElementById('four_sq_content').style.display = "block";
-      // document.getElementById('fade-four-sq').style.display = "block";
+      document.getElementById('four_sq_content').style.display = "block";
+      document.getElementById('fade-four-sq').style.display = "block";
 
       var venues = data.response.groups[0].items;
 
