@@ -307,11 +307,13 @@ var ViewModel = function() {
 
    togglePlaces = function(){
      if (document.getElementById('places-section').style.height == '60vh') {
-        document.getElementById('places-section').style.height = '0';
-        document.getElementById('places-section').style.border = 'none';
+        //document.getElementById('places-section').style.height = '0';
+        //document.getElementById('places-section').style.border = 'none';
+        self.showMe(false);
     } else {
-      document.getElementById('places-section').style.height = '60vh';
-      document.getElementById('places-section').style.border = '2px solid #009933';
+        self.showMe(true);
+      // document.getElementById('places-section').style.height = '60vh';
+      // document.getElementById('places-section').style.border = '2px solid #009933';
     }
     document.getElementById('four_sq_content').style.display = "none";
     document.getElementById('fade-four-sq').style.display = "none";
