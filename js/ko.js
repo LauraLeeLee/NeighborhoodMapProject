@@ -351,8 +351,9 @@ var foursquare = function(location) {
   },
     success: function(data) {
       console.log(data);
-      document.getElementById('four_sq_content').style.display = "block";
-      document.getElementById('fade-four-sq').style.display = "block";
+      // document.getElementById('four_sq_content').style.display = "block";
+      // document.getElementById('fade-four-sq').style.display = "block";
+      vm.showMe(false);
 
       var venues = data.response.groups[0].items;
 
@@ -371,7 +372,8 @@ var foursquare = function(location) {
     },
 
     error: function(e) {
-      document.getElementById('four_sq_content').style.display = "block";
+      // document.getElementById('four_sq_content').style.display = "block";
+      vm.showMe(false);
       document.getElementById('fs_h3').innerHTML = '<h3>Foursquare data unable to load. Please try later</h3>';
     }
   });

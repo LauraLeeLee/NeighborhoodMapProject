@@ -178,8 +178,8 @@ function populateInfoWindow (marker, infowindow) {
       vm.showMe(true);
       infowindow.marker = null;
       marker.setIcon(defaultIcon);
-      document.getElementById('four_sq_content').style.display = "none";
-      document.getElementById('fade-four-sq').style.display = "none";
+      // document.getElementById('four_sq_content').style.display = "none";
+      // document.getElementById('fade-four-sq').style.display = "none";
       vm.fourSqFinds([]);
       // marker.setIcon(defaultIcon);
     });
