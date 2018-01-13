@@ -96,7 +96,6 @@ body {
   position: absolute;
   left: 15px;
   float: left;
-  visibility: visible;
   border: 2px solid #009933;
   overflow: scroll;
   transition: 1s;

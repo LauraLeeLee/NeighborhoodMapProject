@@ -165,6 +165,8 @@ var vm;
 var ViewModel = function() {
   var self = this;
 
+  self.showMe = ko.observable(true); //whatever has this is visible
+
   //variable to contain input value
   self.filter = ko.observable("");
 
@@ -193,6 +195,7 @@ var ViewModel = function() {
     populateInfoWindow(location.marker, largeInfowindow);
     vm.fourSqFinds([]);
     foursquare(location.marker);
+    self.showMe(false);
     // togglePlaces();
   }
 
