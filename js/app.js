@@ -147,6 +147,7 @@ for (var i = 0; i < locations.length; i++) {
   // //create an onclick event to open the large InfoWindow
   marker.addListener('click', function(){
     vm.showMe(false);
+    vm.showFS(false);
     populateInfoWindow(this, largeInfowindow);
     vm.fourSqFinds([]);
     foursquare(this);
@@ -176,6 +177,7 @@ function populateInfoWindow (marker, infowindow) {
     //see if the marker property is cleared if infowindow is closed
     infowindow.addListener('closeclick', function() {
       vm.showMe(true);
+      vm.showFS(true);
       infowindow.marker = null;
       marker.setIcon(defaultIcon);
       // document.getElementById('four_sq_content').style.display = "none";

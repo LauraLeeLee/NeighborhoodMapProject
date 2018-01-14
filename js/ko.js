@@ -166,6 +166,7 @@ var ViewModel = function() {
   var self = this;
 
   self.showMe = ko.observable(true); //whatever has this is visible
+  self.showFS = ko.observable(true); //makes fs conent visible
 
   //variable to contain input value
   self.filter = ko.observable("");
@@ -196,6 +197,7 @@ var ViewModel = function() {
     vm.fourSqFinds([]);
     foursquare(location.marker);
     self.showMe(false);
+    self.showFS(false);
     // togglePlaces();
   }
 
@@ -315,15 +317,15 @@ var ViewModel = function() {
   }
 
   //media queries for mobile devices
-  if (window.matchMedia("(max-width: 450px)").matches) {
-    self.showMe(false);
-    document.getElementById('toggle-off-places').style.display = "none";
-    document.getElementById('navicon').style.display = "inline-block";
-  } else {
-    self.showMe(true);
-    document.getElementById('toggle-off-places').style.display = "block";
-    document.getElementById('navicon').style.display = "none";
-  }
+  // if (window.matchMedia("(max-width: 450px)").matches) {
+  //   self.showMe(false);
+  //   document.getElementById('toggle-off-places').style.display = "none";
+  //   document.getElementById('navicon').style.display = "inline-block";
+  // } else {
+  //   self.showMe(true);
+  //   document.getElementById('toggle-off-places').style.display = "block";
+  //   document.getElementById('navicon').style.display = "none";
+  // }
 
 }
 
@@ -365,6 +367,7 @@ var foursquare = function(location) {
       // document.getElementById('four_sq_content').style.display = "block";
       // document.getElementById('fade-four-sq').style.display = "block";
       vm.showMe(false);
+      vm.showFS(false);
 
       var venues = data.response.groups[0].items;
 
@@ -385,6 +388,7 @@ var foursquare = function(location) {
     error: function(e) {
       // document.getElementById('four_sq_content').style.display = "block";
       vm.showMe(false);
+      vm.showFS(false);
       document.getElementById('fs_h3').innerHTML = '<h3>Foursquare data unable to load. Please try later</h3>';
     }
   });
