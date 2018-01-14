@@ -14,6 +14,7 @@ body {
 }*/
 .container-fluid {
   background-color: #000;
+
 }
 
 /*.row.no-gutter {
@@ -56,15 +57,9 @@ body {
 }
 
 #map {
-  height: 100vh;
+  height: 88vh;
   z-index: 0;
-  /*margin-top: 30px;*/
-  /*width:100%;
-  top: 0px;
-  left: 0px;*/
-  /*bottom:0px;*/
   position: relative;
-  /*right: 0px;*/
 }
 
 .filter-buttons {
@@ -144,6 +139,7 @@ a:hover {
 }
 
 #toggle-off-places {
+  display: block;
   font-family: 'Laila', serif;
   color: #fff;
   font-size: 16px;
@@ -276,6 +272,12 @@ a:hover {
   margin: 0;
 }
 
+/*navicon  */
+#navicon {
+  color: #fff;
+  display: none;
+}
+
 
 /*styles for infowindow  */
 
@@ -340,3 +342,23 @@ a:hover {
     top: 22px !important;
     left: 22px !important;
 }
+
+
+/*breakpoints  */
+
+/* @media only screen and (max-width: 450px) {
+
+  #toggle-off-places {
+    display: none;
+  }
+
+
+  #navicon {
+    display: inline-block;
+  }
+
+}
+
+@media only screen and (min-width: 451px) and (max-width: 800px) {
+
+} */

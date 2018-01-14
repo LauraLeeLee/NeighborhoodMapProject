@@ -314,6 +314,17 @@ var ViewModel = function() {
     // document.getElementById('fade-four-sq').style.display = "none";
   }
 
+  //media queries for mobile devices
+  if (window.matchMedia("(max-width: 450px)").matches) {
+    self.showMe(false);
+    document.getElementById('toggle-off-places').style.display = "none";
+    document.getElementById('navicon').style.display = "inline-block";
+  } else {
+    self.showMe(true);
+    document.getElementById('toggle-off-places').style.display = "block";
+    document.getElementById('navicon').style.display = "none";
+  }
+
 }
 
 
@@ -378,6 +389,8 @@ var foursquare = function(location) {
     }
   });
 };
+
+
 
 
 
