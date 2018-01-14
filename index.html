@@ -6,112 +6,105 @@
   <title>Neighborhood Map Project</title>
   <!-- <link rel = "stylesheet" href = "//fonts.googleapis.com/css?family=font1|font2|etc" type = "text/css"> -->
   <link rel = "stylesheet" href = "css/stylesheet.css" type = "text/css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Laila:400,600" rel="stylesheet">
-  <script src="https://use.fontawesome.com/afd8ad0bfd.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel ="stylesheet" href ="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href ="https://fonts.googleapis.com/css?family=Laila:400,600" rel="stylesheet">
+  <script src ="https://use.fontawesome.com/afd8ad0bfd.js"></script>
+  <script src ="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src ="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
  </head>
  <body>
-   <img class = "flag" data-bind = "click: showLanguage" src="images/usa.png" alt="usa flag"><span class ="language">English/Inglese</span>
-   <img class = "flag" data-bind: "click: showLanguage" src ="images/italy.png" alt = "italy flag"><span class ="language">Italian/Italiano</span>
-   <div data-bind = "visible: !showItalian()" class ="container-fluid">
-     <h1 id = "h1">POI Visited Near Patrica Italia</h1>
-     <!-- <div class = "row no-gutter"> -->
-        <i id = "navicon" class="fa fa-bars" data-bind = "click: togglePlaces, visible: showNavicon()" aria-hidden="true"></i>
-        <input id ="toggle-off-places" data-bind = "click: togglePlaces, visible: showToggle()" type="button" value="Toggle Places List">
-        <div id = "places-section" data-bind = "visible: showMe">
+  <img class = "flag" data-bind = "click: showLanguage" src = "images/usa.png" alt = "usa flag"><span class = "language">English/Inglese</span>
+  <img class = "flag" data-bind = "click: showLanguage" src = "images/italy.png" alt = "italy flag"><span class = "language">Italian/Italiano</span>
+  <div class = "container-fluid">
+    <div id = "english"  data-bind = "visible: !showItalian()">
+    <h1 id = "h1">POI Visited Near Patrica Italia</h1>
+    <i id = "navicon" class = "fa fa-bars" data-bind = "click: togglePlaces, visible: showNavicon()" aria-hidden = "true"></i>
+    <input id = "toggle-off-places" data-bind = "click: togglePlaces, visible: showToggle()" type = "button" value = "Toggle Places List">
+    <div id = "places-section" data-bind = "visible: showMe">
+      <hr class = "hr">
+      <input id = "city-filter" data-bind = "click: filterCity" class = "filter-buttons" type = "button" value = "City">
+      <input id = "poi-filter" data-bind = "click: filterPOI" class = "filter-buttons" type = "button" value = "POI">
+      <input id = "food-filter" data-bind = "click: filterFood" class = "filter-buttons" type = "button" value = "Food">
+      <input id = "shop-filter" data-bind = "click: filterShop" class = "filter-buttons" type = "button" value = "Shop">
+      <input id = "hotel-filter" data-bind = "click: filterHotel" class = "filter-buttons" type = "button" value = "Hotel">
+      <input id = "church-filter" data-bind = "click: filterChurch" class = "filter-buttons" type = "button" value = "Churches">
+      <input id = "filter-places" data-bind = "textInput: filter"type = "text" placeholder = "Filter locations by name...">
+      <ul id = "places-list" data-bind = "foreach: locations">
+        <li class = "list-items" data-bind = "text: title, click: $parent.showInfowindow, foursquare, visible: showFiltered"></li>
+      </ul>
+      <div id = "fade-text"></div>
+    </div>
+    <!-- div for foursquare results  -->
+    <div id = "four_sq_content" data-bind = "visible: !showFS()">
+      <h2 id = "fs_h2">Locations Nearby</h2>
+      <h3 id = "fs_h3">results powered by Foursquare</h3>
+      <ul id = "foursquare_list" data-bind = "foreach: fourSqFinds">
+        <li class = "fs_items">
+          <h3 class = "h3_name" data-bind = "text: name"></h3>
+          <p>
+            <span data-bind = "text: address"></span><br>
+            <span data-bind = "text: zip"></span>
+            <span data-bind = "text: city"></span>
+            <span data-bind = "text: country"></span><br>
+            Distance away: <span class = "span_distance" data-bind= "text: distance"></span> meters<br>
+            <a data-bind = "attr: { href: url, title: url }, text: url" >website</a>
+          </p>
           <hr class = "hr">
-          <input id ="city-filter" data-bind = "click: filterCity" class="filter-buttons" type= "button" value="City">
-          <input id ="poi-filter" data-bind = "click: filterPOI" class="filter-buttons" type= "button" value="POI">
-          <input id ="food-filter" data-bind = "click: filterFood" class="filter-buttons" type= "button" value="Food">
-          <input id ="shop-filter" data-bind = "click: filterShop" class="filter-buttons" type= "button" value="Shop">
-          <input id ="hotel-filter" data-bind = "click: filterHotel" class="filter-buttons" type= "button" value="Hotel">
-          <input id ="church-filter" data-bind = "click: filterChurch" class="filter-buttons" type= "button" value="Churches">
-          <input id ="filter-places" data-bind = "textInput: filter"type="text" placeholder="Filter locations by name...">
-          <ul id = "places-list" data-bind = "foreach: locations">
-            <li class = "list-items" data-bind = "text: title, click: $parent.showInfowindow, foursquare, visible: showFiltered"></li>
-          </ul>
-          <div id = "fade-text"></div>
-        </div>
-        <!-- div for foursquare results  -->
-        <div id = "four_sq_content" data-bind = "visible: !showFS()">
-          <h2 id = "fs_h2">Locations Nearby</h2>
-          <h3 id = "fs_h3">results powered by Foursquare</h3>
+        </li>
+      </ul>
+      <p id = "no_fs_near" data-bind = "visible: emptySearch">No Results Found Nearby</p>
+      <div id = "fade-four-sq"></div>
+    </div>
+    <!-- <div id = "map"></div> -->
+  </div>
 
-          <ul id = "foursquare_list" data-bind = "foreach: fourSqFinds">
-            <li class = "fs_items">
-              <h3 class = "h3_name" data-bind = "text: name"></h3>
-              <p>
-                <span data-bind = "text: address"></span><br>
-                <span data-bind = "text: zip"></span>
-                <span data-bind = "text: city"></span>
-                <span data-bind = "text: country"></span><br>
-                Distance away: <span class = "span_distance" data-bind= "text: distance"></span> meters<br>
-                <a data-bind = "attr: { href: url, title: url }, text: url" >website</a>
-              </p>
-              <hr class = "hr">
-            </li>
-          </ul>
-            <p id = "no_fs_near" data-bind = "visible: emptySearch">No Results Found Nearby</p>
-          <div id = "fade-four-sq"></div>
-        </div>
-        <!-- <div class = "col-sm-9"> -->
-         <div id="map"></div>
-         <!-- <h2 id ='errorGoogle'></h2> -->
-       <!-- </div> -->
-   <!-- </div> -->
- </div>
-
- <!--italian version  -->
- <div id = "app_italian" class="container-fluid" data-bind = "visible: showItalian()">
-   <h1 id = "h1">Posti Visitati Vicino a Patrica Italia</h1>
-   <!-- <div class = "row no-gutter"> -->
-      <i id = "navicon" class="fa fa-bars" data-bind = "click: togglePlaces, visible: showNavicon()" aria-hidden="true"></i>
-      <input id ="toggle-off-places" data-bind = "click: togglePlaces, visible: showToggle()" type="button" value="Attiva la lista dei luoghi">
-      <div id = "places-section" data-bind = "visible: showMe">
-        <hr class = "hr">
-        <input id ="city-filter" data-bind = "click: filterCity" class="filter-buttons" type= "button" value="Citta">
-        <input id ="poi-filter" data-bind = "click: filterPOI" class="filter-buttons" type= "button" value="POI">
-        <input id ="food-filter" data-bind = "click: filterFood" class="filter-buttons" type= "button" value="Cibo">
-        <input id ="shop-filter" data-bind = "click: filterShop" class="filter-buttons" type= "button" value="Negozi">
-        <input id ="hotel-filter" data-bind = "click: filterHotel" class="filter-buttons" type= "button" value="Albeghi">
-        <input id ="church-filter" data-bind = "click: filterChurch" class="filter-buttons" type= "button" value="Chiesi">
-        <input id ="filter-places" data-bind = "textInput: filter"type="text" placeholder="Filtre luighi da nome...">
-        <ul id = "places-list" data-bind = "foreach: locations">
-          <li class = "list-items" data-bind = "text: title, click: $parent.showInfowindow, foursquare, visible: showFiltered"></li>
-        </ul>
-        <div id = "fade-text"></div>
-      </div>
-      <!-- div for foursquare results  -->
-      <div id = "four_sq_content" data-bind = "visible: !showFS()">
-        <h2 id = "fs_h2">Posti nelle Vicinanze</h2>
-        <h3 id = "fs_h3">risultati alimentati da Foursquare</h3>
-
-        <ul id = "foursquare_list" data-bind = "foreach: fourSqFinds">
-          <li class = "fs_items">
-            <h3 class = "h3_name" data-bind = "text: name"></h3>
-            <p>
-              <span data-bind = "text: address"></span><br>
-              <span data-bind = "text: zip"></span>
-              <span data-bind = "text: city"></span>
-              <span data-bind = "text: country"></span><br>
-              Distanza: <span class = "span_distance" data-bind= "text: distance"></span> metri<br>
-              <a data-bind = "attr: { href: url, title: url }, text: url" >sito web</a>
-            </p>
-            <hr class = "hr">
-          </li>
-        </ul>
-          <p id = "no_fs_near" data-bind = "visible: emptySearch">Niente Risultati Trovati</p>
-        <div id = "fade-four-sq"></div>
-      </div>
-      <!-- <div class = "col-sm-9"> -->
-     <div id="map"></div>
-   </div>
- <script src="js/lib/knockout-3.4.2.js"></script>
- <script src = "js/ko.js"></script>
- <script src = "js/app.js"></script>
- <script asyc defer
-    src = "https://maps.googleapis.com/maps/api/js?libraries=places,geometry,drawing&key=AIzaSyDRAVW_MKSUbo5TYT4oQCd12pOdFH5G8Og&v=3&callback=initMap" onerror="googleError()"></script>
- </body>
+<!--italian version  -->
+  <div id = "app_italian"  data-bind = "visible: showItalian()">
+    <h1 id = "h1">Posti Visitati Vicino a Patrica Italia</h1>
+    <i id = "navicon" class = "fa fa-bars" data-bind = "click: togglePlaces, visible: showNavicon()" aria-hidden = "true"></i>
+    <input id = "toggle-off-places" data-bind = "click: togglePlaces, visible: showToggle()" type = "button" value = "Attiva la lista dei luoghi">
+    <div id = "places-section" data-bind = "visible: showMe">
+      <hr class = "hr">
+      <input id = "city-filter" data-bind = "click: filterCity" class = "filter-buttons" type = "button" value = "Citta">
+      <input id = "poi-filter" data-bind = "click: filterPOI" class = "filter-buttons" type = "button" value = "POI">
+      <input id = "food-filter" data-bind = "click: filterFood" class = "filter-buttons" type = "button" value = "Cibo">
+      <input id = "shop-filter" data-bind = "click: filterShop" class = "filter-buttons" type = "button" value = "Negozi">
+      <input id = "hotel-filter" data-bind = "click: filterHotel" class = "filter-buttons" type = "button" value = "Alberghi">
+      <input id = "church-filter" data-bind = "click: filterChurch" class = "filter-buttons" type = "button" value = "Chiesi">
+      <input id = "filter-places" data-bind = "textInput: filter"type = "text" placeholder = "Filtre luighi da nome...">
+      <ul id = "places-list" data-bind = "foreach: locations">
+        <li class = "list-items" data-bind = "text: title, click: $parent.showInfowindow, foursquare, visible: showFiltered"></li>
+      </ul>
+      <div id = "fade-text"></div>
+    </div>
+    <!-- div for foursquare results  -->
+    <div id = "four_sq_content" data-bind = "visible: !showFS()">
+      <h2 id = "fs_h2">Posti nelle Vicinanze</h2>
+      <h3 id = "fs_h3">risultati alimentati da Foursquare</h3>
+      <ul id = "foursquare_list" data-bind = "foreach: fourSqFinds">
+        <li class = "fs_items">
+          <h3 class = "h3_name" data-bind = "text: name"></h3>
+          <p>
+            <span data-bind = "text: address"></span><br>
+            <span data-bind = "text: zip"></span>
+            <span data-bind = "text: city"></span>
+            <span data-bind = "text: country"></span><br>
+            Distanza: <span class = "span_distance" data-bind = "text: distance"></span> metri<br>
+            <a data-bind = "attr: { href: url, title: url }, text: url" >sito web</a>
+          </p>
+          <hr class = "hr">
+        </li>
+      </ul>
+      <p id = "no_fs_near" data-bind = "visible: emptySearch">Niente Risultati Trovati</p>
+      <div id = "fade-four-sq"></div>
+    </div>
+  </div>
+  <div id = "map"></div>
+</div>
+<script src = "js/lib/knockout-3.4.2.js"></script>
+<script src = "js/ko.js"></script>
+<script src = "js/app.js"></script>
+<script asyc defer
+src = "https://maps.googleapis.com/maps/api/js?libraries=places,geometry,drawing&key=AIzaSyDRAVW_MKSUbo5TYT4oQCd12pOdFH5G8Og&v=3&callback=initMap" onerror="googleError()"></script>
+</body>
 </html>
