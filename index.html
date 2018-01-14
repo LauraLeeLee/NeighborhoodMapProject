@@ -13,7 +13,9 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
  </head>
  <body>
-   <div class="container-fluid">
+   <img class = "flag" data-bind = "click: showLanguage" src="images/usa.png" alt="usa flag"><span class ="language">English/Inglese</span>
+   <img class = "flag" data-bind: "click: showLanguage" src ="images/italy.png" alt = "italy flag"><span class ="language">Italian/Italiano</span>
+   <div data-bind = "visible: !showItalian()" class ="container-fluid">
      <h1 id = "h1">POI Visited Near Patrica Italia</h1>
      <!-- <div class = "row no-gutter"> -->
         <i id = "navicon" class="fa fa-bars" data-bind = "click: togglePlaces, visible: showNavicon()" aria-hidden="true"></i>
@@ -60,6 +62,52 @@
        <!-- </div> -->
    <!-- </div> -->
  </div>
+
+ <!--italian version  -->
+ <div id = "app_italian" class="container-fluid" data-bind = "visible: showItalian()">
+   <h1 id = "h1">Posti Visitati Vicino a Patrica Italia</h1>
+   <!-- <div class = "row no-gutter"> -->
+      <i id = "navicon" class="fa fa-bars" data-bind = "click: togglePlaces, visible: showNavicon()" aria-hidden="true"></i>
+      <input id ="toggle-off-places" data-bind = "click: togglePlaces, visible: showToggle()" type="button" value="Attiva la lista dei luoghi">
+      <div id = "places-section" data-bind = "visible: showMe">
+        <hr class = "hr">
+        <input id ="city-filter" data-bind = "click: filterCity" class="filter-buttons" type= "button" value="Citta">
+        <input id ="poi-filter" data-bind = "click: filterPOI" class="filter-buttons" type= "button" value="POI">
+        <input id ="food-filter" data-bind = "click: filterFood" class="filter-buttons" type= "button" value="Cibo">
+        <input id ="shop-filter" data-bind = "click: filterShop" class="filter-buttons" type= "button" value="Negozi">
+        <input id ="hotel-filter" data-bind = "click: filterHotel" class="filter-buttons" type= "button" value="Albeghi">
+        <input id ="church-filter" data-bind = "click: filterChurch" class="filter-buttons" type= "button" value="Chiesi">
+        <input id ="filter-places" data-bind = "textInput: filter"type="text" placeholder="Filtre luighi da nome...">
+        <ul id = "places-list" data-bind = "foreach: locations">
+          <li class = "list-items" data-bind = "text: title, click: $parent.showInfowindow, foursquare, visible: showFiltered"></li>
+        </ul>
+        <div id = "fade-text"></div>
+      </div>
+      <!-- div for foursquare results  -->
+      <div id = "four_sq_content" data-bind = "visible: !showFS()">
+        <h2 id = "fs_h2">Posti nelle Vicinanze</h2>
+        <h3 id = "fs_h3">risultati alimentati da Foursquare</h3>
+
+        <ul id = "foursquare_list" data-bind = "foreach: fourSqFinds">
+          <li class = "fs_items">
+            <h3 class = "h3_name" data-bind = "text: name"></h3>
+            <p>
+              <span data-bind = "text: address"></span><br>
+              <span data-bind = "text: zip"></span>
+              <span data-bind = "text: city"></span>
+              <span data-bind = "text: country"></span><br>
+              Distanza: <span class = "span_distance" data-bind= "text: distance"></span> metri<br>
+              <a data-bind = "attr: { href: url, title: url }, text: url" >sito web</a>
+            </p>
+            <hr class = "hr">
+          </li>
+        </ul>
+          <p id = "no_fs_near" data-bind = "visible: emptySearch">Niente Risultati Trovati</p>
+        <div id = "fade-four-sq"></div>
+      </div>
+      <!-- <div class = "col-sm-9"> -->
+     <div id="map"></div>
+   </div>
  <script src="js/lib/knockout-3.4.2.js"></script>
  <script src = "js/ko.js"></script>
  <script src = "js/app.js"></script>

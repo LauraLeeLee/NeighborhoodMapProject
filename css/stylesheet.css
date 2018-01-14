@@ -17,18 +17,6 @@ body {
 
 }
 
-/*.row.no-gutter {
-  margin-right:0;
-  margin-left:0;
-}
-
-.row.no-gutter > [class*='col-'] {
-    padding-right:0;
-    padding-left:0;
-    margin-right:0;
-    margin-left:0;
-}*/
-
 #errorGoogle {
   font-family: 'Laila', serif;
   font-weight: 600;
@@ -48,6 +36,19 @@ body {
   text-align: center;
   margin: 10px 0 0 0;
   padding: 0;
+}
+
+.flag {
+  display: block;
+  float: right;
+  z-index: 10;
+}
+
+.language {
+  display: block;
+  float: right;
+  z-index: 10;
+  color: #fff;
 }
 
 .hr {

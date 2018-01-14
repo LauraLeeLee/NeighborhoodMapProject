@@ -169,6 +169,11 @@ var ViewModel = function() {
   self.showFS = ko.observable(true); //makes fs conent visible
   self.showToggle = ko.observable(true);
   self.showNavicon = ko.observable(false);
+  self.showItalian = ko.observable(false);
+
+  self.showLanguage = function () {
+    self.showItalian(!self.showItalian());
+  }
 
   //variable to contain input value
   self.filter = ko.observable("");
