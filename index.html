@@ -16,8 +16,8 @@
    <div class="container-fluid">
      <h1 id = "h1">POI Visited Near Patrica Italia</h1>
      <!-- <div class = "row no-gutter"> -->
-        <i id = "navicon" class="fa fa-bars" aria-hidden="true"></i>
-        <input id ="toggle-off-places" data-bind = "click: togglePlaces" type="button" value="Toggle Places List">
+        <i id = "navicon" class="fa fa-bars" data-bind = "click: togglePlaces, visible: showNavicon()" aria-hidden="true"></i>
+        <input id ="toggle-off-places" data-bind = "click: togglePlaces, visible: showToggle()" type="button" value="Toggle Places List">
         <div id = "places-section" data-bind = "visible: showMe">
           <hr class = "hr">
           <input id ="city-filter" data-bind = "click: filterCity" class="filter-buttons" type= "button" value="City">

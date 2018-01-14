@@ -167,6 +167,8 @@ var ViewModel = function() {
 
   self.showMe = ko.observable(true); //whatever has this is visible
   self.showFS = ko.observable(true); //makes fs conent visible
+  self.showToggle = ko.observable(true);
+  self.showNavicon = ko.observable(false);
 
   //variable to contain input value
   self.filter = ko.observable("");
@@ -316,16 +318,20 @@ var ViewModel = function() {
     // document.getElementById('fade-four-sq').style.display = "none";
   }
 
-  //media queries for mobile devices
-  // if (window.matchMedia("(max-width: 450px)").matches) {
-  //   self.showMe(false);
-  //   document.getElementById('toggle-off-places').style.display = "none";
-  //   document.getElementById('navicon').style.display = "inline-block";
-  // } else {
-  //   self.showMe(true);
-  //   document.getElementById('toggle-off-places').style.display = "block";
-  //   document.getElementById('navicon').style.display = "none";
-  // }
+  // media queries for mobile devices
+  if (window.matchMedia("all and (max-width: 450px)").matches) {
+    self.showMe(false);
+    self.showToggle(false);
+    self.showNavicon(true);
+    // document.getElementById('toggle-off-places').style.display = "none";
+    // document.getElementById('navicon').style.display = "inline-block";
+  } else {
+    self.showMe(true);
+    self.showToggle(true);
+    self.showNavicon(false);
+    // document.getElementById('toggle-off-places').style.display = "block";
+    // document.getElementById('navicon').style.display = "none";
+  }
 
 }
 

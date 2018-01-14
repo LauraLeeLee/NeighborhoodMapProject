@@ -139,7 +139,7 @@ a:hover {
 }
 
 #toggle-off-places {
-  display: block;
+  /* display: block; */
   font-family: 'Laila', serif;
   color: #fff;
   font-size: 16px;
@@ -275,7 +275,7 @@ a:hover {
 /*navicon  */
 #navicon {
   color: #fff;
-  display: none;
+  /* display: none; */
 }
 
 
@@ -346,19 +346,26 @@ a:hover {
 
 /*breakpoints  */
 
-/* @media only screen and (max-width: 450px) {
-
-  #toggle-off-places {
-    display: none;
+@media only screen and (max-width: 450px) {
+  #places-section {
+    width: 90vw;
+    height: 20vh;
   }
-
-
-  #navicon {
-    display: inline-block;
+  #four_sq_content {
+    width: 90vw;
+    max-height: 30vh;
   }
 
 }
 
 @media only screen and (min-width: 451px) and (max-width: 800px) {
+  #places-section {
+    width: 30vw;
+    height: 40vh;
+  }
 
-} */
+  #four_sq_content {
+    width: 30vw;
+    max-height: 40vh;
+  }
+}
