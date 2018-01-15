@@ -274,6 +274,7 @@ a:hover {
 
 /*navicon  */
 #navicon {
+  font-size: 1.5em;
   color: #fff;
   /* display: none; */
 }
@@ -356,6 +357,9 @@ a:hover {
     max-height: 30vh;
   }
 
+  /* .flag, .language {
+    text-align: center;
+  } */
 }
 
 @media only screen and (min-width: 451px) and (max-width: 800px) {
