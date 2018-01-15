@@ -170,10 +170,12 @@ var ViewModel = function() {
   self.showToggle = ko.observable(true);
   self.showNavicon = ko.observable(false);
   self.showItalian = ko.observable(false);
+  self.showCatFilter = ko.observable(true);
 
   self.showLanguage = function () {
     self.showItalian(!self.showItalian());
   }
+
 
   //variable to contain input value
   self.filter = ko.observable("");
@@ -328,6 +330,7 @@ var ViewModel = function() {
     self.showMe(false);
     self.showToggle(false);
     self.showNavicon(true);
+    self.showCatFilter(false);
     // document.getElementById('toggle-off-places').style.display = "none";
     // document.getElementById('navicon').style.display = "inline-block";
   } else {

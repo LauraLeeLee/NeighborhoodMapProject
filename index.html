@@ -13,8 +13,8 @@
   <script src ="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
  </head>
  <body>
-  <img class = "flag" data-bind = "click: showLanguage" src = "images/usa.png" alt = "usa flag"><span class = "language">English/Inglese</span>
-  <img class = "flag" data-bind = "click: showLanguage" src = "images/italy.png" alt = "italy flag"><span class = "language">Italian/Italiano</span>
+  <img class = "flag" data-bind = "click: showLanguage" src = "images/usa.png" alt = "usa flag"><p class = "language">English/Inglese</p>
+  <img class = "flag" data-bind = "click: showLanguage" src = "images/italy.png" alt = "italy flag"><p class = "language">Italian/Italiano</p>
   <div class = "container-fluid">
     <div id = "english"  data-bind = "visible: !showItalian()">
     <h1 id = "h1">POI Visited Near Patrica Italia</h1>
@@ -22,12 +22,12 @@
     <input id = "toggle-off-places" data-bind = "click: togglePlaces, visible: showToggle()" type = "button" value = "Toggle Places List">
     <div id = "places-section" data-bind = "visible: showMe">
       <hr class = "hr">
-      <input id = "city-filter" data-bind = "click: filterCity" class = "filter-buttons" type = "button" value = "City">
-      <input id = "poi-filter" data-bind = "click: filterPOI" class = "filter-buttons" type = "button" value = "POI">
-      <input id = "food-filter" data-bind = "click: filterFood" class = "filter-buttons" type = "button" value = "Food">
-      <input id = "shop-filter" data-bind = "click: filterShop" class = "filter-buttons" type = "button" value = "Shop">
-      <input id = "hotel-filter" data-bind = "click: filterHotel" class = "filter-buttons" type = "button" value = "Hotel">
-      <input id = "church-filter" data-bind = "click: filterChurch" class = "filter-buttons" type = "button" value = "Churches">
+      <input id = "city-filter" data-bind = "click: filterCity, visible: showCatFilter()" class = "filter-buttons" type = "button" value = "City">
+      <input id = "poi-filter" data-bind = "click: filterPOI, visible: showCatFilter()" class = "filter-buttons" type = "button" value = "POI">
+      <input id = "food-filter" data-bind = "click: filterFood, visible: showCatFilter()" class = "filter-buttons" type = "button" value = "Food">
+      <input id = "shop-filter" data-bind = "click: filterShop, visible: showCatFilter()" class = "filter-buttons" type = "button" value = "Shop">
+      <input id = "hotel-filter" data-bind = "click: filterHotel, visible: showCatFilter()" class = "filter-buttons" type = "button" value = "Hotel">
+      <input id = "church-filter" data-bind = "click: filterChurch, visible: showCatFilter()" class = "filter-buttons" type = "button" value = "Churches">
       <input id = "filter-places" data-bind = "textInput: filter"type = "text" placeholder = "Filter locations by name...">
       <ul id = "places-list" data-bind = "foreach: locations">
         <li class = "list-items" data-bind = "text: title, click: $parent.showInfowindow, foursquare, visible: showFiltered"></li>
@@ -53,7 +53,7 @@
         </li>
       </ul>
       <p id = "no_fs_near" data-bind = "visible: emptySearch">No Results Found Nearby</p>
-      <div id = "fade-four-sq"></div>
+      <div id = "fade-four-sq" data-bind: "visible: !showFS()"></div>
     </div>
     <!-- <div id = "map"></div> -->
   </div>
