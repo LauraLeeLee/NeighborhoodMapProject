@@ -18,12 +18,15 @@ TODO: any graphic icons, where came from
 3. Open any files in preferred code editor
 
 ## Resources
+* [Fontawesome](www.fontawesome.com) for navicon icon
+* [Iconfinder](www.iconfinder.com) for flag icons
+
 
 ### Libraries Used
 
 * [jQuery](http://jquery.com)
 * [Knockout.js](http://knockoutjs.com/)
-
+* [Google Fonts](https://fonts.google.com/)
 TODO add other libraries, fonts,
 
 
