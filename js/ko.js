@@ -172,6 +172,13 @@ var ViewModel = function() {
   self.showItalian = ko.observable(false);
   self.showCatFilter = ko.observable(true);
 
+  //language object
+  self.languageObj = function() {
+    heading: '',
+    categories: [],
+    toggleText: ''
+  }
+
   // generic function to 'wait' for language chosen
   self.translate = function(languageObj) {
     self.heading(languageObj.heading);
@@ -232,7 +239,6 @@ var ViewModel = function() {
     foursquare(location.marker);
     self.showMe(false);
     self.showFS(false);
-    // togglePlaces();
   }
 
   //filter locations
