@@ -33,6 +33,7 @@ TODO add other libraries, fonts,
 ### API Used
 
 * [Google Maps](https://developers.google.com/maps/)
+* [Foursquare](https://developer.foursquare.com/)
 TODO add APIs
 
 ### References used in Project

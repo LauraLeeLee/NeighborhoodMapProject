@@ -172,9 +172,34 @@ var ViewModel = function() {
   self.showItalian = ko.observable(false);
   self.showCatFilter = ko.observable(true);
 
-  self.showLanguage = function () {
-    self.showItalian(!self.showItalian());
+  // generic function to 'wait' for language chosen
+  self.translate = function(languageObj) {
+    self.heading(languageObj.heading);
+    self.categories(languageObj.categories);
+    self.toggleText(languageObj.toggleText);
   }
+
+  //english info
+  var englishText = {
+    heading: 'POI Visited Near Patrica Italy',
+    categories: ['City', 'POI', 'Food', 'Churches', 'Shop', 'Hotel'],
+    toggleText: 'Toggle Places List',
+    selectLang: 'Language'
+  }
+
+// italian info
+  var italianText = {
+    heading: 'Posti Visitata Vicino Patrica Italia',
+    categories: ['Citta', 'POI', 'Cibo', 'Chiese', 'Negozi', 'Alberghi'],
+    toggleText: 'Attiva la Lista dei Luoghi',
+    selectLang: 'Lingua'
+  }
+
+  self.translate(englishText);
+
+  // self.showLanguage = function() {
+  //   self.showItalian(!self.showItalian());
+  // }
 
 
   //variable to contain input value
