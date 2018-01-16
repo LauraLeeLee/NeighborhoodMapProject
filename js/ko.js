@@ -205,7 +205,7 @@ var ViewModel = function() {
   self.translate(englishText);
 
   self.showLanguage = function() {
-    if(self.translate(languageObj) = self.translate(englishText)) {
+    if(self.translate(englishText) === self.translate(englishText)) {
       self.translate(italianText);
     } else {
     self.translate(englishText);
