@@ -13,8 +13,8 @@
   <script src ="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
  </head>
  <body>
-  <p id = "language" data-bind = "title: selectLang"></p><img class = "flag"  src = "images/usa.png" alt = "usa flag">
-  <img class = "flag"  src = "images/italy.png" alt = "italy flag">
+  <img class = "flag"  data-bind = "click: showLanguage()" src = "images/usa.png" alt = "usa flag">
+  <img class = "flag"  src = "images/italy.png" alt = "italy flag"><p id = "language" data-bind = "text: selectLang"></p>
   <div class = "container-fluid">
     <div id = "english"  >
     <h1 id = "h1" data-bind = "text: heading"></h1>

@@ -39,13 +39,13 @@ body {
 }
 
 .flag {
-  display: block;
+  display: inline-block;
   float: right;
   z-index: 10;
 }
 
 #language {
-  display: block;
+  display: inline-block;
   float: right;
   z-index: 10;
   color: #fff;

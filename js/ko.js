@@ -176,12 +176,14 @@ var ViewModel = function() {
     self.heading = ko.observable();
     self.categories  = ko.observableArray();
     self.toggleText  = ko.observable();
+    self.selectLang = ko.observable();
 
   // generic function to 'wait' for language chosen
   self.translate = function(languageObj) {
     self.heading(languageObj.heading);
     self.categories(languageObj.categories);
     self.toggleText(languageObj.toggleText);
+    self.selectLang(languageObj.selectLang);
   }
 
   //english info
@@ -202,9 +204,10 @@ var ViewModel = function() {
 
   self.translate(englishText);
 
-  // self.showLanguage = function() {
-  //   self.showItalian(!self.showItalian());
-  // }
+  self.showLanguage = function() {
+    self.translate(italianText);
+    self.translate(englishText);
+  }
 
 
   //variable to contain input value
