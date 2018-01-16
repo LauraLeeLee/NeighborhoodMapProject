@@ -44,7 +44,7 @@ body {
   z-index: 10;
 }
 
-.language {
+#language {
   display: block;
   float: right;
   z-index: 10;

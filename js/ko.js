@@ -172,12 +172,10 @@ var ViewModel = function() {
   self.showItalian = ko.observable(false);
   self.showCatFilter = ko.observable(true);
 
-  //language object
-  self.languageObj = function() {
-    heading: '',
-    categories: [],
-    toggleText: ''
-  }
+  //language obserbables for elements with dual language
+    self.heading = ko.observable();
+    self.categories  = ko.observableArray();
+    self.toggleText  = ko.observable();
 
   // generic function to 'wait' for language chosen
   self.translate = function(languageObj) {
@@ -189,7 +187,7 @@ var ViewModel = function() {
   //english info
   var englishText = {
     heading: 'POI Visited Near Patrica Italy',
-    categories: ['City', 'POI', 'Food', 'Churches', 'Shop', 'Hotel'],
+    categories: ['City', 'POI', 'Food', 'Shop', 'Hotel', 'Churches'],
     toggleText: 'Toggle Places List',
     selectLang: 'Language'
   }
