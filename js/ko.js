@@ -205,9 +205,12 @@ var ViewModel = function() {
   self.translate(englishText);
 
   self.showLanguage = function() {
-    self.translate(italianText);
+    if(self.translate(languageObj) = self.translate(englishText)) {
+      self.translate(italianText);
+    } else {
     self.translate(englishText);
   }
+}
 
 
   //variable to contain input value
