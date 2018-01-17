@@ -483,10 +483,10 @@ var foursquare = function(location) {
     },
 
     error: function(e) {
-      // document.getElementById('four_sq_content').style.display = "block";
       vm.showMe(false);
       vm.showFS(false);
-      document.getElementById('fs_h3').innerHTML = vm.fsErrorMessage;
+      vm.fsH3 = vm.fsErrorMessage;
+      document.getElementById('fs_h3').innerHTML = vm.fsH3;
     }
   });
 };
