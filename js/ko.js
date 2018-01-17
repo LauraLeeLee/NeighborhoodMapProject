@@ -485,8 +485,8 @@ var foursquare = function(location) {
     error: function(e) {
       vm.showMe(false);
       vm.showFS(false);
-      vm.fsH3 = vm.fsErrorMessage;
-      document.getElementById('fs_h3').innerHTML = vm.fsH3;
+      vm.noResults(vm.fsErrorMessage()); //updates the value of KOobservable  bound to the error handling element
+      // document.getElementById('fs_h3').innerHTML = vm.fsErrorMessage;
     }
   });
 };
