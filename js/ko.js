@@ -173,17 +173,21 @@ var ViewModel = function() {
   self.showCatFilter = ko.observable(true);
 
   //language obserbables for elements with dual language
-    self.heading = ko.observable();
-    self.categories  = ko.observableArray();
-    self.toggleText  = ko.observable();
-    self.selectLang = ko.observable();
-    self.noName = ko.observable();
-    self.noAddress = ko.observable();
-    self.noZip = ko.observable();
-    self.noCity = ko.observable();
-    self.noCountry = ko.observable();
-    self.noUrl = ko.observable();
-    self.noDistance = ko.observable();
+  self.heading = ko.observable();
+  self.categories  = ko.observableArray();
+  self.toggleText  = ko.observable();
+  self.selectLang = ko.observable();
+  self.noName = ko.observable();
+  self.noAddress = ko.observable();
+  self.noZip = ko.observable();
+  self.noCity = ko.observable();
+  self.noCountry = ko.observable();
+  self.noUrl = ko.observable();
+  self.noDistance = ko.observable();
+  self.fsErrorMessage = ko.observable();
+  self.noResults = ko.observable();
+  self.fsH2 = ko.observable();
+  self.fsH3 = ko.observable();
 
 
   // generic function to 'wait' for language chosen
@@ -199,6 +203,10 @@ var ViewModel = function() {
     self.noCountry(languageObj.noCountry);
     self.noUrl(languageObj.noUrl);
     self.noDistance(languageObj.noDistance);
+    self.fsErrorMessage(languageObj.fsErrorMessage);
+    self.noResults(languageObj.noResults);
+    self.fsH2(languageObj.fsH2);
+    self.fsH3(languageObj.fsH3);
   }
 
 
@@ -215,7 +223,11 @@ var ViewModel = function() {
     noCity: "No city available",
     noCountry: "No country available",
     noUrl: "No url available",
-    noDistance: "No distance available"
+    noDistance: "No distance available",
+    fsErrorMessage: "Foursquare data unable to load. Please try later",
+    noResults: "No Results Found Nearby",
+    fsH2: "Locations Nearby",
+    fsH3: "results powered by Foursquare"
   }
 
 // italian info
@@ -230,7 +242,11 @@ var ViewModel = function() {
     noCity: "Nessun citta' disponibile",
     noCountry: "Nessun nazione disponibile",
     noUrl: "Nessun websito disponibile",
-    noDistance: "Nessun distanza disponibile"
+    noDistance: "Nessun distanza disponibile",
+    fsErrorMessage: "FourSquare non puo caricare. Prova piu' tardi",
+    noResults: "Nessun Risultati Trovati Vicino",
+    fsH2: "Posti nelle Vicinanze",
+    fsH3: "risultati alimentati da Foursquare"
   }
 
 //englishText is now a property of ViewModel, needs to be accessed in this manner versus self.translate(englishText)
@@ -421,7 +437,7 @@ var NearByVenues = function(venue) {
   this.zip = venue.venue.location.postalCode ? venue.venue.location.postalCode: vm.noZip;
   this.city = venue.venue.location.city ? venue.venue.location.city: vm.noCity;
   this.country = venue.venue.location.country ? venue.venue.location.country: vm.noCountry;
-  this.url = venue.venue.url ?venue.venue.url: noUrl;
+  this.url = venue.venue.url ?venue.venue.url: vm.noUrl;
   this.distance = venue.venue.location.distance ? venue.venue.location.distance: vm.noDistance;
 };
 
@@ -470,7 +486,7 @@ var foursquare = function(location) {
       // document.getElementById('four_sq_content').style.display = "block";
       vm.showMe(false);
       vm.showFS(false);
-      document.getElementById('fs_h3').innerHTML = '<h3>Foursquare data unable to load. Please try later</h3>';
+      document.getElementById('fs_h3').innerHTML = vm.fsErrorMessage;
     }
   });
 };
