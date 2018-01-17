@@ -177,6 +177,14 @@ var ViewModel = function() {
     self.categories  = ko.observableArray();
     self.toggleText  = ko.observable();
     self.selectLang = ko.observable();
+    self.noName = ko.observable();
+    self.noAddress = ko.observable();
+    self.noZip = ko.observable();
+    self.noCity = ko.observable();
+    self.noCountry = ko.observable();
+    self.noUrl = ko.observable();
+    self.noDistance = ko.observable();
+
 
   // generic function to 'wait' for language chosen
   self.translate = function(languageObj) {
@@ -184,14 +192,30 @@ var ViewModel = function() {
     self.categories(languageObj.categories);
     self.toggleText(languageObj.toggleText);
     self.selectLang(languageObj.selectLang);
+    self.noName(languageObj.noName);
+    self.noAddress(languageObj.noAddress);
+    self.noZip(languageObj.noZip);
+    self.noCity(languageObj.noCity);
+    self.noCountry(languageObj.noCountry);
+    self.noUrl(languageObj.noUrl);
+    self.noDistance(languageObj.noDistance);
   }
+
+
 
   //english info
   self.englishText = {
     heading: 'POI Visited Near Patrica Italy',
     categories: ['City', 'POI', 'Food', 'Shop', 'Hotel', 'Churches'],
     toggleText: 'Toggle Places List',
-    selectLang: 'Language'
+    selectLang: 'Language',
+    noName: "No name available",
+    noAddress: "No address available",
+    noZip: "No postal code available",
+    noCity: "No city available",
+    noCountry: "No country available",
+    noUrl: "No url available",
+    noDistance: "No distance available"
   }
 
 // italian info
@@ -199,9 +223,17 @@ var ViewModel = function() {
     heading: 'Posti Visitata Vicino Patrica Italia',
     categories: ['Citta', 'POI', 'Cibo', 'Chiese', 'Negozi', 'Alberghi'],
     toggleText: 'Attiva la Lista dei Luoghi',
-    selectLang: 'Lingua'
+    selectLang: 'Lingua',
+    noName: "Nessun nome disponibile",
+    noAddress: "Nessun indirizzo disponibile",
+    noZip: "Nessun codice postale disponibile",
+    noCity: "Nessun citta' disponibile",
+    noCountry: "Nessun nazione disponibile",
+    noUrl: "Nessun websito disponibile",
+    noDistance: "Nessun distanza disponibile"
   }
 
+//englishText is now a property of ViewModel, needs to be accessed in this manner versus self.translate(englishText)
   self.translate(self.englishText);
 
 //   self.showLanguage = function() {
@@ -384,13 +416,13 @@ var ViewModel = function() {
 //object constructor to obtain information from foursquare results
 var NearByVenues = function(venue) {
     console.log("venue",venue);
-  this.name = venue.venue.name ? venue.venue.name: "No name available";
-  this.address = venue.venue.location.address ? venue.venue.location.address: "No address available";
-  this.zip = venue.venue.location.postalCode ? venue.venue.location.postalCode: "No postal code available";
-  this.city = venue.venue.location.city ? venue.venue.location.city: "No city available";
-  this.country = venue.venue.location.country ? venue.venue.location.country: "No country available";
-  this.url = venue.venue.url ?venue.venue.url: "No url available";
-  this.distance = venue.venue.location.distance ? venue.venue.location.distance: "No distance available";
+  this.name = venue.venue.name ? venue.venue.name: vm.noName;
+  this.address = venue.venue.location.address ? venue.venue.location.address: vm.noAddress;
+  this.zip = venue.venue.location.postalCode ? venue.venue.location.postalCode: vm.noZip;
+  this.city = venue.venue.location.city ? venue.venue.location.city: vm.noCity;
+  this.country = venue.venue.location.country ? venue.venue.location.country: vm.noCountry;
+  this.url = venue.venue.url ?venue.venue.url: noUrl;
+  this.distance = venue.venue.location.distance ? venue.venue.location.distance: vm.noDistance;
 };
 
 //Adds Foursquare api to search for what is near a location
