@@ -321,8 +321,9 @@ a:hover {
 
 /* positioning of infowindow */
 .gm-style-iw {
-    top: 22px !important;
+    top: 27px !important;
     left: 22px !important;
+
 }
 
 /*breakpoints  */

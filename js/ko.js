@@ -280,7 +280,7 @@ var ViewModel = function() {
 
   self.showInfowindow = function(location) {
     console.log(location);
-    location.marker.setIcon(openedIcon);
+    location.marker.setIcon(defaultIcon);
     populateInfoWindow(location.marker, largeInfowindow);
     vm.fourSqFinds([]);
     foursquare(location.marker);
