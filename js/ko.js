@@ -188,7 +188,8 @@ var ViewModel = function() {
   self.noResults = ko.observable();
   self.fsH2 = ko.observable();
   self.fsH3 = ko.observable();
-
+  self.fsDistance = ko.observable();
+  self.fsMeters = ko.observable();
 
   // generic function to 'wait' for language chosen
   self.translate = function(languageObj) {
@@ -207,6 +208,8 @@ var ViewModel = function() {
     self.noResults(languageObj.noResults);
     self.fsH2(languageObj.fsH2);
     self.fsH3(languageObj.fsH3);
+    self.fsDistance(languageObj.fsDistance);
+    self.fsMeters(languageObj.fsMeters);
   }
 
 
@@ -227,7 +230,9 @@ var ViewModel = function() {
     fsErrorMessage: "Foursquare data unable to load. Please try later",
     noResults: "No Results Found Nearby",
     fsH2: "Locations Nearby",
-    fsH3: "results powered by Foursquare"
+    fsH3: "results powered by Foursquare",
+    fsDistance: "Distance away: ",
+    fsMeters: " meters",
   }
 
 // italian info
@@ -246,7 +251,9 @@ var ViewModel = function() {
     fsErrorMessage: "FourSquare non puo caricare. Prova piu' tardi",
     noResults: "Nessun Risultati Trovati Vicino",
     fsH2: "Posti nelle Vicinanze",
-    fsH3: "risultati alimentati da Foursquare"
+    fsH3: "risultati alimentati da Foursquare",
+    fsDistance: "Distanza via: ",
+    fsMeters: " metri",
   }
 
 //englishText is now a property of ViewModel, needs to be accessed in this manner versus self.translate(englishText)
