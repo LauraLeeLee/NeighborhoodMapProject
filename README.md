@@ -27,15 +27,28 @@ TODO: any graphic icons, where came from
 * [jQuery](http://jquery.com)
 * [Knockout.js](http://knockoutjs.com/)
 * [Google Fonts](https://fonts.google.com/)
-TODO add other libraries, fonts,
 
 
 ### API Used
 
 * [Google Maps](https://developers.google.com/maps/)
 * [Foursquare](https://developer.foursquare.com/)
-TODO add APIs
+
 
 ### References used in Project
+* [Marnoto.com](http://en.marnoto.com/2014/09/5-formas-de-personalizar-infowindow.html)
+- *referenced site for custom styling of infowindows*
 
-TODO links to references used in project
+* [CssDeck](http://cssdeck.com/labs/chunky-3d-pure-css3-animated-website-buttons)
+- *referenced site for 3D styling effect for TogglePlaces button*
+
+* [KnockoutJS.com](http://knockoutjs.com/documentation)
+- *referenced documentation for propre usage and syntax of KO observables and bindings*
+
+* [Google Maps Developers](https://developers.google.com/maps/documentation/javascript/tutorial)
+- *referenced site for any 'how to' regarding Google Maps, from api to obtaining places details to    map markers*
+
+* [Udacity](www.udacity.com)
+- *referenced various lessons in the Frontend nanodegree course, when needed to assist with tasks in the project*
+- *searched the forum for guidance, answers to any problems encountered*
+- *corresponded with my Udacity mentor for guidance and clarity in more difficult tasks*

@@ -153,13 +153,10 @@ var locations = [
   showFiltered: ko.observable(true),
   category: ["shopping"]
   },
-  // {title:  , location: {lat: ,lng:}, id: },
-  // {title:  , location: {lat: ,lng:}, id: },
 ];
 
-//global variable for our view model, defined in app.js and instantiated there
+//global variable for our view model, defined in app.js defined and instantiated there
 var vm;
-//global var for no results found by FS
 
 //-------------ViewModel
 var ViewModel = function() {
@@ -256,17 +253,8 @@ var ViewModel = function() {
     fsMeters: " metri",
   }
 
-//englishText is now a property of ViewModel, needs to be accessed in this manner versus self.translate(englishText)
+  //englishText is now a property of ViewModel, needs to be accessed in this manner versus self.translate(englishText)
   self.translate(self.englishText);
-
-//   self.showLanguage = function() {
-//     if(self.translate(englishText) === self.translate(englishText)) {
-//       self.translate(italianText);
-//     } else {
-//     self.translate(englishText);
-//   }
-// }
-
 
   //variable to contain input value
   self.filter = ko.observable("");
@@ -408,11 +396,6 @@ var ViewModel = function() {
 
    self.togglePlaces = function(){
         self.showMe(!self.showMe());
-
-      // document.getElementById('places-section').style.height = '60vh';
-      // document.getElementById('places-section').style.border = '2px solid #009933';
-    // document.getElementById('four_sq_content').style.display = "none";
-    // document.getElementById('fade-four-sq').style.display = "none";
   }
 
   // media queries for mobile devices
@@ -421,19 +404,12 @@ var ViewModel = function() {
     self.showToggle(false);
     self.showNavicon(true);
     self.showCatFilter(false);
-    // document.getElementById('toggle-off-places').style.display = "none";
-    // document.getElementById('navicon').style.display = "inline-block";
   } else {
     self.showMe(true);
     self.showToggle(true);
     self.showNavicon(false);
-    // document.getElementById('toggle-off-places').style.display = "block";
-    // document.getElementById('navicon').style.display = "none";
   }
-
-}
-
-
+}//end of viewmodel
 
 
 //object constructor to obtain information from foursquare results
@@ -493,15 +469,9 @@ var foursquare = function(location) {
       vm.showMe(false);
       vm.showFS(false);
       vm.noResults(vm.fsErrorMessage()); //updates the value of KOobservable  bound to the error handling element
-      // document.getElementById('fs_h3').innerHTML = vm.fsErrorMessage;
     }
   });
 };
 
 
-
-
-
-
-// ko.applyBindings(new ViewModel());
-//--------------View
+// ko.applyBindings(new ViewModel()); instantiates in the initMap function in app.js

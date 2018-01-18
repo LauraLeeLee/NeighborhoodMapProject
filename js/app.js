@@ -2,7 +2,6 @@ var map;
 var largeInfowindow;
 var defaultIcon;
 var highlightedIcon;
-var openedIcon;
 //create new blank array for location hideMarkers
 var markers = [];
 
@@ -107,8 +106,6 @@ var bounds = new google.maps.LatLngBounds();
 defaultIcon = makeMarkerIcon('009933');
 //highlight marker when mouse over
 highlightedIcon = makeMarkerIcon('e60000');
-//create marker for when its open
-openedIcon = makeMarkerIcon('ffffff');
 
 //uses location array to create an array of markers on Initialize
 for (var i = 0; i < locations.length; i++) {
@@ -154,11 +151,11 @@ for (var i = 0; i < locations.length; i++) {
 
   });
  }
- // Instantiate Knockout once the map is initialized
-  //adds value to our global variable
+  // Instantiate Knockout once the map is initialized
+  //defines the value to our global variable
   vm = new ViewModel();
-  ko.applyBindings(vm);
-  //ko.applyBindings(new ViewModel());
+  ko.applyBindings(vm); //uses this to instantiate viewmodel, vm makes viewmodel global for access
+ //ko.applyBindings(new ViewModel());
  //tell map to fit itself to those bounds
  map.fitBounds(bounds);
 }
@@ -188,7 +185,6 @@ function populateInfoWindow (marker, infowindow) {
 
     //open the infowindow on the proper marker
     infowindow.open(map, marker);
-    marker.setIcon(openedIcon);
     marker.setAnimation(google.maps.Animation.BOUNCE);
     setTimeout(function () { marker.setAnimation(null); }, 5000);
   }

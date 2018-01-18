@@ -1,20 +1,11 @@
-/** {
-    box-sizing: border-box;
-}*/
-
 html,
 body {
-  /*height: 100vh;*/
   margin: 0;
   padding: 0;
 }
 
-/*.row {
-  width: 100vw;
-}*/
 .container-fluid {
   background-color: #000;
-
 }
 
 #errorGoogle {
@@ -34,7 +25,7 @@ body {
   font-weight: 600;
   color: #fff7e6;
   text-align: center;
-  margin: 10px 0 0 0;
+  margin: 30px 0 0 0;
   padding: 0;
 }
 
@@ -42,6 +33,7 @@ body {
   display: inline-block;
   float: right;
   z-index: 10;
+  margin-top: 5px;
 }
 
 #language {
@@ -188,9 +180,6 @@ a:hover {
 
 #place-name {
   background-color: #fff7e6;
-  /*width: 90%;*/
-  /*margin-left: 15px;
-  margin-top: 10px;*/
   height: 30px;
   font-family: 'Laila', serif;
   font-weight: 400;
@@ -241,6 +230,7 @@ a:hover {
   float: left;
   text-align: center;
 }
+
 /*fades bottom of Foursquare results */
 #fade-four-sq {
   height: 100px;
@@ -255,6 +245,7 @@ a:hover {
   margin-top: 5px;
   text-align: left;
 }
+
 .h3_name {
   font-family: 'Laila', serif;
   font-weight: 600;
@@ -276,12 +267,10 @@ a:hover {
 #navicon {
   font-size: 1.5em;
   color: #fff;
-  /* display: none; */
 }
 
 
-/*styles for infowindow  */
-
+/*=======styles for infowindow=======*/
 /*gradient to bottom of infowindow*/
 .iw-bottom-gradient {
   position: sticky;
@@ -289,35 +278,30 @@ a:hover {
   left: 0;
   width: 326px;
   height: 45px;
-  /*bottom: 10px;
-  right: 16px;*/
   background-image: linear-gradient(to bottom, transparent,#c6ecd9);
-  /*background: linear-gradient(to bottom, rgba(198, 236, 217,0) 0%, rgba(198, 236, 217, 1) 100%);
+  background: linear-gradient(to bottom, rgba(198, 236, 217,0) 0%, rgba(198, 236, 217, 1) 100%);
   background: -webkit-linear-gradient(top, rgba(198, 236, 217,0) 0%, rgba(198, 236, 217, 1) 100%);
   background: -moz-linear-gradient(top, rgba(198, 236, 217,0) 0%, rgba(198, 236, 217, 1) 100%);
-  background: -ms-linear-gradient(top, rgba(198, 236, 217,0) 0%, rgba(198, 236, 217, 1)) 100%);*/
+  background: -ms-linear-gradient(top, rgba(198, 236, 217,0) 0%, rgba(198, 236, 217, 1)) 100%);
    }
 
 /*makes the google infowindow transparent, to allow for custom styling*/
 /* white background and box outline */
-.gm-style > div:first-child > div + div > div:last-child > div > div:first-child > div
-{
-    /* we have to use !important because we are overwritng inline styles */
-    background-color: transparent !important;
-    box-shadow: none !important;
-    width: auto !important;
-    height: auto !important;
+.gm-style > div:first-child > div + div > div:last-child > div > div:first-child > div {
+  /* we have to use !important because we are overwritng inline styles */
+  background-color: transparent !important;
+  box-shadow: none !important;
+  width: auto !important;
+  height: auto !important;
 }
 
 /* arrow colour */
-.gm-style > div:first-child > div + div > div:last-child > div > div:first-child > div > div > div
-{
-    background-color: #c6ecd9  !important;
+.gm-style > div:first-child > div + div > div:last-child > div > div:first-child > div > div > div {
+  background-color: #c6ecd9  !important;
 }
 
 /* close button */
-.gm-style > div:first-child > div + div > div:last-child > div > div:last-child
-{
+.gm-style > div:first-child > div + div > div:last-child > div > div:last-child {
   margin-right: 10px !important;
   margin-top: 6px;
   background-color: #c6ecd9 !important;
@@ -331,35 +315,27 @@ a:hover {
 }
 
 /* image icon inside close button */
-.gm-style > div:first-child > div + div > div:last-child > div > div:last-child > img
-{
-    color: #006622;
-    /*display: none;*/
+.gm-style > div:first-child > div + div > div:last-child > div > div:last-child > img {
+  color: #006622;
 }
 
 /* positioning of infowindow */
-.gm-style-iw
-{
+.gm-style-iw {
     top: 22px !important;
     left: 22px !important;
 }
 
-
 /*breakpoints  */
-
 @media only screen and (max-width: 450px) {
   #places-section {
-    width: 90vw;
+    width: 92%;
     height: 20vh;
   }
+
   #four_sq_content {
     width: 90vw;
     max-height: 30vh;
   }
-
-  /* .flag, .language {
-    text-align: center;
-  } */
 }
 
 @media only screen and (min-width: 451px) and (max-width: 800px) {
