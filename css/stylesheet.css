@@ -171,14 +171,14 @@ a:hover {
   width: 300px;
   height: 200px;
   overflow: auto;
-  background-color: #c6ecd9;
-  border-radius: 10px;
   text-align: center;
   color: #006622;
   margin: 0 auto 10px;
+  background-color: #c6ecd9;
+  border-radius: 10px;
 }
 
-#place-name {
+ #place-name {
   background-color: #fff7e6;
   height: 30px;
   font-family: 'Laila', serif;
@@ -187,6 +187,9 @@ a:hover {
   text-align: center;
   border-bottom: 7px double #006622;
   border-radius: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 #website {
@@ -295,15 +298,14 @@ a:hover {
   height: auto !important;
 }
 
-/* arrow colour */
+/* tail color */
 .gm-style > div:first-child > div + div > div:last-child > div > div:first-child > div > div > div {
   background-color: #c6ecd9  !important;
 }
 
 /* close button */
 .gm-style > div:first-child > div + div > div:last-child > div > div:last-child {
-  margin-right: 10px !important;
-  margin-top: 6px;
+  margin-right: 14px !important;
   background-color: #c6ecd9 !important;
   z-index: 5;
   opacity: 1 !important; /* by default the close button has an opacity of 0.7*/
@@ -336,6 +338,12 @@ a:hover {
   #four_sq_content {
     width: 90vw;
     max-height: 30vh;
+  }
+
+  .gm-style > div:first-child > div + div > div:last-child > div > div:last-child {
+    margin-right: 14px !important;
+    margin-top: 5px !important;
+
   }
 }
 
