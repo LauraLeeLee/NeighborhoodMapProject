@@ -35,6 +35,8 @@
   </div>
   <!-- div for foursquare results  -->
   <div id = "four_sq_content" data-bind = "visible: !showFS()">
+    <img data-bind = "visible: showChevronDown(), click: growFS" class = "chevron" src = "images/downChevron.svg" alt = "down arrow">
+    <img data-bind = "visible: showChevronUp(), click: collapseFS" class = "chevron" src = "images/upChevron.svg" alt = "up arrow">
     <h2 id = "fs_h2" data-bind = "text: fsH2"></h2>
     <h3 id = "fs_h3" data-bind = "text: fsH3"></h3>
     <ul id = "foursquare_list" data-bind = "foreach: fourSqFinds">

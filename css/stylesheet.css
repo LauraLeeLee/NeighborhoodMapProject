@@ -244,6 +244,14 @@ a:hover {
   background-image: linear-gradient(to bottom, transparent, #c6ecd9);
 }
 
+.chevron {
+  width: 12px;
+  top: 5px;
+  position: sticky;
+  float: right;
+  margin-right: 3px;
+}
+
 .fs_items{
   margin-top: 5px;
   text-align: left;

@@ -20,6 +20,7 @@ TODO: any graphic icons, where came from
 ## Resources
 * [Fontawesome](www.fontawesome.com) for navicon icon
 * [Iconfinder](www.iconfinder.com) for flag icons
+* [Freepik](https://www.freepik.com0/) for double chevrons
 
 
 ### Libraries Used
