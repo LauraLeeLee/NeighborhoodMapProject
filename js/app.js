@@ -177,10 +177,7 @@ function populateInfoWindow (marker, infowindow) {
       vm.showFS(true);
       infowindow.marker = null;
       marker.setIcon(defaultIcon);
-      // document.getElementById('four_sq_content').style.display = "none";
-      // document.getElementById('fade-four-sq').style.display = "none";
       vm.fourSqFinds([]);
-      // marker.setIcon(defaultIcon);
     });
 
     //open the infowindow on the proper marker

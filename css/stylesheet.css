@@ -250,11 +250,13 @@ a:hover {
   position: sticky;
   float: right;
   margin-right: 3px;
+  z-index: 10;
 }
 
 .fs_items{
   margin-top: 5px;
   text-align: left;
+  padding: 3px;
 }
 
 .h3_name {
@@ -313,12 +315,11 @@ a:hover {
 
 /* close button */
 .gm-style > div:first-child > div + div > div:last-child > div > div:last-child {
-  margin-right: 14px !important;
+  margin-right: 17px !important;
+  margin-top: 8px !important;
   background-color: #c6ecd9 !important;
   z-index: 5;
   opacity: 1 !important; /* by default the close button has an opacity of 0.7*/
-  /*right: 50px;*/
-  /*top: 3px; /* button repositioning*/
   border: 1px solid #c6ecd9 !important;  /*increasing button border and new color*/
   border-radius: 4px !important; /* circular effect*/
   box-shadow: 0 0 5px #3990B9 !important;/* 3D effect to highlight the button*/
@@ -327,6 +328,11 @@ a:hover {
 /* image icon inside close button */
 .gm-style > div:first-child > div + div > div:last-child > div > div:last-child > img {
   color: #006622;
+}
+
+/*removes automatic horizontal scroll  */
+.gm-style-iw div {
+ overflow-x:hidden !important;
 }
 
 /* positioning of infowindow */
@@ -343,6 +349,10 @@ a:hover {
     height: 20vh;
   }
 
+  #places-details {
+    width: 225px;
+  }
+
   #four_sq_content {
     width: 90vw;
     max-height: 30vh;
@@ -351,18 +361,21 @@ a:hover {
   .gm-style > div:first-child > div + div > div:last-child > div > div:last-child {
     margin-right: 14px !important;
     margin-top: 5px !important;
-
   }
 }
 
 @media only screen and (min-width: 451px) and (max-width: 800px) {
+  #toggle-off-places {
+    font-size: 1em; 
+  }
+
   #places-section {
     width: 30vw;
     height: 40vh;
   }
 
   #four_sq_content {
-    width: 30vw;
+    width: 35vw;
     max-height: 40vh;
   }
 }

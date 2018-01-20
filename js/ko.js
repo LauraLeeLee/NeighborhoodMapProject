@@ -164,7 +164,7 @@ var ViewModel = function() {
 
   self.showMe = ko.observable(true); //whatever has this is visible
   self.showFS = ko.observable(true); //makes fs conent visible
-  self.showChevronUp = ko.observable(false); //hides/shows up
+  self.showChevronUp = ko.observable(true); //hides/shows up
   self.showChevronDown = ko.observable(false); //hides/shows down
   self.showToggle = ko.observable(true);
   self.showNavicon = ko.observable(false);
@@ -401,12 +401,12 @@ var ViewModel = function() {
   }
 
   // media queries for mobile devices
-  if (window.matchMedia("all and (max-width: 450px)").matches) {
+  if (window.matchMedia("all and (max-width: 480px)").matches) {
     self.showMe(false);
     self.showToggle(false);
     self.showNavicon(true);
     self.showCatFilter(false);
-    self.showChevronUp(true);
+    // self.showChevronUp(true);
   } else {
     self.showMe(true);
     self.showToggle(true);
@@ -415,12 +415,13 @@ var ViewModel = function() {
 
   //collapses height of FS content div when chevron is clicked
   self.collapseFS = function() {
-        document.getElementById('four_sq_content').style.maxHeight = "5vh";
-        self.showChevronDown(true);
-        self.showChevronUp(false);
+    document.getElementById('four_sq_content').style.maxHeight = "6vh";
+    self.showChevronDown(true);
+    self.showChevronUp(false);
   }
   //grows height of FS content div when down chevron is clicked
   self.growFS = function() {
+    console.log("foursquare grows!");
     document.getElementById('four_sq_content').style.maxHeight = "60vh";
     self.showChevronUp(true);
     self.showChevronDown(false);
