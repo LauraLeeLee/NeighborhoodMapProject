@@ -171,7 +171,7 @@ var ViewModel = function() {
   self.showItalian = ko.observable(false);
   self.showCatFilter = ko.observable(true);
 
-  //language obserbables for elements with dual language
+  //language observables for elements with dual language
   self.heading = ko.observable();
   self.categories  = ko.observableArray();
   self.toggleText  = ko.observable();
@@ -224,7 +224,7 @@ var ViewModel = function() {
     noZip: "No postal code available",
     noCity: "No city available",
     noCountry: "No country available",
-    noUrl: "No url available",
+    noUrl: "No website available",
     noDistance: "No distance available",
     fsErrorMessage: "Foursquare data unable to load. Please try later",
     noResults: "No Results Found Nearby",
@@ -245,7 +245,7 @@ var ViewModel = function() {
     noZip: "Nessun codice postale disponibile",
     noCity: "Nessun citta' disponibile",
     noCountry: "Nessun nazione disponibile",
-    noUrl: "Nessun websito disponibile",
+    noUrl: "Nessun sito web disponibile",
     noDistance: "Nessun distanza disponibile",
     fsErrorMessage: "FourSquare non puo caricare. Prova piu' tardi",
     noResults: "Nessun Risultati Trovati Vicino",
@@ -421,7 +421,6 @@ var ViewModel = function() {
   }
   //grows height of FS content div when down chevron is clicked
   self.growFS = function() {
-    console.log("foursquare grows!");
     document.getElementById('four_sq_content').style.maxHeight = "60vh";
     self.showChevronUp(true);
     self.showChevronDown(false);
