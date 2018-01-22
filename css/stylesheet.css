@@ -8,6 +8,12 @@ body {
   background-color: #000;
 }
 
+#map {
+  height: 88vh;
+  z-index: 0;
+  position: relative;
+}
+
 #errorGoogle {
   font-family: 'Laila', serif;
   font-weight: 600;
@@ -27,6 +33,12 @@ body {
   text-align: center;
   margin: 30px 0 0 0;
   padding: 0;
+}
+
+/*navicon  */
+#navicon {
+  font-size: 1.5em;
+  color: #fff;
 }
 
 .flag {
@@ -49,12 +61,6 @@ body {
   margin: 0;
 }
 
-#map {
-  height: 88vh;
-  z-index: 0;
-  position: relative;
-}
-
 .filter-buttons {
   background-color: #009933;
   font-family: 'Laila', serif;
@@ -70,7 +76,7 @@ body {
   box-shadow:         1px 1px 2px 1px #ccc;
   margin-top: 5px;
 }
-
+/*filter box hold text */
 ::placeholder {
   color: #d9d9d9;
   font-size: 1em;
@@ -100,10 +106,8 @@ body {
   background-image: linear-gradient(to bottom, transparent, #fff7e6);
 }
 
-
 #places-list, #foursquare_list {
   list-style: none;
-  /*height: 95vh;*/
   width: 100%;
   padding-top: 10px;
   text-align: left;
@@ -118,6 +122,7 @@ body {
   margin-top: 25px;
 }
 
+/*places list of items*/
 .list-items {
   font-family: 'Laila', serif;
   font-size: 16px;
@@ -126,13 +131,7 @@ body {
   margin-bottom: 5px;
 }
 
-a:hover {
-  text-decoration: none;
-  color: #e60000;
-}
-
 #toggle-off-places {
-  /* display: block; */
   font-family: 'Laila', serif;
   color: #fff;
   font-size: 16px;
@@ -144,22 +143,22 @@ a:hover {
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   border-radius: 8px;
-  -webkit-box-shadow: 0px 5px 0px #006622;
-  -moz-box-shadow: 0px 5px 0px #006622;
-  box-shadow: 0px 5px 0px #006622;
+  -webkit-box-shadow: 0 5px 0 #006622;
+  -moz-box-shadow: 0 5px 0 #006622;
+  box-shadow: 0 5px 0 #006622;
   /*gives button 'button' motion*/
   -webkit-transition: all .1s ease;
-	-moz-transition: all .1s ease;
-	-ms-transition: all .1s ease;
-	-o-transition: all .1s ease;
-	transition: all .1s ease;
+	-moz-transition:    all .1s ease;
+	-ms-transition:     all .1s ease;
+	-o-transition:      all .1s ease;
+	transition:         all .1s ease;
 }
 
 /*gives toggle buttom 3d-ish look*/
 #toggle-off-places:active {
-  -webkit-box-shadow: 0px 3px 0px #fff, 0px 3px 6px #ccc;
-  -moz-box-shadow: 0px 3px 0px #fff, 0px 3px 6px #ccc;
-  box-shadow: 0px 3px 0px #fff, 0px 3px 6px #ccc;
+  -webkit-box-shadow: 0 3px 0 #fff, 0 3px 6px #ccc;
+  -moz-box-shadow:    0 3px 0 #fff, 0 3px 6px #ccc;
+  box-shadow:         0 3px 0 #fff, 0 3px 6px #ccc;
   position: relative;
   top: 6px;
 }
@@ -192,6 +191,7 @@ a:hover {
   z-index: 10;
 }
 
+/*in infowindow */
 #website {
   color: #006622;
   font-size: 1em;
@@ -276,13 +276,6 @@ a:hover {
   margin: 0;
 }
 
-/*navicon  */
-#navicon {
-  font-size: 1.5em;
-  color: #fff;
-}
-
-
 /*=======styles for infowindow=======*/
 /*gradient to bottom of infowindow*/
 .iw-bottom-gradient {
@@ -292,11 +285,11 @@ a:hover {
   width: 326px;
   height: 45px;
   background-image: linear-gradient(to bottom, transparent,#c6ecd9);
-  background: linear-gradient(to bottom, rgba(198, 236, 217,0) 0%, rgba(198, 236, 217, 1) 100%);
-  background: -webkit-linear-gradient(top, rgba(198, 236, 217,0) 0%, rgba(198, 236, 217, 1) 100%);
-  background: -moz-linear-gradient(top, rgba(198, 236, 217,0) 0%, rgba(198, 236, 217, 1) 100%);
-  background: -ms-linear-gradient(top, rgba(198, 236, 217,0) 0%, rgba(198, 236, 217, 1)) 100%);
-   }
+  background:       linear-gradient(to bottom, rgba(198, 236, 217,0) 0%, rgba(198, 236, 217, 1) 100%);
+  background:       -webkit-linear-gradient(top, rgba(198, 236, 217,0) 0%, rgba(198, 236, 217, 1) 100%);
+  background:       -moz-linear-gradient(top, rgba(198, 236, 217,0) 0%, rgba(198, 236, 217, 1) 100%);
+  background:       -ms-linear-gradient(top, rgba(198, 236, 217,0) 0%, rgba(198, 236, 217, 1) 100%);
+}
 
 /*makes the google infowindow transparent, to allow for custom styling*/
 /* white background and box outline */
@@ -342,7 +335,7 @@ a:hover {
 
 }
 
-/*breakpoints  */
+/*=======breakpoints for mobile==============*/
 @media only screen and (max-width: 450px) {
   #places-section {
     width: 92%;
@@ -366,7 +359,7 @@ a:hover {
 
 @media only screen and (min-width: 451px) and (max-width: 800px) {
   #toggle-off-places {
-    font-size: 1em; 
+    font-size: 1em;
   }
 
   #places-section {

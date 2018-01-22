@@ -1,3 +1,4 @@
+//global variables
 var map;
 var largeInfowindow;
 var defaultIcon;
@@ -9,7 +10,7 @@ var markers = [];
 //over the number of places that show.
 var placeMarkers = [];
 
-// Error message if google maps isn't loading
+// Error message if google maps isn't loading--onerror attr used in script in google src in index.html
 function googleError() {
     var mapError = document.createElement('h2');
     mapError.setAttribute("id", "errorGoogle" );
@@ -18,7 +19,7 @@ function googleError() {
     alert("Google Maps is not loading");
 }
 
-//initial map
+//initialize map
 function initMap() {
   //creeat a styles array to use with map
   var styles = [
@@ -98,7 +99,7 @@ map = new google.maps.Map(document.getElementById('map'), {
 });
 
 largeInfowindow = new google.maps.InfoWindow();
-//largeInfowindow.setAttribute('style', 'background-color: #ffffcc');
+
 //new latlng bounds instance capturing SW and NE corners of viewport
 var bounds = new google.maps.LatLngBounds();
 
@@ -125,9 +126,10 @@ for (var i = 0; i < locations.length; i++) {
     open: false
   });
 
+  //var to create accessability to marker
   var marker = locations[i].marker;
   //push marker to array of markers
-  markers.push(locations[i].marker);
+  markers.push(marker);
 
   //extend bounds for every maker we make
   bounds.extend(markers[i].position);
@@ -148,17 +150,18 @@ for (var i = 0; i < locations.length; i++) {
     populateInfoWindow(this, largeInfowindow);
     vm.fourSqFinds([]);
     foursquare(this);
-
   });
  }
+
   // Instantiate Knockout once the map is initialized
   //defines the value to our global variable
   vm = new ViewModel();
   ko.applyBindings(vm); //uses this to instantiate viewmodel, vm makes viewmodel global for access
- //ko.applyBindings(new ViewModel());
+  //instead of this ko.applyBindings(new ViewModel());
+
  //tell map to fit itself to those bounds
  map.fitBounds(bounds);
-}
+} //end of initMap()
 
 
  // function to populate the infowindow when marker is clicked.
@@ -209,20 +212,20 @@ function getPlacesDetails(marker, infowindow) {
       }
       if (place.opening_hours) {
         innerHTML += '<br><br><strong>Hours:</strong><br>' +
-            place.opening_hours.weekday_text[0] + '<br>' +
-            place.opening_hours.weekday_text[1] + '<br>' +
-            place.opening_hours.weekday_text[2] + '<br>' +
-            place.opening_hours.weekday_text[3] + '<br>' +
-            place.opening_hours.weekday_text[4] + '<br>' +
-            place.opening_hours.weekday_text[5] + '<br>' +
-            place.opening_hours.weekday_text[6];
+          place.opening_hours.weekday_text[0] + '<br>' +
+          place.opening_hours.weekday_text[1] + '<br>' +
+          place.opening_hours.weekday_text[2] + '<br>' +
+          place.opening_hours.weekday_text[3] + '<br>' +
+          place.opening_hours.weekday_text[4] + '<br>' +
+          place.opening_hours.weekday_text[5] + '<br>' +
+          place.opening_hours.weekday_text[6];
       }
       if(place.website) {
         innerHTML +='<br><br><a id = "website" href='+ place.website +'>'+place.website+'</a>';
       }
       if (place.photos) {
         innerHTML += '<br><br><img src="' + place.photos[0].getUrl(
-            {maxHeight: 100, maxWidth: 200}) + '">';
+          {maxHeight: 100, maxWidth: 200}) + '">';
       }
       //creates #pano element for streetViewService to use
       innerHTML += ' <div id = "pano"></div>';
@@ -259,13 +262,12 @@ function getPlacesDetails(marker, infowindow) {
             var panorama = new google.maps.StreetViewPanorama(
               document.getElementById('pano'), panoramaOptions);
         } else {
-          document.getElementById('pano').innerHTML = '<br>' + 'No Street View Found';
+            document.getElementById('pano').innerHTML = '<br>' + 'No Street View Found';
         }
       }
       //use streetview service to get closest streetview image
       //50 metres of the markers position
       streetViewService.getPanoramaByLocation(marker.position, radius, getStreetView);
-
     }
   });
 }
