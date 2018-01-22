@@ -131,26 +131,34 @@ for (var i = 0; i < locations.length; i++) {
   //push marker to array of markers
   markers.push(marker);
 
-  //extend bounds for every maker we make
-  bounds.extend(markers[i].position);
-
   //add two event listeners , one for mouseover and one
   // for mouseout to change the colors
-  marker.addListener('mouseover', function(){
-    this.setIcon(highlightedIcon);
-  });
-  marker.addListener('mouseout', function(){
-    this.setIcon(defaultIcon);
-  });
+  marker.addListener('mouseover', mouseover);
+  marker.addListener('mouseout', mouseout);
 
-  // //create an onclick event to open the large InfoWindow
-  marker.addListener('click', function(){
-    vm.showMe(false);
-    vm.showFS(false);
-    populateInfoWindow(this, largeInfowindow);
-    vm.fourSqFinds([]);
-    foursquare(this);
-  });
+  //create an onclick event to open the large InfoWindow
+  marker.addListener('click', openInfowindow);
+
+  //extend bounds for every maker we make
+  bounds.extend(markers[i].position);
+ }
+
+//functions to highlight
+ function mouseover(){
+   this.setIcon(highlightedIcon);
+ }
+//return to default
+ function mouseout(){
+   this.setIcon(defaultIcon);
+ }
+
+//function to open infowindow on selected marker
+ function openInfowindow(){
+   vm.showMe(false);
+   vm.showFS(false);
+   populateInfoWindow(this, largeInfowindow);
+   vm.fourSqFinds([]);
+   foursquare(this);
  }
 
   // Instantiate Knockout once the map is initialized
@@ -244,7 +252,7 @@ function getPlacesDetails(marker, infowindow) {
       //if the status is OK a pano was found, get position of streetview
       //image and calculate the heading, then get the panorama from that
       //then set the options
-      function getStreetView(data, status) {
+      var getStreetView = function(data, status) {
         if (status === google.maps.StreetViewStatus.OK) {
           var nearStreetViewLocation = data.location.latLng;
           //computes correct heading so that we're looking at our building
