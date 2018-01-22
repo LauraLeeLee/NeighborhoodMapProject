@@ -209,7 +209,7 @@ var ViewModel = function() {
     self.fsH3(languageObj.fsH3);
     self.fsDistance(languageObj.fsDistance);
     self.fsMeters(languageObj.fsMeters);
-  }
+  };
 
 
 
@@ -232,7 +232,7 @@ var ViewModel = function() {
     fsH3: "results powered by Foursquare",
     fsDistance: "Distance away: ",
     fsMeters: " meters",
-  }
+  };
 
 // italian info
   self.italianText = {
@@ -253,7 +253,7 @@ var ViewModel = function() {
     fsH3: "risultati alimentati da Foursquare",
     fsDistance: "Distanza via: ",
     fsMeters: " metri",
-  }
+  };
 
   //englishText is now a property of ViewModel, needs to be accessed in this manner versus self.translate(englishText)
   self.translate(self.englishText);
@@ -288,7 +288,7 @@ var ViewModel = function() {
     foursquare(location.marker);
     self.showMe(false);
     self.showFS(false);
-  }
+  };
 
   //filter locations
     self.filterPlaces = ko.computed(function() {
@@ -398,7 +398,7 @@ var ViewModel = function() {
 
    self.togglePlaces = function(){
         self.showMe(!self.showMe());
-  }
+  };
 
   // media queries for mobile devices
   if (window.matchMedia("all and (max-width: 480px)").matches) {
@@ -418,14 +418,14 @@ var ViewModel = function() {
     document.getElementById('four_sq_content').style.maxHeight = "6vh";
     self.showChevronDown(true);
     self.showChevronUp(false);
-  }
+  };
   //grows height of FS content div when down chevron is clicked
   self.growFS = function() {
     document.getElementById('four_sq_content').style.maxHeight = "60vh";
     self.showChevronUp(true);
     self.showChevronDown(false);
-  }
-}//end of viewmodel
+  };
+};//end of viewmodel
 
 
 //object constructor to obtain information from foursquare results

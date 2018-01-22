@@ -272,7 +272,7 @@ function getPlacesDetails(marker, infowindow) {
         } else {
             document.getElementById('pano').innerHTML = '<br>' + 'No Street View Found';
         }
-      }
+      };
       //use streetview service to get closest streetview image
       //50 metres of the markers position
       streetViewService.getPanoramaByLocation(marker.position, radius, getStreetView);
