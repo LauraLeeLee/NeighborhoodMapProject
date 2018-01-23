@@ -442,6 +442,8 @@ var NearByVenues = function(venue) {
 
 if(this.url =  "No website available" || this.url == "Nessun sito web disponibile") {
   document.getElementById('foursq-link').classList.add('not-active');
+} else {
+  document.getElementById('foursq-link').classList.remove('not-active');
 }
 
 //Adds Foursquare api to search for what is near a location
