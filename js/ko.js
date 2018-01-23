@@ -436,9 +436,13 @@ var NearByVenues = function(venue) {
   this.zip = venue.venue.location.postalCode ? venue.venue.location.postalCode: vm.noZip;
   this.city = venue.venue.location.city ? venue.venue.location.city: vm.noCity;
   this.country = venue.venue.location.country ? venue.venue.location.country: vm.noCountry;
-  this.url = venue.venue.url ?venue.venue.url: vm.noUrl;
+  this.url = venue.venue.url ? venue.venue.url: vm.noUrl;
   this.distance = venue.venue.location.distance ? venue.venue.location.distance: vm.noDistance;
 };
+
+if(this.url =  "No website available" || this.url == "Nessun sito web disponibile") {
+  document.getElementById('foursq-link').classList.add('not-active');
+}
 
 //Adds Foursquare api to search for what is near a location
 var foursquare = function(location) {

@@ -7,9 +7,6 @@
   <link rel = "stylesheet" href = "css/stylesheet.css" type = "text/css">
   <link rel ="stylesheet" href ="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link href ="https://fonts.googleapis.com/css?family=Laila:400,600" rel="stylesheet">
-  <script src ="https://use.fontawesome.com/afd8ad0bfd.js"></script>
-  <script src ="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src ="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
  </head>
  <body>
   <img class = "flag"  data-bind = "click: function() {translate(englishText)}" src = "images/usa.png" alt = "usa flag">
@@ -48,7 +45,7 @@
     <span data-bind = "text: city"></span><br>
     <span data-bind = "text: country"></span><br>
     <span data-bind = "text: $parent.fsDistance"></span><span class = "span_distance" data-bind= "text: distance"></span><span data-bind = "text: $parent.fsMeters"></span><br>
-    <a data-bind = "attr: { href: url, title: url }, text: url" target = "_blank" >website</a>
+    <a id = "foursq-link" data-bind = "attr: { href: url, title: url }, text: url" target = "_blank" >website</a>
     </p>
     <hr class = "hr">
     </li>
@@ -63,5 +60,8 @@
   <script src = "js/app.js"></script>
   <script async defer
   src = "https://maps.googleapis.com/maps/api/js?libraries=places,geometry,drawing&key=AIzaSyDRAVW_MKSUbo5TYT4oQCd12pOdFH5G8Og&v=3&callback=initMap" onerror="googleError()"></script>
+  <script src ="https://use.fontawesome.com/afd8ad0bfd.js"></script>
+  <script src ="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src ="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
  </body>
 </html>
