@@ -46,6 +46,7 @@
     <span data-bind = "text: country"></span><br>
     <span data-bind = "text: $parent.fsDistance"></span><span class = "span_distance" data-bind= "text: distance"></span><span data-bind = "text: $parent.fsMeters"></span><br>
     <a id = "foursq-link" data-bind = "attr: { href: url, title: url }, text: url" target = "_blank" >website</a>
+      <span data-bind = "visible: !url, text: $parent.noUrl"></span> <!--hides the url link and adds no website availabe text -->
     </p>
     <hr class = "hr">
     </li>
