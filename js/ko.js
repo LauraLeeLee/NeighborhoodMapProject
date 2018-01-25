@@ -449,7 +449,7 @@ var NearByVenues = function(venue) {
   this.country = venue.venue.location.country ? venue.venue.location.country: vm.noCountry;
   this.url = venue.venue.url ? venue.venue.url: vm.noUrl; //removes link for when no website is found
   this.distance = venue.venue.location.distance ? venue.venue.location.distance: vm.noDistance;
-  this.notActiveClass = ko.observable(venue.venue.url ? true : false);
+  this.notActiveClass = ko.observable(venue.venue.url ? false : true);
 };
 
 //Adds Foursquare api to search for what is near a location
