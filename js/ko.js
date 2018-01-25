@@ -168,8 +168,8 @@ var ViewModel = function() {
   self.showChevronDown = ko.observable(false); //hides/shows down
   self.showToggle = ko.observable(true);
   self.showNavicon = ko.observable(false);
-  self.showItalian = ko.observable(false);
   self.showCatFilter = ko.observable(true);
+  self.linkNotActive = ko.observable(false);
 
   //language observables for elements with dual language
   self.heading = ko.observable();
@@ -257,6 +257,15 @@ var ViewModel = function() {
 
   //englishText is now a property of ViewModel, needs to be accessed in this manner versus self.translate(englishText)
   self.translate(self.englishText);
+
+  //checks to see if not-active class needs to be applied
+  self.notActiveClass = function() {
+    if(self.englishText.noUrl == 'No website available' || self.italianText.noUrl == 'Nessun sito web disponibile') {
+      self.linkNotActive(true);
+    } else {
+      self.linkNotActive(false);
+    }
+  };
 
   //variable to contain input value
   self.filter = ko.observable("");
