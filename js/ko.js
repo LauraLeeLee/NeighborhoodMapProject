@@ -259,6 +259,14 @@ var ViewModel = function() {
   //englishText is now a property of ViewModel, needs to be accessed in this manner versus self.translate(englishText)
   self.translate(self.englishText);
 
+  //checks to see if not-active class needs to be applied
+  self.notActiveClass = function() {
+    if(vm.englishText.noUrl == 'No website available' || vm.italianText.noUrl == 'Nessun sito web disponibile') {
+      vm.linkNotActive(true);
+    } else {
+      vm.linkNotActive(false);
+    }
+  };
 
 
   //variable to contain input value
@@ -280,7 +288,6 @@ var ViewModel = function() {
     if(self.fourSqFinds.length > 0){
       self.emptySearch = false;
     }
-
 
   self.showInfowindow = function(location) {
     console.log(location);
@@ -430,6 +437,8 @@ var ViewModel = function() {
 };//end of viewmodel
 
 
+
+
 //object constructor to obtain information from foursquare results
 var NearByVenues = function(venue) {
     console.log("venue",venue);
@@ -440,14 +449,7 @@ var NearByVenues = function(venue) {
   this.country = venue.venue.location.country ? venue.venue.location.country: vm.noCountry;
   this.url = venue.venue.url ? venue.venue.url: vm.noUrl; //removes link for when no website is found
   this.distance = venue.venue.location.distance ? venue.venue.location.distance: vm.noDistance;
-  //checks to see if not-active class needs to be applied
-  this.notActiveClass = function() {
-    if(vm.englishText.noUrl == 'No website available' || vm.italianText.noUrl == 'Nessun sito web disponibile') {
-      vm.linkNotActive(true);
-    } else {
-      vm.linkNotActive(false);
-    }
-  };
+  this.notActiveClass = ko.observable(venue.venue.url ? true : false);
 };
 
 //Adds Foursquare api to search for what is near a location
