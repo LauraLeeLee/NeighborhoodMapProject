@@ -171,6 +171,7 @@ var ViewModel = function() {
   self.showCatFilter = ko.observable(true);
   self.linkNotActive = ko.observable(false);
 
+
   //language observables for elements with dual language
   self.heading = ko.observable();
   self.categories  = ko.observableArray();
@@ -445,7 +446,7 @@ var NearByVenues = function(venue) {
   this.zip = venue.venue.location.postalCode ? venue.venue.location.postalCode: vm.noZip;
   this.city = venue.venue.location.city ? venue.venue.location.city: vm.noCity;
   this.country = venue.venue.location.country ? venue.venue.location.country: vm.noCountry;
-  this.url = venue.venue.url ? venue.venue.url: undefined; //removes link for when no website is found
+  this.url = venue.venue.url ? venue.venue.url: vm.noUrl; //removes link for when no website is found
   this.distance = venue.venue.location.distance ? venue.venue.location.distance: vm.noDistance;
 };
 
