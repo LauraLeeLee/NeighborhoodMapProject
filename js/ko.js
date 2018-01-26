@@ -261,8 +261,7 @@ var ViewModel = function() {
 
   //checks to see if not-active class needs to be applied
   self.notActiveClass = function() {
-    while(vm.englishText.noUrl == 'No website available' || vm.italianText.noUrl == 'Nessun sito web disponibile'){
-    }
+    self.noUrl = true;
   };
 
 
