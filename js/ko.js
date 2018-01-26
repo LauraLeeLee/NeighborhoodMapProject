@@ -259,12 +259,6 @@ var ViewModel = function() {
   //englishText is now a property of ViewModel, needs to be accessed in this manner versus self.translate(englishText)
   self.translate(self.englishText);
 
-  //checks to see if not-active class needs to be applied
-  self.notActiveClass = function() {
-    self.noUrl = true;
-  };
-
-
   //variable to contain input value
   self.filter = ko.observable("");
 
@@ -445,7 +439,7 @@ var NearByVenues = function(venue) {
   this.country = venue.venue.location.country ? venue.venue.location.country: vm.noCountry;
   this.url = venue.venue.url ? venue.venue.url: vm.noUrl; //removes link for when no website is found
   this.distance = venue.venue.location.distance ? venue.venue.location.distance: vm.noDistance;
-  this.notActiveClass = ko.observable(venue.venue.url ? false : true);
+  this.notActiveClass = ko.observable(venue.venue.url ? false : true);   //checks to see if not-active class needs to be applied
 };
 
 //Adds Foursquare api to search for what is near a location
