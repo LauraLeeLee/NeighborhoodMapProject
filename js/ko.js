@@ -169,7 +169,7 @@ var ViewModel = function() {
   self.showToggle = ko.observable(true);
   self.showNavicon = ko.observable(false);
   self.showCatFilter = ko.observable(true);
-  self.linkNotActive = ko.observable(false);
+  // self.linkNotActive = ko.observable(false);
 
 
   //language observables for elements with dual language
@@ -261,11 +261,13 @@ var ViewModel = function() {
 
   //checks to see if not-active class needs to be applied
   self.notActiveClass = function() {
-    if(vm.englishText.noUrl == 'No website available' || vm.italianText.noUrl == 'Nessun sito web disponibile') {
-      vm.linkNotActive(true);
-    } else {
-      vm.linkNotActive(false);
+    while(vm.englishText.noUrl == 'No website available' || vm.italianText.noUrl == 'Nessun sito web disponibile') {
+      // vm.linkNotActive(true);
+      document.getElementById('foursq-link').classList.add('not-active');
     }
+    // else {
+    //   vm.linkNotActive(false);
+    // }
   };
 
 
