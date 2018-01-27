@@ -341,9 +341,9 @@ var ViewModel = function() {
     self.filterChurch = ko.observable();
 
     //filter by category
-    self.filterCategories = function(filterObs) {
+    self.filterCategories = function(location, filter) {
       for(var i = 0; i < location.category.length; i++) {
-        if(locations.category[i] === filterObj) {
+        if(location.category[i] === filter) {
           location.showFiltered(true);
           location.marker.setVisible(true);
         } else {
