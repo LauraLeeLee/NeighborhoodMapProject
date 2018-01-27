@@ -306,29 +306,41 @@ var ViewModel = function() {
 
     //array for filter filter categories
     var filterArray = ko.observableArray([
-      {id: "city-filter",
-      filterName: "filterCity",
-      value: self.categories()[0]
+      { id: "city-filter",
+        filterName: "filterCity",
+        value: self.categories()[0],
+        class: "fiter-buttons",
+        type: "button"
       },
-      {id: "poi-filter",
+      { id: "poi-filter",
         filterName: "filterPOI",
-        value: self.categories()[1]
+        value: self.categories()[1],
+        class: "fiter-buttons",
+        type: "button"
       },
-      {id: "food-filter",
+      { id: "food-filter",
         filterName: "filterFood",
-        value: self.categories()[2]
+        value: self.categories()[2],
+        class: "fiter-buttons",
+        type: "button"
       },
-      {id: "shop-filter",
+      { id: "shop-filter",
         filterName: "filterShop",
-        value: self.categories()[3]
+        value: self.categories()[3],
+        class: "fiter-buttons",
+        type: "button"
       },
-      {id: "hotel-filter",
+      { id: "hotel-filter",
         filterName: "filterHotel",
-        value: self.categories()[4]
+        value: self.categories()[4],
+        class: "fiter-buttons",
+        type: "button"
       },
-      {id: "church-filter",
+      { id: "church-filter",
         filterName: "filterChurch",
-        value: self.categories()[5]
+        value: self.categories()[5],
+        class: "fiter-buttons",
+        type: "button"
       },
     ]);
 
@@ -345,6 +357,8 @@ var ViewModel = function() {
       for( var i = 0; i < filterArray.length; i++) {
         var input = document.createElement('input');
         input.setAttribute('id');
+        input.setAttribute('class');
+        input.setAttribute('type');
 
         for(var j = 0; j < location.category.length; j++) {
           if(location. category[j] === filterObj) {
