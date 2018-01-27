@@ -341,16 +341,19 @@ var ViewModel = function() {
     self.filterChurch = ko.observable();
 
     //filter by category
-    self.filterCategories = function(location, filter) {
-      for(var i = 0; i < location.category.length; i++) {
-        if(location.category[i] === filter) {
-          location.showFiltered(true);
-          location.marker.setVisible(true);
-        } else {
-          location.showFiltered(false);
-          location.marker.setVisible(false);
+    self.filterCategories = function(filter) {
+      self.locations().forEach(function(location) {
+      //for loop to check each item in locations property
+        for(var i = 0; i < location.category.length; i++) {
+          if(location.category[i] === filter) {
+            location.showFiltered(true);
+            location.marker.setVisible(true);
+          } else {
+            location.showFiltered(false);
+            location.marker.setVisible(false);
+          }
         }
-      }
+      });
     }
 
     //filter city
