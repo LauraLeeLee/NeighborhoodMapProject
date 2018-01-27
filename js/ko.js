@@ -304,6 +304,34 @@ var ViewModel = function() {
       });
     });
 
+    //array for filter filter categories
+    var filterArray = ko.observableArray([
+      {id: "city-filter",
+      filterName: "filterCity",
+      value: categories()[0]
+      },
+      {id: "poi-filter",
+        filterName: "filterPOI",
+        value: categories()[1]
+      },
+      {id: "food-filter",
+        filterName: "filterFood",
+        value: categories()[2]
+      },
+      {id: "shop-filter",
+        filterName: "filterShop",
+        value: categories()[3]
+      },
+      {id: "hotel-filter",
+        filterName: "filterHotel",
+        value: categories()[4]
+      },
+      {id: "church-filter",
+        filterName: "filterChurch",
+        value: categories()[5]
+      },
+    });
+
     //filter observables
     self.filterCity = ko.observable();
     self.filterPOI = ko.observable();
@@ -312,8 +340,8 @@ var ViewModel = function() {
     self.filterHotel = ko.observable();
     self.filterChurch = ko.observable();
 
-    //filter categories
-    self.filterCategories = function(filterObj) {
+    //filter by category
+    self.filterCategories = function(filterObs) {
       for(var i = 0; i < location.category.length; i++) {
         if(location. category[i] === filterObj) {
           location.showFiltered(true);
