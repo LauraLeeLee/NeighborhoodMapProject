@@ -345,12 +345,14 @@ var ViewModel = function() {
       self.locations().forEach(function(location) {
       //for loop to check each item in locations property
         for(var i = 0; i < location.category.length; i++) {
-          if(location.category[i] === filter) {
+          if(location.category[i] == filter) {
             location.showFiltered(true);
             location.marker.setVisible(true);
+            console.log("filter:", filter);
           } else {
             location.showFiltered(false);
             location.marker.setVisible(false);
+            console.log("location:", location);
           }
         }
       });
