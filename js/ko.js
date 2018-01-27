@@ -340,12 +340,16 @@ var ViewModel = function() {
     self.filterHotel = ko.observable();
     self.filterChurch = ko.observable();
 
+    self.filter = {
+
+    };
+
     //filter by category
     self.filterCategories = function(filter) {
       self.locations().forEach(function(location) {
       //for loop to check each item in locations property
         for(var i = 0; i < location.category.length; i++) {
-          if(location.category[i] == filter) {
+          if(location.category[i] == self.filterArray[i].value) {
             location.showFiltered(true);
             location.marker.setVisible(true);
             console.log("filter:", filter);
