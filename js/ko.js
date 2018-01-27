@@ -168,13 +168,13 @@ var ViewModel = function() {
   self.showChevronDown = ko.observable(false); //hides/shows down
   self.showToggle = ko.observable(true);
   self.showNavicon = ko.observable(false);
-  self.showCatFilter = ko.observable(true);
+  self.showCatFilter = ko.observable(true); //hides/shows category filter buttons according to screen size
   // self.linkNotActive = ko.observable(false);
 
 
   //language observables for elements with dual language
   self.heading = ko.observable();
-  self.categories  = ko.observableArray();
+  self.categories  = ko.observableArray();//filter button categories array
   self.toggleText  = ko.observable();
   self.selectLang = ko.observable();
   self.noName = ko.observable();
@@ -304,96 +304,117 @@ var ViewModel = function() {
       });
     });
 
+    //filter observables
+    self.filterCity = ko.observable();
+    self.filterPOI = ko.observable();
+    self.filterFood = ko.observable();
+    self.filterShop = ko.observable();
+    self.filterHotel = ko.observable();
+    self.filterChurch = ko.observable();
+
+    //filter categories
+    self.filterCategories = function(filterObj) {
+      for(var i = 0; i < location.category.length; i++) {
+        if(location. category[i] === filterObj) {
+          location.showFiltered(true);
+          location.marker.setVisible(true);
+        } else {
+          location.showFiltered(false);
+          location.marker.setVisible(false);
+        }
+      }
+    }
+
     //filter city
-      self.filterCity = function(category) {
-        self.locations().forEach(function(location) {
-          //for loop to check each item in locations property of category array
-          for ( var i = 0; i < location.category.length; i++) {
-            if(location.category[i] === "city") {
-              location.showFiltered(true);
-              location.marker.setVisible(true);
-            } else {
-              location.showFiltered(false);
-              location.marker.setVisible(false);
-            }
-          }
-        });
-      };
+      // self.filterCity = function(category) {
+      //   self.locations().forEach(function(location) {
+      //     //for loop to check each item in locations property of category array
+      //     for ( var i = 0; i < location.category.length; i++) {
+      //       if(location.category[i] === "city") {
+      //         location.showFiltered(true);
+      //         location.marker.setVisible(true);
+      //       } else {
+      //         location.showFiltered(false);
+      //         location.marker.setVisible(false);
+      //       }
+      //     }
+      //   });
+      // };
 
-    //filter poi
-      self.filterPOI = function(category) {
-        self.locations().forEach(function(location) {
-          for ( var i = 0; i < location.category.length; i++) {
-            if(location.category[i] === "poi") {
-              location.showFiltered(true);
-              location.marker.setVisible(true);
-            } else {
-              location.showFiltered(false);
-              location.marker.setVisible(false);
-            }
-          }
-        });
-      };
-
-    //filter Food
-      self.filterFood = function(category) {
-        self.locations().forEach(function(location) {
-          for ( var i = 0; i < location.category.length; i++) {
-            if(location.category[i] === "food") {
-              location.showFiltered(true);
-              location.marker.setVisible(true);
-            } else {
-              location.showFiltered(false);
-              location.marker.setVisible(false);
-            }
-          }
-        });
-      };
-
-      //filter shop
-      self.filterShop = function(category) {
-        self.locations().forEach(function(location) {
-          for ( var i = 0; i < location.category.length; i++) {
-            if(location.category[i] === "shopping") {
-              location.showFiltered(true);
-              location.marker.setVisible(true);
-            } else {
-              location.showFiltered(false);
-              location.marker.setVisible(false);
-            }
-          }
-        });
-      };
-
-    //filter hotel
-      self.filterHotel = function(category) {
-        self.locations().forEach(function(location) {
-          for ( var i = 0; i < location.category.length; i++) {
-            if(location.category[i] === "hotel") {
-              location.showFiltered(true);
-              location.marker.setVisible(true);
-            } else {
-              location.showFiltered(false);
-              location.marker.setVisible(false);
-            }
-          }
-        });
-      };
-
-    //filter churches
-      self.filterChurch = function(category) {
-        self.locations().forEach(function(location) {
-          for ( var i = 0; i < location.category.length; i++) {
-            if(location.category[i] === "churches") {
-              location.showFiltered(true);
-              location.marker.setVisible(true);
-            } else {
-              location.showFiltered(false);
-              location.marker.setVisible(false);
-            }
-          }
-        });
-      };
+    // //filter poi
+    //   self.filterPOI = function(category) {
+    //     self.locations().forEach(function(location) {
+    //       for ( var i = 0; i < location.category.length; i++) {
+    //         if(location.category[i] === "poi") {
+    //           location.showFiltered(true);
+    //           location.marker.setVisible(true);
+    //         } else {
+    //           location.showFiltered(false);
+    //           location.marker.setVisible(false);
+    //         }
+    //       }
+    //     });
+    //   };
+    //
+    // //filter Food
+    //   self.filterFood = function(category) {
+    //     self.locations().forEach(function(location) {
+    //       for ( var i = 0; i < location.category.length; i++) {
+    //         if(location.category[i] === "food") {
+    //           location.showFiltered(true);
+    //           location.marker.setVisible(true);
+    //         } else {
+    //           location.showFiltered(false);
+    //           location.marker.setVisible(false);
+    //         }
+    //       }
+    //     });
+    //   };
+    //
+    //   //filter shop
+    //   self.filterShop = function(category) {
+    //     self.locations().forEach(function(location) {
+    //       for ( var i = 0; i < location.category.length; i++) {
+    //         if(location.category[i] === "shopping") {
+    //           location.showFiltered(true);
+    //           location.marker.setVisible(true);
+    //         } else {
+    //           location.showFiltered(false);
+    //           location.marker.setVisible(false);
+    //         }
+    //       }
+    //     });
+    //   };
+    //
+    // //filter hotel
+    //   self.filterHotel = function(category) {
+    //     self.locations().forEach(function(location) {
+    //       for ( var i = 0; i < location.category.length; i++) {
+    //         if(location.category[i] === "hotel") {
+    //           location.showFiltered(true);
+    //           location.marker.setVisible(true);
+    //         } else {
+    //           location.showFiltered(false);
+    //           location.marker.setVisible(false);
+    //         }
+    //       }
+    //     });
+    //   };
+    //
+    // //filter churches
+    //   self.filterChurch = function(category) {
+    //     self.locations().forEach(function(location) {
+    //       for ( var i = 0; i < location.category.length; i++) {
+    //         if(location.category[i] === "churches") {
+    //           location.showFiltered(true);
+    //           location.marker.setVisible(true);
+    //         } else {
+    //           location.showFiltered(false);
+    //           location.marker.setVisible(false);
+    //         }
+    //       }
+    //     });
+    //   };
 
    self.togglePlaces = function(){
         self.showMe(!self.showMe());
@@ -478,7 +499,6 @@ var foursquare = function(location) {
       } else {
         //creates fallback message if no results are found nearby
         vm.emptySearch(true);
-
       }
       console.log("Completed Array", vm.fourSqFinds());
     },
