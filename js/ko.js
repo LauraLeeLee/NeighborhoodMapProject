@@ -345,14 +345,15 @@ var ViewModel = function() {
       for( var i = 0; i < filterArray.length; i++) {
         var input = document.createElement('input');
         input.setAttribute('id');
-      }
-      for(var i = 0; i < location.category.length; i++) {
-        if(location. category[i] === filterObj) {
-          location.showFiltered(true);
-          location.marker.setVisible(true);
-        } else {
-          location.showFiltered(false);
-          location.marker.setVisible(false);
+
+        for(var j = 0; j < location.category.length; j++) {
+          if(location. category[j] === filterObj) {
+            location.showFiltered(true);
+            location.marker.setVisible(true);
+          } else {
+            location.showFiltered(false);
+            location.marker.setVisible(false);
+          }
         }
       }
     }
