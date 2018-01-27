@@ -19,7 +19,7 @@
     <div id = "places-section" data-bind = "visible: showMe">
       <hr class = "hr">
       <div data-bind =  "foreach: filterArray">
-        <input data-bind="attr: { id: id, value: value }, click: $parent.filterCategories" class="filter-buttons" type="button">
+        <input data-bind="attr: { id: id}, value: value, click: $parent.filterCategories" class="filter-buttons" type="button">
       </div>
       <input id = "filter-places" data-bind = "textInput: filter" type = "text" placeholder = "Filter locations by name...">
       <ul id = "places-list" data-bind = "foreach: locations">
