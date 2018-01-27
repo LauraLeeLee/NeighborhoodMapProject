@@ -342,20 +342,13 @@ var ViewModel = function() {
 
     //filter by category
     self.filterCategories = function(filterObs) {
-      for( var i = 0; i < filterArray.length; i++) {
-        var input = document.createElement('input');
-        input.setAttribute('id');
-        input.setAttribute('class');
-        input.setAttribute('type');
-
-        for(var j = 0; j < location.category.length; j++) {
-          if(location. category[j] === filterObj) {
-            location.showFiltered(true);
-            location.marker.setVisible(true);
-          } else {
-            location.showFiltered(false);
-            location.marker.setVisible(false);
-          }
+      for(var i = 0; i < location.category.length; i++) {
+        if(locations.category[i] === filterObj) {
+          location.showFiltered(true);
+          location.marker.setVisible(true);
+        } else {
+          location.showFiltered(false);
+          location.marker.setVisible(false);
         }
       }
     }

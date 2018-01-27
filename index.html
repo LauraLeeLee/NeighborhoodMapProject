@@ -16,9 +16,11 @@
     <h1 id = "h1" data-bind = "text: heading"></h1>
     <i id = "navicon" class = "fa fa-bars" data-bind = "click: togglePlaces, visible: showNavicon()" aria-hidden = "true"></i>
     <input id = "toggle-off-places" data-bind = "click: togglePlaces, visible: showToggle(), value: toggleText" type = "button" >
-    <div id = "places-section" data-bind = "visible: showMe, foreach: filterArray">
+    <div id = "places-section" data-bind = "visible: showMe">
       <hr class = "hr">
-      <input data-bind="attr: { id: id, value: value }, click: $parent.filterPlaces" class="filter-buttons" type="button">
+      <div data-bind =  "foreach: filterArray">
+        <input data-bind="attr: { id: id, value: value }, click: $parent.filterCategories" class="filter-buttons" type="button">
+      </div>
       <input id = "filter-places" data-bind = "textInput: filter" type = "text" placeholder = "Filter locations by name...">
       <ul id = "places-list" data-bind = "foreach: locations">
       <li class = "list-items" data-bind = "text: title, click: $parent.showInfowindow, foursquare, visible: showFiltered"></li>
