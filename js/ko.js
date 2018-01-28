@@ -308,32 +308,44 @@ var ViewModel = function() {
     self.filterArray = ko.observableArray([
       { id: "city-filter",
         filterName: "filterCity",
-        value: self.translate(languageObj)categories()[0],
+        value: ko.computed(function(){
+          return self.categories()[0];
+        }),
         category: "city",
       },
       { id: "poi-filter",
         filterName: "filterPOI",
-        value: self.categories()[1],
+        value: ko.computed(function(){
+          return self.categories()[1];
+        }),
         category: "poi",
       },
       { id: "food-filter",
         filterName: "filterFood",
-        value: self.categories()[2],
+        value: ko.computed(function(){
+          return self.categories()[2];
+        }),
         category: "food",
       },
       { id: "shop-filter",
         filterName: "filterShop",
-        value: self.categories()[3],
+        value: ko.computed(function(){
+          return self.categories()[3];
+        }),
         category: "shopping",
       },
       { id: "hotel-filter",
         filterName: "filterHotel",
-        value: self.categories()[4],
+        value: ko.computed(function(){
+          return self.categories()[4];
+        }),
         category: "hotel",
       },
       { id: "church-filter",
         filterName: "filterChurch",
-        value: self.categories()[5],
+        value: ko.computed(function(){
+          return self.categories()[5];
+        }),
         category: "churches",
       },
     ]);
