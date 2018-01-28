@@ -308,7 +308,7 @@ var ViewModel = function() {
     self.filterArray = ko.observableArray([
       { id: "city-filter",
         filterName: "filterCity",
-        value: self.categories()[0],
+        value: self.translate(languageObj)categories()[0],
         category: "city",
       },
       { id: "poi-filter",
@@ -338,31 +338,17 @@ var ViewModel = function() {
       },
     ]);
 
-    //filter observables
-    self.filterCity = ko.observable();
-    self.filterPOI = ko.observable();
-    self.filterFood = ko.observable();
-    self.filterShop = ko.observable();
-    self.filterHotel = ko.observable();
-    self.filterChurch = ko.observable();
-
-    self.filter = {
-
-    };
-
     //filter by category
-    self.filterCategories = function(filter) {
+    self.filterCategories = function(filterObj) {
       self.locations().forEach(function(location) {
       //for loop to check each item in locations property
         for(var i = 0; i < location.category.length; i++) {
-          if(location.category[i] == self.filterArray[i].value) {
+          if(location.category[i] == filterObj.category) {
             location.showFiltered(true);
             location.marker.setVisible(true);
-            console.log("filter:", filter);
           } else {
             location.showFiltered(false);
             location.marker.setVisible(false);
-            console.log("location:", location);
           }
         }
       });
